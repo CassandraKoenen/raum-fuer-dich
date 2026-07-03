@@ -27,7 +27,7 @@ import Placeholder from '../components/Placeholder.astro';
   <section class="section section--white">
     <div class="container story-inner">
       <div class="portrait-wrap">
-        <Placeholder label="two hands cradling a warm ceramic mug, soft side light, warm tones, a book open nearby, shallow depth of field, no face visible" ratio="4/5" class="portrait-img" />
+        <img src="/images/me.png" alt="Cassandra" class="portrait-img" />
       </div>
 
       <div class="story-text">
@@ -168,8 +168,13 @@ import Placeholder from '../components/Placeholder.astro';
     justify-content: center;
   }
 
-  .portrait-wrap :global(.portrait-img) {
+  .portrait-img {
+    width: 100%;
     max-width: 360px;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    aspect-ratio: 4/5;
+    display: block;
   }
 
   .value-card {

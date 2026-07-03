@@ -13,20 +13,21 @@
    DESIGN TOKENS
    ============================================================ */
 :root {
-  /* Colors */
-  --color-sand:      #F5F0E8;
-  --color-sand-dark: #EDE6D8;
+  /* Colors — Dusty Blue palette */
+  --color-sand:      #FAF9F6;   /* Warm White — main background */
+  --color-sand-dark: #EEF1F3;   /* slightly deeper warm white */
   --color-white:     #FFFFFF;
-  --color-gray-50:   #FAFAF9;
-  --color-gray-100:  #F3F0EB;
-  --color-gray-300:  #D6CFC4;
-  --color-gray-500:  #9E968A;
-  --color-gray-600:  #6B6460;
-  --color-gray-900:  #2C2825;
-  --color-sage:      #8FAF8C;
-  --color-sage-dark: #6E8E6B;
-  --color-sage-light:#C8DEC6;
-  --color-sage-bg:   #EEF5ED;
+  --color-gray-50:   #F3F6F8;
+  --color-gray-100:  #DCE4E8;   /* Mist — alternate section bg */
+  --color-gray-300:  #BAC8CF;   /* borders, dividers */
+  --color-gray-500:  #8A969E;   /* muted text */
+  --color-gray-600:  #64717A;   /* Slate — body text */
+  --color-gray-900:  #2D3940;   /* dark slate — headings, footer */
+  --color-sage:      #9EB3BF;   /* Dusty Blue — primary accent */
+  --color-sage-dark: #6D96A8;   /* darker dusty blue — hover states */
+  --color-sage-light:#BDCFD7;   /* light dusty blue — focus rings */
+  --color-sage-bg:   #E8EFF2;   /* very light dusty blue — tinted sections */
+  --color-walnut:    #705E4E;   /* Walnut — warm label/highlight accent */
 
   /* Typography */
   --font-body: 'Nunito', system-ui, sans-serif;
@@ -200,7 +201,7 @@ strong {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-sage-dark);
+  color: var(--color-walnut);
   margin-bottom: var(--space-3);
 }
 
