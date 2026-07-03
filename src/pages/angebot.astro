@@ -8,7 +8,8 @@ const offerings = [
   {
     icon: '🏠',
     label: 'Vor Ort',
-    imageLabel: 'hand placing book on wooden shelf, a few books already organized beside it, warm light, shallow depth of field',
+    imageSrc: '/images/angebot-vor-ort.png',
+    imageAlt: 'Hand stellt ein Buch ordentlich ins Regal',
     title: 'Coaching bei dir zu Hause',
     paragraphs: [
       'Gemeinsam gehen wir durch deine Räume – ohne Druck, ohne perfekte Pläne. Wir schauen, was funktioniert, was nicht, und finden praktische Lösungen, die zu deinem Alltag passen.',
@@ -24,7 +25,8 @@ const offerings = [
   {
     icon: '💻',
     label: 'Online',
-    imageLabel: 'open laptop and ceramic mug on small wooden side table, warm lamp light, evening, cozy atmosphere, no text on screen',
+    imageSrc: '/images/angebot-online.png',
+    imageAlt: 'Laptop und Tasse auf einem kleinen Holztisch im warmen Lampenlicht',
     title: 'Begleitung per Video',
     paragraphs: [
       'Du zeigst mir per Videoanruf, was dich beschäftigt – und wir erarbeiten gemeinsam Schritt für Schritt, was als Nächstes dran ist. Flexibel, persönlich und von überall aus möglich.',
@@ -40,7 +42,8 @@ const offerings = [
   {
     icon: '☕',
     label: 'Erstgespräch',
-    imageLabel: 'two ceramic mugs of tea on rustic wooden table, steam rising, warm tones, overhead shot, no people',
+    imageSrc: '/images/angebot-erstgespraech.png',
+    imageAlt: 'Zwei Tassen Tee auf einem Holztisch von oben',
     title: 'Kostenloses Kennenlernen',
     paragraphs: [
       'Bevor wir anfangen, sprechen wir einfach miteinander – 20 bis 30 Minuten, ganz unverbindlich. Du erzählst mir, was dich gerade beschäftigt, und wir schauen gemeinsam, was der beste nächste Schritt ist.',
@@ -100,7 +103,10 @@ const faq = [
     <section class:list={['section', i % 2 === 0 ? 'section--white' : 'section--gray']}>
       <div class="container offering-inner">
         <div class="offering-icon-col">
-          <Placeholder label={offer.imageLabel} ratio="4/5" class="offering-img" />
+          {offer.imageSrc
+            ? <img src={offer.imageSrc} alt={offer.imageAlt ?? ''} class="offering-img" />
+            : <Placeholder label={offer.imageLabel ?? ''} ratio="4/5" class="offering-img" />
+          }
         </div>
 
         <div class="offering-content">
@@ -193,6 +199,10 @@ const faq = [
   :global(.offering-img) {
     width: 100%;
     max-width: 340px;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    aspect-ratio: 4/5;
+    display: block;
   }
 
   .offering-content {

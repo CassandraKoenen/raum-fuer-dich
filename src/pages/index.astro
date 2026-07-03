@@ -4,7 +4,6 @@ import Hero from '../components/Hero.astro';
 import Button from '../components/Button.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ServiceCard from '../components/ServiceCard.astro';
-import Placeholder from '../components/Placeholder.astro';
 ---
 
 <BaseLayout
@@ -21,10 +20,10 @@ import Placeholder from '../components/Placeholder.astro';
     ctaSecondaryLabel="Mein Angebot"
     ctaSecondaryHref="/angebot"
   >
-    <Placeholder
+    <img
       slot="image"
-      label="close-up of hands folding white linen on weathered wood table, soft morning light, warm tones, film grain, no people visible"
-      ratio="4/5"
+      src="/images/hero-linen.png"
+      alt="Gefaltete weiße Leinentücher auf einem Holztisch im warmen Morgenlicht"
       class="hero-image"
     />
   </Hero>
@@ -93,7 +92,10 @@ import Placeholder from '../components/Placeholder.astro';
 
   <!-- ── ATMOSPHERE IMAGE ──────────────────────────────── -->
   <div class="atmosphere-strip">
-    <Placeholder label="soft morning sunlight through sheer curtains onto empty light wood floor, minimalist, warm golden tones, wide crop" ratio="21/9" />
+    <img
+      src="/images/atmosphere-curtains.png"
+      alt="Weiches Morgenlicht durch transparente Vorhänge auf einem Holzboden"
+    />
   </div>
 
   <!-- ── SERVICES ───────────────────────────────────────── -->
@@ -206,8 +208,18 @@ import Placeholder from '../components/Placeholder.astro';
     padding-block: var(--space-4);
   }
 
-  .atmosphere-strip :global(.placeholder) {
-    border-radius: var(--radius-lg);
+  .atmosphere-strip img {
+    width: 100%;
     max-height: 420px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    display: block;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
   }
 </style>

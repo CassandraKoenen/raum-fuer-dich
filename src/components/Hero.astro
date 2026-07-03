@@ -65,6 +65,14 @@ const {
     .hero-inner:has(.hero-image) {
       grid-template-columns: 1fr 1fr;
     }
+
+    .hero-inner :global(.hero-image) {
+      width: 100%;
+      max-height: 560px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      display: block;
+    }
   }
 
   .hero-content {
