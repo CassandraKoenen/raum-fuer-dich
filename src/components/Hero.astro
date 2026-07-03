@@ -25,6 +25,7 @@ const {
 <section class="hero section--sand">
   <div class="container hero-inner">
     <div class="hero-content">
+      <slot name="logo" />
       <h1 data-animate>{headline}</h1>
       {subline && <p class="hero-subline" data-animate data-delay="100">{subline}</p>}
       {body && <p class="hero-body" data-animate data-delay="200">{body}</p>}

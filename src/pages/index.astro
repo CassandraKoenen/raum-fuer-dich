@@ -20,6 +20,7 @@ import ServiceCard from '../components/ServiceCard.astro';
     ctaSecondaryLabel="Mein Angebot"
     ctaSecondaryHref="/angebot"
   >
+    <img slot="logo" src="/images/logo-no-text.png" alt="" aria-hidden="true" class="hero-logo" />
     <img
       slot="image"
       src="/images/hero-linen.png"
@@ -227,5 +228,13 @@ import ServiceCard from '../components/ServiceCard.astro';
     height: 100%;
     object-fit: cover;
     border-radius: var(--radius-lg);
+  }
+
+  :global(.hero-logo) {
+    height: 140px;
+    width: auto;
+    display: block;
+    margin-inline: auto;
+    margin-bottom: var(--space-6);
   }
 </style>
