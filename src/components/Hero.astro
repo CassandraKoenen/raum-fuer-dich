@@ -25,11 +25,11 @@ const {
 <section class="hero section--sand">
   <div class="container hero-inner">
     <div class="hero-content">
-      <h1>{headline}</h1>
-      {subline && <p class="hero-subline">{subline}</p>}
-      {body && <p class="hero-body">{body}</p>}
+      <h1 data-animate>{headline}</h1>
+      {subline && <p class="hero-subline" data-animate data-delay="100">{subline}</p>}
+      {body && <p class="hero-body" data-animate data-delay="200">{body}</p>}
       {(ctaLabel || ctaSecondaryLabel) && (
-        <div class="hero-actions">
+        <div class="hero-actions" data-animate data-delay="300">
           {ctaLabel && ctaHref && (
             <Button href={ctaHref} variant="primary" size="large">
               {ctaLabel}
@@ -45,7 +45,9 @@ const {
       <slot name="extra" />
     </div>
 
-    <slot name="image" />
+    <div data-animate="scale" data-delay="200">
+      <slot name="image" />
+    </div>
   </div>
 </section>
 

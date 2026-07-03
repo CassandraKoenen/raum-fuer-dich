@@ -11,9 +11,9 @@ import SectionHeading from '../components/SectionHeading.astro';
   <!-- ── HERO ────────────────────────────────────────────── -->
   <section class="section section--sand section--sm">
     <div class="container">
-      <span class="label">Kontakt</span>
-      <h1>Lass uns reden</h1>
-      <p class="hero-lead">
+      <span class="label" data-animate>Kontakt</span>
+      <h1 data-animate data-delay="100">Lass uns reden</h1>
+      <p class="hero-lead" data-animate data-delay="200">
         Du hast eine Frage, ein Anliegen oder möchtest einfach mal schauen,
         ob wir zueinander passen? Ich freue mich von dir zu hören.
       </p>
@@ -24,7 +24,7 @@ import SectionHeading from '../components/SectionHeading.astro';
   <section class="section section--white">
     <div class="container kontakt-inner">
       <!-- Form -->
-      <div>
+      <div data-animate>
         <SectionHeading
           label="Schreib mir"
           heading="Deine Nachricht"
@@ -34,7 +34,7 @@ import SectionHeading from '../components/SectionHeading.astro';
       </div>
 
       <!-- Alternatives -->
-      <aside class="alternatives">
+      <aside class="alternatives" data-animate data-delay="200">
         <SectionHeading
           label="Oder direkt"
           heading="Andere Wege"

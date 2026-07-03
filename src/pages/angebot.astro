@@ -89,9 +89,9 @@ const faq = [
   <!-- ── HERO ────────────────────────────────────────────── -->
   <section class="section section--sand">
     <div class="container">
-      <span class="label">Mein Angebot</span>
-      <h1>Wie ich dir helfen kann</h1>
-      <p class="hero-lead">
+      <span class="label" data-animate>Mein Angebot</span>
+      <h1 data-animate data-delay="100">Wie ich dir helfen kann</h1>
+      <p class="hero-lead" data-animate data-delay="200">
         Drei Wege, um gemeinsam Ordnung und Leichtigkeit zu schaffen –
         du entscheidest, was zu dir passt.
       </p>
@@ -102,14 +102,14 @@ const faq = [
   {offerings.map((offer, i) => (
     <section class:list={['section', i % 2 === 0 ? 'section--white' : 'section--gray']}>
       <div class="container offering-inner">
-        <div class="offering-icon-col">
+        <div class="offering-icon-col" data-animate="scale">
           {offer.imageSrc
             ? <img src={offer.imageSrc} alt={offer.imageAlt ?? ''} class="offering-img" />
             : <Placeholder label={offer.imageLabel ?? ''} ratio="4/5" class="offering-img" />
           }
         </div>
 
-        <div class="offering-content">
+        <div class="offering-content" data-animate data-delay="150">
           <h2>{offer.title}</h2>
           {offer.paragraphs.map(p => <p>{p}</p>)}
 
@@ -140,8 +140,8 @@ const faq = [
       />
 
       <div class="faq-list" style="max-width: 720px; margin-inline: auto;">
-        {faq.map(({ q, a }) => (
-          <details class="faq-item">
+        {faq.map(({ q, a }, i) => (
+          <details class="faq-item" data-animate data-delay={String(i * 75)}>
             <summary>{q}</summary>
             <div class="faq-body"><p>{a}</p></div>
           </details>

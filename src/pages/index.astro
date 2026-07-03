@@ -52,8 +52,8 @@ import ServiceCard from '../components/ServiceCard.astro';
             icon: '💭',
             text: 'Du wünschst dir ein Zuhause, in dem du wirklich ankommen kannst.',
           },
-        ].map(({ icon, text }) => (
-          <div class="pain-item">
+        ].map(({ icon, text }, i) => (
+          <div class="pain-item" data-animate data-delay={String(i * 100)}>
             <span class="pain-icon" aria-hidden="true">{icon}</span>
             <p>{text}</p>
           </div>
@@ -65,7 +65,7 @@ import ServiceCard from '../components/ServiceCard.astro';
   <!-- ── SOLUTION ───────────────────────────────────────── -->
   <section class="section section--sand">
     <div class="container solution-inner">
-      <div>
+      <div data-animate>
         <SectionHeading
           label="Mein Ansatz"
           heading="Nicht perfekt – sondern passend zu deinem Leben"
@@ -84,14 +84,14 @@ import ServiceCard from '../components/ServiceCard.astro';
         </div>
       </div>
 
-      <blockquote class="pull-quote">
+      <blockquote class="pull-quote" data-animate data-delay="150">
         „Wir finden gemeinsam einen Anfang – egal, wie groß das Chaos gerade wirkt."
       </blockquote>
     </div>
   </section>
 
   <!-- ── ATMOSPHERE IMAGE ──────────────────────────────── -->
-  <div class="atmosphere-strip">
+  <div class="atmosphere-strip" data-animate="fade">
     <img
       src="/images/atmosphere-curtains.png"
       alt="Weiches Morgenlicht durch transparente Vorhänge auf einem Holzboden"
@@ -109,25 +109,31 @@ import ServiceCard from '../components/ServiceCard.astro';
       />
 
       <div class="grid-3">
-        <ServiceCard
-          icon="🏠"
-          title="Vor Ort Coaching"
-          description="Gemeinsam schaffen wir Ordnung bei dir zu Hause. Praktisch, persönlich und mit echtem Ergebnis."
-          href="/angebot"
-        />
-        <ServiceCard
-          icon="💻"
-          title="Online Begleitung"
-          description="Flexibel per Video – du entscheidest, wann und wo wir starten. Persönlich trotz Distanz."
-          href="/angebot"
-        />
-        <ServiceCard
-          icon="☕"
-          title="Kostenloses Erstgespräch"
-          description="20–30 Minuten ganz unverbindlich. Wir schauen gemeinsam, was du brauchst – und ob wir zueinander passen."
-          href="/kontakt"
-          linkLabel="Termin vereinbaren"
-        />
+        <div data-animate data-delay="0">
+          <ServiceCard
+            icon="🏠"
+            title="Vor Ort Coaching"
+            description="Gemeinsam schaffen wir Ordnung bei dir zu Hause. Praktisch, persönlich und mit echtem Ergebnis."
+            href="/angebot"
+          />
+        </div>
+        <div data-animate data-delay="150">
+          <ServiceCard
+            icon="💻"
+            title="Online Begleitung"
+            description="Flexibel per Video – du entscheidest, wann und wo wir starten. Persönlich trotz Distanz."
+            href="/angebot"
+          />
+        </div>
+        <div data-animate data-delay="300">
+          <ServiceCard
+            icon="☕"
+            title="Kostenloses Erstgespräch"
+            description="20–30 Minuten ganz unverbindlich. Wir schauen gemeinsam, was du brauchst – und ob wir zueinander passen."
+            href="/kontakt"
+            linkLabel="Termin vereinbaren"
+          />
+        </div>
       </div>
     </div>
   </section>

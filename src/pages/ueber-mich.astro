@@ -12,9 +12,9 @@ import Placeholder from '../components/Placeholder.astro';
   <!-- ── HERO ────────────────────────────────────────────── -->
   <section class="section section--sand hero-section">
     <div class="container">
-      <span class="label">Über mich</span>
-      <h1>Hinter Raum für dich</h1>
-      <p class="hero-lead">
+      <span class="label" data-animate>Über mich</span>
+      <h1 data-animate data-delay="100">Hinter Raum für dich</h1>
+      <p class="hero-lead" data-animate data-delay="200">
         Ich bin Cassandra – Organisieren liegt mir, und was mich antreibt,
         ist die Magie, die danach passiert: wenn jemand aufatmet, sich umsieht
         und merkt, dass sich auch innen etwa gelöst hat. Dieses Gefühl
@@ -26,11 +26,11 @@ import Placeholder from '../components/Placeholder.astro';
   <!-- ── STORY ──────────────────────────────────────────── -->
   <section class="section section--white">
     <div class="container story-inner">
-      <div class="portrait-wrap">
+      <div class="portrait-wrap" data-animate="scale">
         <img src="/images/me.png" alt="Cassandra" class="portrait-img" />
       </div>
 
-      <div class="story-text">
+      <div class="story-text" data-animate data-delay="200">
         <SectionHeading
           label="Mein Weg"
           heading="Warum ich tue, was ich tue"
@@ -84,8 +84,8 @@ import Placeholder from '../components/Placeholder.astro';
             title: 'Nachhaltige Veränderung',
             text: 'Kein einmaliges Aufräumen – sondern Strukturen, die wirklich bleiben und zu dir passen.',
           },
-        ].map(({ icon, title, text }) => (
-          <article class="value-card">
+        ].map(({ icon, title, text }, i) => (
+          <article class="value-card" data-animate data-delay={String((i + 1) * 100)}>
             <span class="value-icon" aria-hidden="true">{icon}</span>
             <h3>{title}</h3>
             <p>{text}</p>
@@ -122,8 +122,8 @@ import Placeholder from '../components/Placeholder.astro';
             title: 'Dein Raum',
             text: 'Du bekommst nicht nur Ordnung – du bekommst das Gefühl, endlich wieder in deinem Zuhause ankommen zu können.',
           },
-        ].map(({ step, title, text }) => (
-          <li class="process-item">
+        ].map(({ step, title, text }, i) => (
+          <li class="process-item" data-animate data-delay={String(i * 150)}>
             <span class="process-step" aria-hidden="true">{step}</span>
             <div>
               <h3>{title}</h3>

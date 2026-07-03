@@ -238,6 +238,36 @@ strong {
 }
 
 /* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  [data-animate="fade"] {
+    transform: none;
+  }
+
+  [data-animate="scale"] {
+    transform: scale(0.97) translateY(12px);
+  }
+
+  [data-animate].in-view {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-delay="100"] { transition-delay: 100ms; }
+  [data-delay="200"] { transition-delay: 200ms; }
+  [data-delay="300"] { transition-delay: 300ms; }
+  [data-delay="400"] { transition-delay: 400ms; }
+  [data-delay="500"] { transition-delay: 500ms; }
+}
+
+/* ============================================================
    FAQ / DETAILS
    ============================================================ */
 .faq-item {
