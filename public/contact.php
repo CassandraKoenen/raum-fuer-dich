@@ -42,8 +42,8 @@ if ($telefon) {
 }
 $body .= "\nNachricht:\n{$anliegen}\n";
 
-$headers  = "From: {$name} <{$email}>\r\n";
-$headers .= "Reply-To: {$email}\r\n";
+$headers  = "From: Raum fuer dich <info@raumfuerdich-impulse.de>\r\n";
+$headers .= "Reply-To: {$name} <{$email}>\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
