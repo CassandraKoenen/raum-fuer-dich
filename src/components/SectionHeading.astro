@@ -1,0 +1,42 @@
+---
+interface Props {
+  label?: string;
+  heading: string;
+  lead?: string;
+  tag?: 'h1' | 'h2' | 'h3';
+  center?: boolean;
+}
+
+const { label, heading, lead, tag: Tag = 'h2', center = false } = Astro.props;
+---
+
+<div class:list={['section-heading', { 'section-heading--center': center }]}>
+  {label && <span class="label">{label}</span>}
+  <Tag>{heading}</Tag>
+  {lead && <p class="lead">{lead}</p>}
+</div>
+
+<style>
+  .section-heading {
+    margin-bottom: var(--space-10);
+  }
+
+  .section-heading h2,
+  .section-heading h3 {
+    margin-top: var(--space-1);
+  }
+
+  .section-heading .lead {
+    margin-top: var(--space-4);
+    font-size: 1.125rem;
+    color: var(--color-gray-600);
+  }
+
+  .section-heading--center {
+    text-align: center;
+  }
+
+  .section-heading--center .lead {
+    margin-inline: auto;
+  }
+</style>

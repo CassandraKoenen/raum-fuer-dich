@@ -1,0 +1,200 @@
+---
+// Netlify Forms: add `netlify` attribute + hidden form-name input.
+// On non-Netlify hosts, swap action to a Formspree endpoint.
+---
+
+<form
+  name="kontakt"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="contact-form"
+>
+  <!-- Netlify honeypot (spam protection) -->
+  <p class="visually-hidden">
+    <label>Nicht ausfüllen: <input name="bot-field" /></label>
+  </p>
+  <input type="hidden" name="form-name" value="kontakt" />
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="name">Name <span aria-hidden="true">*</span></label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        autocomplete="name"
+        placeholder="Dein Name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-Mail <span aria-hidden="true">*</span></label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        autocomplete="email"
+        placeholder="deine@email.de"
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="telefon">Telefon <span class="optional">(optional)</span></label>
+    <input
+      type="tel"
+      id="telefon"
+      name="telefon"
+      autocomplete="tel"
+      placeholder="+49 ..."
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="anliegen">Dein Anliegen <span aria-hidden="true">*</span></label>
+    <textarea
+      id="anliegen"
+      name="anliegen"
+      required
+      rows="5"
+      placeholder="Erzähl mir kurz, womit ich dir helfen kann …"
+    ></textarea>
+  </div>
+
+  <div class="form-group form-group--checkbox">
+    <input type="checkbox" id="datenschutz" name="datenschutz" required />
+    <label for="datenschutz">
+      Ich habe die <a href="/datenschutz">Datenschutzerklärung</a> gelesen und
+      bin damit einverstanden, dass meine Daten zur Bearbeitung meiner Anfrage
+      gespeichert werden. <span aria-hidden="true">*</span>
+    </label>
+  </div>
+
+  <button type="submit" class="submit-btn">
+    Nachricht senden
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+      <line x1="22" y1="2" x2="11" y2="13"/>
+      <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+    </svg>
+  </button>
+</form>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-5);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  label {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--color-gray-900);
+  }
+
+  .optional {
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.75em 1em;
+    border: 1.5px solid var(--color-gray-300);
+    border-radius: var(--radius-sm);
+    background: var(--color-white);
+    color: var(--color-gray-900);
+    transition: border-color var(--transition), box-shadow var(--transition);
+    width: 100%;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color-sage);
+    box-shadow: 0 0 0 3px var(--color-sage-light);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-gray-500);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 130px;
+  }
+
+  .form-group--checkbox {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .form-group--checkbox input[type="checkbox"] {
+    width: 1.2em;
+    height: 1.2em;
+    margin-top: 0.2em;
+    accent-color: var(--color-sage);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .form-group--checkbox label {
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: var(--color-gray-600);
+    cursor: pointer;
+  }
+
+  .form-group--checkbox a {
+    color: var(--color-sage-dark);
+  }
+
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    align-self: flex-start;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.8em 2em;
+    background: var(--color-sage);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  }
+
+  .submit-btn:hover {
+    background: var(--color-sage-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+</style>

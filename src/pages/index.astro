@@ -1,0 +1,213 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Button from '../components/Button.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Placeholder from '../components/Placeholder.astro';
+---
+
+<BaseLayout
+  title="Start"
+  description="Ordnung im Außen. Ruhe im Innen. Ich helfe dir, aus Überforderung wieder Klarheit und Leichtigkeit zu schaffen – vor Ort oder online."
+>
+  <!-- ── HERO ────────────────────────────────────────────── -->
+  <Hero
+    headline="Raum für dich"
+    subline="Ordnung im Außen. Ruhe im Innen."
+    body="Ich helfe dir, aus Überforderung wieder Klarheit und Leichtigkeit zu schaffen – Schritt für Schritt, in deinem Tempo."
+    ctaLabel="Kostenloses Erstgespräch"
+    ctaHref="/kontakt"
+    ctaSecondaryLabel="Mein Angebot"
+    ctaSecondaryHref="/angebot"
+  >
+    <Placeholder
+      slot="image"
+      label="close-up of hands folding white linen on weathered wood table, soft morning light, warm tones, film grain, no people visible"
+      ratio="4/5"
+      class="hero-image"
+    />
+  </Hero>
+
+  <!-- ── PROBLEM ─────────────────────────────────────────── -->
+  <section class="section section--white">
+    <div class="container">
+      <SectionHeading
+        label="Kennst du das?"
+        heading="Du wünschst dir einfach wieder Luft"
+        lead="Du bist nicht allein. Viele Menschen fühlen sich von ihrem Zuhause überwältigt – nicht weil sie keine Ordnung mögen, sondern weil sie nicht wissen, wo sie anfangen sollen."
+        center
+      />
+
+      <div class="pain-grid">
+        {[
+          {
+            icon: '😮‍💨',
+            text: 'Du weißt nicht, wo du anfangen sollst – und verschiebst es immer wieder.',
+          },
+          {
+            icon: '🌀',
+            text: 'Das Chaos kostet dich Energie, Nerven und wertvolle Zeit.',
+          },
+          {
+            icon: '💭',
+            text: 'Du wünschst dir ein Zuhause, in dem du wirklich ankommen kannst.',
+          },
+        ].map(({ icon, text }) => (
+          <div class="pain-item">
+            <span class="pain-icon" aria-hidden="true">{icon}</span>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SOLUTION ───────────────────────────────────────── -->
+  <section class="section section--sand">
+    <div class="container solution-inner">
+      <div>
+        <SectionHeading
+          label="Mein Ansatz"
+          heading="Nicht perfekt – sondern passend zu deinem Leben"
+        />
+        <p>
+          Ich begleite dich Schritt für Schritt dabei, Ordnung zu schaffen.
+          Keine Perfektion, keine Urteile – nur ehrliche Unterstützung, die
+          wirklich zu dir passt.
+        </p>
+        <p style="margin-top: 1rem;">
+          Gemeinsam finden wir Strukturen, die sich nicht nach Arbeit anfühlen,
+          sondern nach Erleichterung.
+        </p>
+        <div style="margin-top: 2rem;">
+          <Button href="/ueber-mich" variant="secondary">Mehr über mich</Button>
+        </div>
+      </div>
+
+      <blockquote class="pull-quote">
+        „Wir finden gemeinsam einen Anfang – egal, wie groß das Chaos gerade wirkt."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ── ATMOSPHERE IMAGE ──────────────────────────────── -->
+  <div class="atmosphere-strip">
+    <Placeholder label="soft morning sunlight through sheer curtains onto empty light wood floor, minimalist, warm golden tones, wide crop" ratio="21/9" />
+  </div>
+
+  <!-- ── SERVICES ───────────────────────────────────────── -->
+  <section class="section section--white">
+    <div class="container">
+      <SectionHeading
+        label="Mein Angebot"
+        heading="Wie ich dich begleiten kann"
+        lead="Ob bei dir zu Hause, per Video oder mit dem ersten Schritt – ich bin da, wo du mich brauchst."
+        center
+      />
+
+      <div class="grid-3">
+        <ServiceCard
+          icon="🏠"
+          title="Vor Ort Coaching"
+          description="Gemeinsam schaffen wir Ordnung bei dir zu Hause. Praktisch, persönlich und mit echtem Ergebnis."
+          href="/angebot"
+        />
+        <ServiceCard
+          icon="💻"
+          title="Online Begleitung"
+          description="Flexibel per Video – du entscheidest, wann und wo wir starten. Persönlich trotz Distanz."
+          href="/angebot"
+        />
+        <ServiceCard
+          icon="☕"
+          title="Kostenloses Erstgespräch"
+          description="20–30 Minuten ganz unverbindlich. Wir schauen gemeinsam, was du brauchst – und ob wir zueinander passen."
+          href="/kontakt"
+          linkLabel="Termin vereinbaren"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BANNER ─────────────────────────────────────── -->
+  <section class="section section--sage">
+    <div class="container cta-banner">
+      <div>
+        <h2>Bereit für den ersten Schritt?</h2>
+        <p>Du musst das nicht alleine schaffen. Lass uns gemeinsam anfangen.</p>
+      </div>
+      <Button href="/kontakt" variant="white" size="large">
+        Erstgespräch vereinbaren
+      </Button>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-10);
+  }
+
+  .pain-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-3);
+    padding: var(--space-8);
+    background: var(--color-sand);
+    border-radius: var(--radius-md);
+  }
+
+  .pain-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
+  .pain-item p {
+    color: var(--color-gray-600);
+    font-size: 0.9375rem;
+    max-width: 30ch;
+    margin-inline: auto;
+  }
+
+  .solution-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .cta-banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+  }
+
+  .cta-banner h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-banner p {
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 45ch;
+  }
+
+  .atmosphere-strip {
+    padding-inline: var(--content-padding);
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-block: var(--space-4);
+  }
+
+  .atmosphere-strip :global(.placeholder) {
+    border-radius: var(--radius-lg);
+    max-height: 420px;
+  }
+</style>

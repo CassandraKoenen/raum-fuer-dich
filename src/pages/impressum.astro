@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Impressum"
+  description="Impressum – Angaben gemäß § 5 TMG"
+>
+  <section class="section section--white">
+    <div class="container legal-content">
+      <h1>Impressum</h1>
+      <p class="subtitle">Angaben gemäß § 5 TMG</p>
+
+      <h2>Angaben zur Person</h2>
+      <address>
+        <strong>Cassandra Koenen</strong><br />
+        <!-- Straße Hausnummer –– bitte eintragen --><br />
+        <!-- PLZ Ort –– bitte eintragen -->
+      </address>
+
+      <h2>Kontakt</h2>
+      <p>
+        E-Mail: <a href="mailto:hallo@raumfuerdich-impulse.de">hallo@raumfuerdich-impulse.de</a>
+      </p>
+
+      <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+      <address>
+        <strong>Cassandra Koenen</strong><br />
+        <!-- Anschrift wie oben -->
+      </address>
+
+      <h2>Haftungsausschluss</h2>
+      <h3>Haftung für Inhalte</h3>
+      <p>
+        Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte
+        auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach
+        §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet,
+        übermittelte oder gespeicherte fremde Informationen zu überwachen oder
+        nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit
+        hinweisen.
+      </p>
+
+      <h3>Haftung für Links</h3>
+      <p>
+        Mein Angebot enthält Links zu externen Websites Dritter, auf deren
+        Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden
+        Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten
+        Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten
+        verantwortlich.
+      </p>
+
+      <h3>Urheberrecht</h3>
+      <p>
+        Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen
+        Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung,
+        Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
+        Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung der
+        jeweiligen Autorin.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-content {
+    max-width: 720px;
+  }
+
+  .legal-content h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .subtitle {
+    color: var(--color-gray-500);
+    font-size: 0.9375rem;
+    margin-bottom: var(--space-10);
+  }
+
+  .legal-content h2 {
+    font-size: 1.25rem;
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--color-gray-300);
+  }
+
+  .legal-content h3 {
+    font-size: 1rem;
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-2);
+  }
+
+  .legal-content p,
+  .legal-content address {
+    font-size: 0.9375rem;
+    font-style: normal;
+    color: var(--color-gray-600);
+    line-height: 1.8;
+  }
+</style>

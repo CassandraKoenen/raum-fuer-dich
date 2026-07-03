@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+import Placeholder from '../components/Placeholder.astro';
+
+const offerings = [
+  {
+    icon: '🏠',
+    label: 'Vor Ort',
+    imageLabel: 'hand placing book on wooden shelf, a few books already organized beside it, warm light, shallow depth of field',
+    title: 'Coaching bei dir zu Hause',
+    paragraphs: [
+      'Gemeinsam gehen wir durch deine Räume – ohne Druck, ohne perfekte Pläne. Wir schauen, was funktioniert, was nicht, und finden praktische Lösungen, die zu deinem Alltag passen.',
+      'Du brauchst nicht aufzuräumen, bevor ich komme. Ich bin da, um dir dabei zu helfen – nicht um zu urteilen.',
+    ],
+    details: [
+      { label: 'Dauer', value: 'individuell nach Bedarf' },
+      { label: 'Ort', value: 'bei dir zu Hause (Umgebung Münster)' },
+      { label: 'Preis', value: 'auf Anfrage' },
+    ],
+    cta: { label: 'Jetzt anfragen', href: '/kontakt' },
+  },
+  {
+    icon: '💻',
+    label: 'Online',
+    imageLabel: 'open laptop and ceramic mug on small wooden side table, warm lamp light, evening, cozy atmosphere, no text on screen',
+    title: 'Begleitung per Video',
+    paragraphs: [
+      'Du zeigst mir per Videoanruf, was dich beschäftigt – und wir erarbeiten gemeinsam Schritt für Schritt, was als Nächstes dran ist. Flexibel, persönlich und von überall aus möglich.',
+      'Online-Coaching ist oft leichter als gedacht: keine Terminanreise, keine fremde Person in der Wohnung – trotzdem echte Unterstützung.',
+    ],
+    details: [
+      { label: 'Dauer', value: '60 Minuten pro Session' },
+      { label: 'Format', value: 'Video (Zoom, FaceTime o.ä.)' },
+      { label: 'Preis', value: 'auf Anfrage' },
+    ],
+    cta: { label: 'Termin buchen', href: '/kontakt' },
+  },
+  {
+    icon: '☕',
+    label: 'Erstgespräch',
+    imageLabel: 'two ceramic mugs of tea on rustic wooden table, steam rising, warm tones, overhead shot, no people',
+    title: 'Kostenloses Kennenlernen',
+    paragraphs: [
+      'Bevor wir anfangen, sprechen wir einfach miteinander – 20 bis 30 Minuten, ganz unverbindlich. Du erzählst mir, was dich gerade beschäftigt, und wir schauen gemeinsam, was der beste nächste Schritt ist.',
+      'Kein Druck, keine Verpflichtung. Nur ein offenes Gespräch, damit wir herausfinden, ob und wie ich dir helfen kann.',
+    ],
+    details: [
+      { label: 'Dauer', value: '20–30 Minuten' },
+      { label: 'Format', value: 'Telefon oder Video' },
+      { label: 'Kosten', value: 'kostenlos & unverbindlich' },
+    ],
+    cta: { label: 'Erstgespräch buchen', href: '/kontakt' },
+  },
+];
+
+const faq = [
+  {
+    q: 'Muss mein Zuhause aufgeräumt sein, bevor wir uns treffen?',
+    a: 'Nein – ganz im Gegenteil. Ich komme genau dann, wenn es unübersichtlich ist. Du musst nichts vorbereiten oder verstecken.',
+  },
+  {
+    q: 'Wie lange dauert eine Zusammenarbeit?',
+    a: 'Das ist sehr individuell. Manche Menschen brauchen eine einzige Session, um wieder in die Gänge zu kommen. Andere begleite ich über mehrere Wochen. Wir schauen gemeinsam, was für dich sinnvoll ist.',
+  },
+  {
+    q: 'Was kostet die Begleitung?',
+    a: 'Ich erstelle dir gerne ein individuelles Angebot, das zu deiner Situation passt. Schreib mir einfach – das Erstgespräch ist immer kostenlos.',
+  },
+  {
+    q: 'Ich bin sehr unordentlich – ist das ein Problem?',
+    a: 'Nein. Ich arbeite mit echten Menschen in echten Wohnungen. Es gibt kein Chaos, das "zu schlimm" wäre. Ich bin ohne Urteile da.',
+  },
+  {
+    q: 'Was passiert nach dem Erstgespräch?',
+    a: 'Du entscheidest, ob und wie wir weitermachen möchten. Ich unterbreite dir einen Vorschlag – aber der letzte Schritt liegt immer bei dir.',
+  },
+];
+---
+
+<BaseLayout
+  title="Angebot"
+  description="Vor Ort Coaching, Online-Begleitung oder ein kostenloses Erstgespräch – ich begleite dich auf dem Weg zu mehr Ordnung und Leichtigkeit."
+>
+  <!-- ── HERO ────────────────────────────────────────────── -->
+  <section class="section section--sand">
+    <div class="container">
+      <span class="label">Mein Angebot</span>
+      <h1>Wie ich dir helfen kann</h1>
+      <p class="hero-lead">
+        Drei Wege, um gemeinsam Ordnung und Leichtigkeit zu schaffen –
+        du entscheidest, was zu dir passt.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── OFFERINGS ──────────────────────────────────────── -->
+  {offerings.map((offer, i) => (
+    <section class:list={['section', i % 2 === 0 ? 'section--white' : 'section--gray']}>
+      <div class="container offering-inner">
+        <div class="offering-icon-col">
+          <Placeholder label={offer.imageLabel} ratio="4/5" class="offering-img" />
+        </div>
+
+        <div class="offering-content">
+          <h2>{offer.title}</h2>
+          {offer.paragraphs.map(p => <p>{p}</p>)}
+
+          <dl class="offering-details">
+            {offer.details.map(({ label, value }) => (
+              <>
+                <dt>{label}</dt>
+                <dd>{value}</dd>
+              </>
+            ))}
+          </dl>
+
+          <Button href={offer.cta.href} variant="primary" size="large">
+            {offer.cta.label}
+          </Button>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- ── FAQ ────────────────────────────────────────────── -->
+  <section class="section section--sand">
+    <div class="container">
+      <SectionHeading
+        label="Häufige Fragen"
+        heading="Was dich vielleicht beschäftigt"
+        center
+      />
+
+      <div class="faq-list" style="max-width: 720px; margin-inline: auto;">
+        {faq.map(({ q, a }) => (
+          <details class="faq-item">
+            <summary>{q}</summary>
+            <div class="faq-body"><p>{a}</p></div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BANNER ─────────────────────────────────────── -->
+  <section class="section section--sage">
+    <div class="container cta-banner">
+      <div>
+        <h2>Noch unsicher?</h2>
+        <p>Das Erstgespräch ist kostenlos und unverbindlich. Einfach melden – ich freue mich darauf, dich kennenzulernen.</p>
+      </div>
+      <Button href="/kontakt" variant="white" size="large">
+        Erstgespräch vereinbaren
+      </Button>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-lead {
+    font-size: 1.125rem;
+    max-width: 60ch;
+    margin-top: var(--space-4);
+    color: var(--color-gray-600);
+  }
+
+  h1 {
+    margin-top: var(--space-2);
+  }
+
+  .offering-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  @media (max-width: 640px) {
+    .offering-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+  }
+
+  .offering-icon-col {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  :global(.offering-img) {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .offering-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .offering-content h2 {
+    margin-bottom: var(--space-1);
+  }
+
+  .offering-details {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-2) var(--space-6);
+    background: var(--color-sand);
+    border-radius: var(--radius-md);
+    padding: var(--space-5) var(--space-6);
+    margin-block: var(--space-2);
+  }
+
+  .offering-details dt {
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--color-gray-900);
+  }
+
+  .offering-details dd {
+    font-size: 0.875rem;
+    color: var(--color-gray-600);
+  }
+
+  .cta-banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+  }
+
+  .cta-banner h2 { margin-bottom: var(--space-2); }
+  .cta-banner p { color: rgba(255,255,255,0.85); max-width: 48ch; }
+</style>

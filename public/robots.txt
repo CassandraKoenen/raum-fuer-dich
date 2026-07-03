@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://raumfuerdich-impulse.de/sitemap-index.xml

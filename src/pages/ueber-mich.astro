@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+import Placeholder from '../components/Placeholder.astro';
+---
+
+<BaseLayout
+  title="Über mich"
+  description="Ich weiß, wie schwer es sein kann, anzufangen. Erfahre mehr über meine Haltung, meinen Weg und wie ich dich begleite."
+>
+  <!-- ── HERO ────────────────────────────────────────────── -->
+  <section class="section section--sand hero-section">
+    <div class="container">
+      <span class="label">Über mich</span>
+      <h1>Hinter Raum für dich</h1>
+      <p class="hero-lead">
+        Ich bin Cassandra – und ich weiß aus eigener Erfahrung, wie
+        lähmend sich Chaos anfühlen kann. Nicht weil man faul ist oder es
+        einem egal ist, sondern weil man einfach nicht weiß, wo man
+        anfangen soll.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── STORY ──────────────────────────────────────────── -->
+  <section class="section section--white">
+    <div class="container story-inner">
+      <div class="portrait-wrap">
+        <Placeholder label="two hands cradling a warm ceramic mug, soft side light, warm tones, a book open nearby, shallow depth of field, no face visible" ratio="4/5" class="portrait-img" />
+      </div>
+
+      <div class="story-text">
+        <SectionHeading
+          label="Mein Weg"
+          heading="Von der Überforderung zur Leichtigkeit"
+        />
+        <p>
+          Es gab Zeiten, in denen ich mein eigenes Zuhause kaum wiedererkannte.
+          Räume, die mich belasteten statt erholten. Die Unordnung außen wurde
+          zur Unruhe innen – und umgekehrt.
+        </p>
+        <p style="margin-top: 1rem;">
+          Irgendwann habe ich angefangen, kleine Schritte zu gehen. Nicht
+          perfekte Schritte – aber echte. Und ich habe gemerkt: Es braucht
+          keine perfekte Methode, sondern den richtigen Anfang.
+        </p>
+        <p style="margin-top: 1rem;">
+          Heute begleite ich Menschen dabei, genau diesen Anfang zu finden.
+          Ohne Druck, ohne Urteile – aber mit echter Unterstützung.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VALUES ─────────────────────────────────────────── -->
+  <section class="section section--sand">
+    <div class="container">
+      <SectionHeading
+        label="Meine Haltung"
+        heading="Was mir bei unserer Arbeit wichtig ist"
+        center
+      />
+
+      <div class="grid-3">
+        {[
+          {
+            icon: '🌿',
+            title: 'Keine Perfektion',
+            text: 'Ordnung muss nicht makellos sein. Sie soll sich gut anfühlen – für dich, in deinem Leben, jetzt.',
+          },
+          {
+            icon: '🐢',
+            title: 'Dein Tempo',
+            text: 'Wir gehen so schnell oder so langsam, wie du möchtest. Kein Druck, kein Vergleich.',
+          },
+          {
+            icon: '🌱',
+            title: 'Nachhaltige Veränderung',
+            text: 'Kein einmaliges Aufräumen – sondern Strukturen, die wirklich bleiben und zu dir passen.',
+          },
+        ].map(({ icon, title, text }) => (
+          <article class="value-card">
+            <span class="value-icon" aria-hidden="true">{icon}</span>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS ────────────────────────────────────────── -->
+  <section class="section section--white">
+    <div class="container">
+      <SectionHeading
+        label="So arbeite ich"
+        heading="Ein einfacher, klarer Weg"
+        lead="Kein kompliziertes Programm. Drei Schritte, die sich ehrlich und menschlich anfühlen."
+        center
+      />
+
+      <ol class="process-list" role="list">
+        {[
+          {
+            step: '01',
+            title: 'Erstkontakt',
+            text: 'Wir sprechen 20–30 Minuten kostenlos miteinander. Du erzählst mir, was dich beschäftigt – ich höre zu, ohne zu werten.',
+          },
+          {
+            step: '02',
+            title: 'Gemeinsame Arbeit',
+            text: 'Wir starten dort, wo es für dich am sinnvollsten ist. Nicht wo es am einfachsten aussieht – sondern wo es dir wirklich hilft.',
+          },
+          {
+            step: '03',
+            title: 'Dein Raum',
+            text: 'Du bekommst nicht nur Ordnung – du bekommst das Gefühl, endlich wieder in deinem Zuhause ankommen zu können.',
+          },
+        ].map(({ step, title, text }) => (
+          <li class="process-item">
+            <span class="process-step" aria-hidden="true">{step}</span>
+            <div>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────────── -->
+  <section class="section section--sage">
+    <div class="container cta-banner">
+      <div>
+        <h2>Lern mich kennen</h2>
+        <p>Keine Verpflichtung. Nur ein offenes Gespräch – und wer weiß, vielleicht der Anfang von etwas Leichterem.</p>
+      </div>
+      <Button href="/kontakt" variant="white" size="large">
+        Kostenloses Erstgespräch
+      </Button>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-section h1 {
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-5);
+  }
+
+  .hero-lead {
+    font-size: 1.125rem;
+    max-width: 60ch;
+    color: var(--color-gray-600);
+  }
+
+  .story-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  .portrait-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .portrait-wrap :global(.portrait-img) {
+    max-width: 360px;
+  }
+
+  .value-card {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    padding: var(--space-8);
+    border: 1px solid var(--color-gray-300);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .value-icon {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .value-card p {
+    font-size: 0.9375rem;
+    color: var(--color-gray-600);
+  }
+
+  .process-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    max-width: 700px;
+    margin-inline: auto;
+    counter-reset: none;
+    margin-top: var(--space-10);
+  }
+
+  .process-item {
+    display: flex;
+    gap: var(--space-6);
+    align-items: flex-start;
+    padding: var(--space-8);
+    background: var(--color-sand);
+    border-radius: var(--radius-md);
+  }
+
+  .process-step {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-sage-light);
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 0.1em;
+  }
+
+  .process-item h3 {
+    margin-bottom: var(--space-2);
+  }
+
+  .process-item p {
+    color: var(--color-gray-600);
+    font-size: 0.9375rem;
+  }
+
+  .cta-banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+  }
+
+  .cta-banner h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-banner p {
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 48ch;
+  }
+</style>

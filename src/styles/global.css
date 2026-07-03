@@ -1,0 +1,283 @@
+/* ============================================================
+   FONTS — self-hosted Nunito (DSGVO-compliant, no Google CDN)
+   ============================================================ */
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/nunito-latin.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  /* Colors */
+  --color-sand:      #F5F0E8;
+  --color-sand-dark: #EDE6D8;
+  --color-white:     #FFFFFF;
+  --color-gray-50:   #FAFAF9;
+  --color-gray-100:  #F3F0EB;
+  --color-gray-300:  #D6CFC4;
+  --color-gray-500:  #9E968A;
+  --color-gray-600:  #6B6460;
+  --color-gray-900:  #2C2825;
+  --color-sage:      #8FAF8C;
+  --color-sage-dark: #6E8E6B;
+  --color-sage-light:#C8DEC6;
+  --color-sage-bg:   #EEF5ED;
+
+  /* Typography */
+  --font-body: 'Nunito', system-ui, sans-serif;
+
+  /* Spacing */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Layout */
+  --max-width:       1100px;
+  --content-padding: clamp(1rem, 5vw, 2rem);
+
+  /* Borders */
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 4px rgba(44, 40, 37, 0.06);
+  --shadow-md: 0 4px 16px rgba(44, 40, 37, 0.08);
+  --shadow-lg: 0 8px 32px rgba(44, 40, 37, 0.10);
+
+  /* Transitions */
+  --transition: 200ms ease;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-gray-600);
+  background-color: var(--color-sand);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--color-sage-dark);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--color-gray-900);
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-gray-900);
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(2.25rem, 5.5vw, 3.5rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+h4 { font-size: 1.125rem; }
+
+p {
+  max-width: 65ch;
+  text-wrap: pretty;
+}
+
+strong {
+  font-weight: 700;
+  color: var(--color-gray-900);
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--content-padding);
+}
+
+.section {
+  padding-block: var(--space-20);
+}
+
+.section--sm {
+  padding-block: var(--space-12);
+}
+
+.section--white {
+  background-color: var(--color-white);
+}
+
+.section--sand {
+  background-color: var(--color-sand);
+}
+
+.section--gray {
+  background-color: var(--color-gray-100);
+}
+
+.section--sage {
+  background-color: var(--color-sage);
+  color: var(--color-white);
+}
+
+.section--sage h2,
+.section--sage h3,
+.section--sage p,
+.section--sage strong {
+  color: var(--color-white);
+}
+
+/* ============================================================
+   GRID UTILITIES
+   ============================================================ */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-10);
+  align-items: center;
+}
+
+/* ============================================================
+   TEXT UTILITIES
+   ============================================================ */
+.text-center { text-align: center; }
+.text-center p { margin-inline: auto; }
+
+.label {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-sage-dark);
+  margin-bottom: var(--space-3);
+}
+
+.lead {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--color-gray-600);
+  max-width: 60ch;
+}
+
+.pull-quote {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--color-gray-900);
+  border-left: 3px solid var(--color-sage);
+  padding-left: var(--space-6);
+  font-style: italic;
+}
+
+/* ============================================================
+   VISUALLY HIDDEN (accessibility)
+   ============================================================ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================================
+   FAQ / DETAILS
+   ============================================================ */
+.faq-item {
+  border-bottom: 1px solid var(--color-gray-300);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--color-gray-300);
+}
+
+.faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  color: var(--color-gray-900);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.5rem;
+  font-weight: 300;
+  flex-shrink: 0;
+  color: var(--color-sage);
+  transition: transform var(--transition);
+  line-height: 1;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item .faq-body {
+  padding-bottom: var(--space-5);
+  color: var(--color-gray-600);
+}
