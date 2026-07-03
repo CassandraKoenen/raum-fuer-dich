@@ -17,6 +17,7 @@ function isActive(href: string) {
 <header class="site-header">
   <nav class="container nav" aria-label="Hauptnavigation">
     <a href="/" class="nav-logo" aria-label="Raum für dich – Startseite">
+      <img src="/images/logo-no-text.png" alt="" class="nav-logo-img" aria-hidden="true" />
       Raum für dich
     </a>
 
@@ -78,11 +79,14 @@ function isActive(href: string) {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 4rem;
+    height: 5.5rem;
     gap: var(--space-8);
   }
 
   .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
     font-size: 1.125rem;
     font-weight: 700;
     color: var(--color-sage-dark);
@@ -93,6 +97,13 @@ function isActive(href: string) {
 
   .nav-logo:hover {
     color: var(--color-gray-900);
+  }
+
+  .nav-logo-img {
+    height: 80px;
+    width: auto;
+    display: block;
+    padding: var(--space-3);
   }
 
   /* Desktop links */
@@ -149,7 +160,7 @@ function isActive(href: string) {
 
   .mobile-menu {
     position: absolute;
-    top: 4rem;
+    top: 5.5rem;
     left: 0;
     right: 0;
     background: var(--color-sand);
