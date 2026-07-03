@@ -42,6 +42,40 @@ const siteUrl = 'https://raumfuerdich-impulse.de';
     <meta property="og:locale" content="de_DE" />
     <meta property="og:site_name" content="Raum für dich" />
 
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+    <!-- Schema.org – LocalBusiness -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Raum für dich",
+        "description": "Ordnungscoaching vor Ort und online – ich helfe dir, aus Überforderung wieder Klarheit und Leichtigkeit zu schaffen.",
+        "url": "https://raumfuerdich-impulse.de",
+        "email": "info@raumfuerdich-impulse.de",
+        "address": {
+          "@type": "PostalAddress",
+          "postalCode": "67705",
+          "addressLocality": "Trippstadt",
+          "addressCountry": "DE"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Kaiserslautern" },
+          { "@type": "Country", "name": "Deutschland" }
+        ],
+        "serviceType": ["Ordnungscoaching", "Aufräumcoaching", "Online-Coaching"],
+        "priceRange": "auf Anfrage",
+        "founder": {
+          "@type": "Person",
+          "name": "Cassandra Koenen"
+        }
+      }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
