@@ -1,27 +1,36 @@
 ---
+import { t, type Lang } from '../i18n';
+
+interface Props { lang?: Lang; }
+const { lang = 'de' } = Astro.props;
+const tr = t(lang);
+
 const pathname = Astro.url.pathname;
 
 const links = [
-  { href: '/', label: 'Start' },
-  { href: '/ueber-mich', label: 'Über mich' },
-  { href: '/angebot', label: 'Angebot' },
-  { href: '/kontakt', label: 'Kontakt' },
+  { href: lang === 'en' ? '/en/coaching'          : '/coaching',          label: tr.nav.coaching },
+  { href: lang === 'en' ? '/en/organizing'         : '/organizing',         label: tr.nav.organizing },
+  { href: lang === 'en' ? '/en/feng-shui'          : '/feng-shui',          label: tr.nav.fengshui },
+  { href: lang === 'en' ? '/en/find-your-path'     : '/finde-deinen-weg',   label: tr.nav.findYourPath },
+  { href: lang === 'en' ? '/en/about'              : '/ueber-mich',         label: tr.nav.about },
+  { href: lang === 'en' ? '/en/contact'            : '/kontakt',            label: tr.nav.contact },
 ];
 
 function isActive(href: string) {
-  if (href === '/') return pathname === '/';
+  if (href === '/' || href === '/en') return pathname === href;
   return pathname.startsWith(href);
 }
 ---
 
 <header class="site-header">
   <nav class="container nav" aria-label="Hauptnavigation">
-    <a href="/" class="nav-logo" aria-label="Raum für dich – Startseite">
-      <img src="/images/logo-no-text.png" alt="" class="nav-logo-img" aria-hidden="true" />
-      Raum für dich
+
+    <a href={lang === 'en' ? '/en' : '/'} class="nav-brand" aria-label="Raum für dich – Startseite">
+      <img src="/images/logo-no-text.png" alt="" aria-hidden="true" class="nav-brand-img" />
+      <span class="nav-brand-text">Raum für dich</span>
     </a>
 
-    <!-- Desktop navigation -->
+    <!-- Desktop links -->
     <ul class="nav-links" role="list">
       {links.map(link => (
         <li>
@@ -36,31 +45,42 @@ function isActive(href: string) {
       ))}
     </ul>
 
-    <!-- Mobile navigation via details/summary (no JS) -->
-    <details class="mobile-nav">
-      <summary aria-label="Menü öffnen">
-        <span class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </summary>
-      <div class="mobile-menu">
-        <ul role="list">
-          {links.map(link => (
+    <div class="nav-end">
+      <!-- Language switch -->
+      <a href={tr.nav.langSwitchHref} class="lang-switch" aria-label={`Switch to ${tr.nav.langSwitch}`}>
+        {tr.nav.langSwitch}
+      </a>
+
+      <!-- Mobile hamburger -->
+      <details class="mobile-nav">
+        <summary aria-label="Menü öffnen">
+          <span class="hamburger" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </summary>
+        <div class="mobile-menu">
+          <ul role="list">
+            {links.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  class:list={['mobile-link', { 'mobile-link--active': isActive(link.href) }]}
+                  aria-current={isActive(link.href) ? 'page' : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
             <li>
-              <a
-                href={link.href}
-                class:list={['mobile-link', { 'mobile-link--active': isActive(link.href) }]}
-                aria-current={isActive(link.href) ? 'page' : undefined}
-              >
-                {link.label}
+              <a href={tr.nav.langSwitchHref} class="mobile-link mobile-lang">
+                {tr.nav.langSwitch}
               </a>
             </li>
-          ))}
-        </ul>
-      </div>
-    </details>
+          </ul>
+        </div>
+      </details>
+    </div>
+
   </nav>
 </header>
 
@@ -69,10 +89,11 @@ function isActive(href: string) {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(250, 249, 246, 0.92);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--color-gray-300);
+    background: rgba(247, 245, 242, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transition: background var(--transition-slow);
   }
 
   .nav {
@@ -80,64 +101,96 @@ function isActive(href: string) {
     align-items: center;
     justify-content: space-between;
     height: 4rem;
-    gap: var(--space-8);
+    gap: var(--space-6);
   }
 
-  .nav-logo {
+  /* Brand */
+  .nav-brand {
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--color-sage-dark);
     text-decoration: none;
-    white-space: nowrap;
     flex-shrink: 0;
   }
 
-  .nav-logo:hover {
-    color: var(--color-gray-900);
-  }
-
-  .nav-logo-img {
-    height: 40px;
+  .nav-brand-img {
+    height: 36px;
     width: auto;
     display: block;
+  }
+
+  .nav-brand-text {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+
+  .nav-brand:hover .nav-brand-text {
+    color: var(--color-accent);
   }
 
   /* Desktop links */
   .nav-links {
     display: flex;
     list-style: none;
-    gap: var(--space-6);
+    gap: var(--space-1);
     align-items: center;
   }
 
   .nav-link {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--color-gray-600);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-muted);
     text-decoration: none;
-    padding-block: var(--space-1);
-    border-bottom: 2px solid transparent;
-    transition: color var(--transition), border-color var(--transition);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition), background var(--transition);
   }
 
   .nav-link:hover,
   .nav-link--active {
-    color: var(--color-gray-900);
-    border-bottom-color: var(--color-sage);
+    color: var(--color-text);
+    background: rgba(0,0,0,0.04);
+  }
+
+  /* Nav end (lang + hamburger) */
+  .nav-end {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-shrink: 0;
+  }
+
+  /* Language switch */
+  .lang-switch {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-faint);
+    text-decoration: none;
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--color-bg-muted);
+    border-radius: var(--radius-full);
+    transition: color var(--transition), border-color var(--transition);
+  }
+
+  .lang-switch:hover {
+    color: var(--color-text);
+    border-color: var(--color-text-muted);
   }
 
   /* Mobile nav */
-  .mobile-nav {
-    display: none;
-  }
+  .mobile-nav { display: none; }
 
   .mobile-nav summary {
     list-style: none;
     cursor: pointer;
     padding: var(--space-2);
+    border-radius: var(--radius-sm);
   }
 
   .mobile-nav summary::-webkit-details-marker { display: none; }
@@ -146,13 +199,13 @@ function isActive(href: string) {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    width: 24px;
+    width: 22px;
   }
 
   .hamburger span {
     display: block;
-    height: 2px;
-    background: var(--color-gray-900);
+    height: 1.5px;
+    background: var(--color-text);
     border-radius: 2px;
     transition: var(--transition);
   }
@@ -162,39 +215,47 @@ function isActive(href: string) {
     top: 4rem;
     left: 0;
     right: 0;
-    background: var(--color-sand);
-    border-bottom: 1px solid var(--color-gray-300);
-    padding: var(--space-4) var(--content-padding);
-    box-shadow: var(--shadow-md);
+    background: rgba(247, 245, 242, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding: var(--space-4) var(--content-padding) var(--space-6);
+    box-shadow: var(--shadow-lg);
   }
 
   .mobile-menu ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);
   }
 
   .mobile-link {
     display: block;
-    padding: var(--space-3) 0;
-    font-weight: 600;
-    font-size: 1.0625rem;
-    color: var(--color-gray-600);
+    padding: var(--space-4) 0;
+    font-size: var(--text-md);
+    font-family: var(--font-heading);
+    font-weight: 400;
+    color: var(--color-text-muted);
     text-decoration: none;
-    border-bottom: 1px solid var(--color-gray-300);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transition: color var(--transition);
   }
 
-  .mobile-link:last-of-type {
-    border-bottom: none;
+  .mobile-link:last-child { border-bottom: none; }
+
+  .mobile-link--active,
+  .mobile-link:hover { color: var(--color-text); }
+
+  .mobile-lang {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
-  .mobile-link--active {
-    color: var(--color-sage-dark);
-  }
-
-  @media (max-width: 640px) {
-    .nav-links { display: none; }
+  @media (max-width: 768px) {
+    .nav-links  { display: none; }
+    .lang-switch { display: none; }
     .mobile-nav { display: block; }
   }
 </style>

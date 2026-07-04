@@ -1,240 +1,751 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import Button from '../components/Button.astro';
-import SectionHeading from '../components/SectionHeading.astro';
-import ServiceCard from '../components/ServiceCard.astro';
+import { t } from '../i18n';
+
+const lang = 'de';
+const tr = t(lang);
+const { hero, why, paths, timeline, about, social } = tr.landing;
 ---
 
 <BaseLayout
-  title="Start"
-  description="Ordnung im Außen. Ruhe im Innen. Ich helfe dir, aus Überforderung wieder Klarheit und Leichtigkeit zu schaffen – vor Ort oder online."
+  title="Raum für dich"
+  description="Ein Zuhause, das den Menschen trägt, der du werden möchtest. Decluttering Coaching, Professional Organizing und Feng Shui."
+  lang={lang}
 >
-  <!-- ── HERO ────────────────────────────────────────────── -->
-  <Hero
-    headline="Raum für dich"
-    subline="Ordnung im Außen. Ruhe im Innen."
-    body="Ich helfe dir, aus Überforderung wieder Klarheit und Leichtigkeit zu schaffen – Schritt für Schritt, in deinem Tempo."
-    ctaLabel="Kostenloses Erstgespräch"
-    ctaHref="/kontakt"
-    ctaSecondaryLabel="Mein Angebot"
-    ctaSecondaryHref="/angebot"
-  >
-    <img slot="logo" src="/images/logo-no-text.png" alt="" aria-hidden="true" class="hero-logo" />
-    <img
-      slot="image"
-      src="/images/hero-linen.png"
-      alt="Gefaltete weiße Leinentücher auf einem Holztisch im warmen Morgenlicht"
-      class="hero-image"
-    />
-  </Hero>
 
-  <!-- ── PROBLEM ─────────────────────────────────────────── -->
-  <section class="section section--white">
-    <div class="container">
-      <SectionHeading
-        label="Kennst du das?"
-        heading="Du wünschst dir einfach wieder Luft"
-        lead="Du bist nicht allein. Viele Menschen fühlen sich von ihrem Zuhause überwältigt – nicht weil sie keine Ordnung mögen, sondern weil sie nicht wissen, wo sie anfangen sollen."
-        center
+  <!-- ── HERO ──────────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img
+        src="/images/hero-linen.png"
+        alt="Warmes Morgenlicht in einem minimalen Zuhause"
+        class="hero-img"
       />
+      <div class="hero-overlay"></div>
+    </div>
 
-      <div class="pain-grid">
-        {[
-          {
-            icon: '😮‍💨',
-            text: 'Du weißt nicht, wo du anfangen sollst – und verschiebst es immer wieder.',
-          },
-          {
-            icon: '🌀',
-            text: 'Das Chaos kostet dich Energie, Nerven und wertvolle Zeit.',
-          },
-          {
-            icon: '💭',
-            text: 'Du wünschst dir ein Zuhause, in dem du wirklich ankommen kannst.',
-          },
-        ].map(({ icon, text }, i) => (
-          <div class="pain-item" data-animate data-delay={String(i * 100)}>
-            <span class="pain-icon" aria-hidden="true">{icon}</span>
-            <p>{text}</p>
+    <div class="container hero-content">
+      <p class="label hero-label" data-animate>{hero.label}</p>
+      <h1 class="hero-headline" data-animate data-delay="100">
+        {hero.headline.split('\n').map((line, i) => (
+          <span class="hero-headline-line">{line}{i === 0 ? <br /> : ''}</span>
+        ))}
+      </h1>
+      <p class="hero-body" data-animate data-delay="200">{hero.body}</p>
+      <a href={hero.ctaHref} class="btn-primary hero-cta" data-animate data-delay="300">
+        {hero.cta}
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span class="scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- ── WHY ENVIRONMENTS MATTER ──────────────────────────────────────────── -->
+  <section class="section section--white why-section">
+    <div class="container">
+      <div class="why-header text-center">
+        <p class="label" data-animate>{why.label}</p>
+        <h2 data-animate data-delay="100">{why.headline}</h2>
+        <p class="lead" data-animate data-delay="200">{why.body}</p>
+      </div>
+
+      <div class="why-pillars">
+        {why.pillars.map((p, i) => (
+          <div class="pillar" data-animate data-delay={String(i * 80)}>
+            <span class="pillar-icon" aria-hidden="true">{p.icon}</span>
+            <h4 class="pillar-label">{p.label}</h4>
+            <p class="pillar-text">{p.text}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ── SOLUTION ───────────────────────────────────────── -->
-  <section class="section section--sand">
-    <div class="container solution-inner">
-      <div data-animate>
-        <SectionHeading
-          label="Mein Ansatz"
-          heading="Nicht perfekt – sondern passend zu deinem Leben"
-        />
-        <p>
-          Ich begleite dich Schritt für Schritt dabei, Ordnung zu schaffen.
-          Keine Perfektion, keine Urteile – nur ehrliche Unterstützung, die
-          wirklich zu dir passt.
-        </p>
-        <p style="margin-top: 1rem;">
-          Gemeinsam finden wir Strukturen, die sich nicht nach Arbeit anfühlen,
-          sondern nach Erleichterung.
-        </p>
-        <div style="margin-top: 2rem;">
-          <Button href="/ueber-mich" variant="secondary">Mehr über mich</Button>
-        </div>
-      </div>
-
-      <blockquote class="pull-quote" data-animate data-delay="150">
-        „Wir finden gemeinsam einen Anfang – egal, wie groß das Chaos gerade wirkt."
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- ── ATMOSPHERE IMAGE ──────────────────────────────── -->
-  <div class="atmosphere-strip" data-animate="fade">
-    <img
-      src="/images/atmosphere-curtains.png"
-      alt="Weiches Morgenlicht durch transparente Vorhänge auf einem Holzboden"
-    />
-  </div>
-
-  <!-- ── SERVICES ───────────────────────────────────────── -->
-  <section class="section section--white">
+  <!-- ── THREE PATHS ───────────────────────────────────────────────────────── -->
+  <section class="section section--bg paths-section">
     <div class="container">
-      <SectionHeading
-        label="Mein Angebot"
-        heading="Wie ich dich begleiten kann"
-        lead="Ob bei dir zu Hause, per Video oder mit dem ersten Schritt – ich bin da, wo du mich brauchst."
-        center
-      />
+      <div class="paths-header text-center">
+        <p class="label" data-animate>{paths.label}</p>
+        <h2 data-animate data-delay="100">{paths.headline}</h2>
+      </div>
 
-      <div class="grid-3">
-        <div data-animate data-delay="0">
-          <ServiceCard
-            icon="🏠"
-            title="Vor Ort Coaching"
-            description="Gemeinsam schaffen wir Ordnung bei dir zu Hause. Praktisch, persönlich und mit echtem Ergebnis."
-            href="/angebot"
-          />
+      <div class="paths-grid">
+        {paths.cards.map((card, i) => (
+          <a href={card.href} class={`path-card path-card--${card.color}`} data-animate data-delay={String(i * 120)}>
+            <div class="path-card-inner">
+              <div class="path-card-top">
+                <p class="path-feeling">„{card.feeling}"</p>
+                <div class="path-arrow" aria-hidden="true">↓</div>
+              </div>
+              <div class="path-card-bottom">
+                <h3 class="path-service">{card.service}</h3>
+                <p class="path-desc">{card.description}</p>
+                <span class="path-cta">{card.cta} →</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TIMELINE ──────────────────────────────────────────────────────────── -->
+  <section class="section section--white timeline-section">
+    <div class="container">
+      <div class="timeline-header text-center">
+        <p class="label" data-animate>{timeline.label}</p>
+        <h2 data-animate data-delay="100">{timeline.headline}</h2>
+        <p class="lead" data-animate data-delay="200">{timeline.body}</p>
+      </div>
+
+      <div class="timeline">
+        {timeline.steps.map((step, i) => (
+          <div class="timeline-step" data-animate data-delay={String(i * 120)}>
+            <div class="timeline-number" aria-hidden="true">0{i + 1}</div>
+            <h4 class="timeline-label">{step.label}</h4>
+            <p class="timeline-desc">{step.description}</p>
+            {i < timeline.steps.length - 1 && (
+              <div class="timeline-connector" aria-hidden="true"></div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT PREVIEW ─────────────────────────────────────────────────────── -->
+  <section class="section section--bg about-preview-section">
+    <div class="container about-preview-inner">
+      <div class="about-preview-img-wrap" data-animate="scale">
+        <img
+          src="/images/me.png"
+          alt="Cassandra Koenen"
+          class="about-preview-img"
+        />
+      </div>
+      <div class="about-preview-text" data-animate data-delay="200">
+        <p class="label">{about.label}</p>
+        <h2>{about.headline}</h2>
+        <p class="lead">{about.body}</p>
+        <a href={about.ctaHref} class="btn-secondary">{about.cta}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SOCIAL / NEWSLETTER ───────────────────────────────────────────────── -->
+  <section class="section section--white social-section">
+    <div class="container">
+      <div class="social-header text-center">
+        <p class="label" data-animate>{social.label}</p>
+        <h2 data-animate data-delay="100">{social.headline}</h2>
+        <p class="lead" data-animate data-delay="200">{social.body}</p>
+      </div>
+
+      <div class="social-grid">
+        <!-- Video placeholder -->
+        <div class="social-video-wrap" data-animate>
+          <div class="video-placeholder">
+            <div class="video-play" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <p class="video-placeholder-text">{social.latestVideo}</p>
+          </div>
         </div>
-        <div data-animate data-delay="150">
-          <ServiceCard
-            icon="💻"
-            title="Online Begleitung"
-            description="Flexibel per Video – du entscheidest, wann und wo wir starten. Persönlich trotz Distanz."
-            href="/angebot"
-          />
+
+        <!-- Instagram placeholder -->
+        <div class="instagram-wrap" data-animate data-delay="100">
+          <div class="instagram-grid">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div class="instagram-tile" style={`animation-delay: ${i * 60}ms`}>
+                <div class="instagram-tile-inner">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+                  </svg>
+                </div>
+              </div>
+            ))}
+          </div>
+          <a href="#" class="instagram-follow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+            </svg>
+            {social.instagram} folgen
+          </a>
         </div>
-        <div data-animate data-delay="300">
-          <ServiceCard
-            icon="☕"
-            title="Kostenloses Erstgespräch"
-            description="20–30 Minuten ganz unverbindlich. Wir schauen gemeinsam, was du brauchst – und ob wir zueinander passen."
-            href="/kontakt"
-            linkLabel="Termin vereinbaren"
-          />
+
+        <!-- Newsletter -->
+        <div class="newsletter-wrap" data-animate data-delay="200">
+          <h3 class="newsletter-headline">{social.newsletter.headline}</h3>
+          <p class="newsletter-body">{social.newsletter.body}</p>
+          <form class="newsletter-form" onsubmit="return false;">
+            <input
+              type="email"
+              placeholder={social.newsletter.placeholder}
+              class="newsletter-input"
+              aria-label={social.newsletter.placeholder}
+            />
+            <button type="submit" class="btn-primary newsletter-btn">
+              {social.newsletter.cta}
+            </button>
+          </form>
+          <p class="newsletter-note">{social.newsletter.note}</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── CTA BANNER ─────────────────────────────────────── -->
-  <section class="section section--sage">
-    <div class="container cta-banner">
-      <div>
-        <h2>Bereit für den ersten Schritt?</h2>
-        <p>Du musst das nicht alleine schaffen. Lass uns gemeinsam anfangen.</p>
-      </div>
-      <Button href="/kontakt" variant="white" size="large">
-        Erstgespräch vereinbaren
-      </Button>
-    </div>
-  </section>
 </BaseLayout>
 
 <style>
-  .pain-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--space-6);
-    margin-top: var(--space-10);
-  }
-
-  .pain-item {
+  /* ── Hero ─────────────────────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 100svh;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    gap: var(--space-3);
-    padding: var(--space-8);
-    background: var(--color-sand);
-    border-radius: var(--radius-md);
+    overflow: hidden;
   }
 
-  .pain-icon {
-    font-size: 2.5rem;
-    line-height: 1;
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
   }
 
-  .pain-item p {
-    color: var(--color-gray-600);
-    font-size: 0.9375rem;
-    max-width: 30ch;
-    margin-inline: auto;
-  }
-
-  .solution-inner {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-16);
-    align-items: center;
-  }
-
-  .cta-banner {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-8);
-  }
-
-  .cta-banner h2 {
-    margin-bottom: var(--space-2);
-  }
-
-  .cta-banner p {
-    color: rgba(255, 255, 255, 0.85);
-    max-width: 45ch;
-  }
-
-  .atmosphere-strip {
-    padding-inline: var(--content-padding);
-    max-width: var(--max-width);
-    margin-inline: auto;
-    padding-block: var(--space-4);
-  }
-
-  .atmosphere-strip img {
-    width: 100%;
-    max-height: 420px;
-    object-fit: cover;
-    border-radius: var(--radius-lg);
-    display: block;
-  }
-
-  .hero-image {
+  .hero-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: var(--radius-lg);
+    object-position: center;
   }
 
-  :global(.hero-logo) {
-    height: 140px;
-    width: auto;
-    display: block;
-    margin-inline: auto;
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(247, 245, 242, 0.92) 0%,
+      rgba(247, 245, 242, 0.75) 50%,
+      rgba(247, 245, 242, 0.30) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding-block: var(--space-32);
+    max-width: 720px;
+  }
+
+  .hero-label {
+    color: var(--color-accent);
+  }
+
+  .hero-headline {
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--color-text);
     margin-bottom: var(--space-6);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-body {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    max-width: 48ch;
+    margin-bottom: var(--space-10);
+    line-height: 1.5;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: var(--space-10);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .scroll-line {
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--color-text-faint));
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 0.8; transform: scaleY(1.1); }
+  }
+
+  /* ── Buttons ─────────────────────────────────────────────────────────── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 0.9em 2em;
+    background: var(--color-text);
+    color: var(--color-bg);
+    border: none;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    padding: 0.85em 1.75em;
+    background: transparent;
+    color: var(--color-text);
+    border: 1.5px solid var(--color-bg-muted);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: border-color var(--transition), background var(--transition);
+    margin-top: var(--space-6);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-text-muted);
+    background: var(--color-bg-alt);
+  }
+
+  /* ── Why section ─────────────────────────────────────────────────────── */
+  .why-header {
+    max-width: var(--max-width-text);
+    margin-inline: auto;
+    margin-bottom: var(--space-16);
+  }
+
+  .why-header h2 { margin-bottom: var(--space-6); }
+  .why-header .lead { margin-inline: auto; }
+
+  .why-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .pillar {
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .pillar:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .pillar-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .pillar-label {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .pillar-text {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    max-width: none;
+    line-height: 1.6;
+  }
+
+  /* ── Path cards ──────────────────────────────────────────────────────── */
+  .paths-header {
+    max-width: var(--max-width-text);
+    margin-inline: auto;
+    margin-bottom: var(--space-12);
+  }
+
+  .paths-header h2 { margin-top: var(--space-2); }
+
+  .paths-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-5);
+  }
+
+  .path-card {
+    display: block;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+    position: relative;
+  }
+
+  .path-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .path-card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 400px;
+  }
+
+  .path-card-top {
+    flex: 1;
+    padding: var(--space-10) var(--space-8) var(--space-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .path-card-bottom {
+    padding: var(--space-8);
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(4px);
+  }
+
+  .path-feeling {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.35;
+    color: white;
+    max-width: 22ch;
+  }
+
+  .path-arrow {
+    font-size: 1.5rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: var(--space-6);
+  }
+
+  .path-service {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: var(--space-3);
+  }
+
+  .path-desc {
+    font-size: var(--text-sm);
+    color: rgba(255,255,255,0.75);
+    max-width: none;
+    line-height: 1.6;
+    margin-bottom: var(--space-5);
+  }
+
+  .path-cta {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.02em;
+  }
+
+  /* Card color themes */
+  .path-card--blue  { background: linear-gradient(160deg, var(--color-blue-dark) 0%, var(--color-blue-heading) 100%); }
+  .path-card--green { background: linear-gradient(160deg, var(--color-green-soft) 0%, var(--color-green) 100%); }
+  .path-card--sand  { background: linear-gradient(160deg, var(--color-clay) 0%, var(--color-olive) 100%); }
+
+  /* ── Timeline ────────────────────────────────────────────────────────── */
+  .timeline-header {
+    max-width: var(--max-width-text);
+    margin-inline: auto;
+    margin-bottom: var(--space-16);
+  }
+
+  .timeline-header h2 { margin-bottom: var(--space-6); }
+  .timeline-header .lead { margin-inline: auto; }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  @media (max-width: 640px) {
+    .timeline {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+    }
+  }
+
+  .timeline-step {
+    position: relative;
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+  }
+
+  .timeline-number {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--color-bg-muted);
+    line-height: 1;
+    margin-bottom: var(--space-3);
+  }
+
+  .timeline-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+  }
+
+  .timeline-desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    max-width: 18ch;
+    margin-inline: auto;
+    line-height: 1.6;
+  }
+
+  .timeline-connector {
+    display: none;
+  }
+
+  @media (min-width: 641px) {
+    .timeline-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 1px;
+      height: 40%;
+      transform: translateY(-50%);
+      background: linear-gradient(to bottom, transparent, var(--color-bg-muted), transparent);
+    }
+  }
+
+  /* ── About preview ───────────────────────────────────────────────────── */
+  .about-preview-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: var(--space-20);
+    align-items: center;
+  }
+
+  @media (max-width: 640px) {
+    .about-preview-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+    }
+  }
+
+  .about-preview-img-wrap {
+    position: relative;
+  }
+
+  .about-preview-img {
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    display: block;
+  }
+
+  .about-preview-text h2 { margin-block: var(--space-3) var(--space-6); }
+
+  /* ── Social / Newsletter ─────────────────────────────────────────────── */
+  .social-header {
+    max-width: var(--max-width-text);
+    margin-inline: auto;
+    margin-bottom: var(--space-16);
+  }
+
+  .social-header h2 { margin-bottom: var(--space-6); }
+  .social-header .lead { margin-inline: auto; }
+
+  .social-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    .social-grid { grid-template-columns: 1fr 1fr; }
+    .social-video-wrap { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 560px) {
+    .social-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Video placeholder */
+  .video-placeholder {
+    aspect-ratio: 16/9;
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: background var(--transition);
+    cursor: pointer;
+  }
+
+  .video-placeholder:hover { background: var(--color-bg-muted); }
+
+  .video-play {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-text);
+    color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-placeholder-text {
+    font-size: var(--text-sm);
+    color: var(--color-text-faint);
+    max-width: none;
+    margin: 0;
+  }
+
+  /* Instagram grid */
+  .instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+  }
+
+  .instagram-tile {
+    aspect-ratio: 1;
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-faint);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: background var(--transition);
+  }
+
+  .instagram-tile:hover { background: var(--color-bg-muted); }
+
+  .instagram-follow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .instagram-follow:hover { color: var(--color-text); }
+
+  /* Newsletter */
+  .newsletter-wrap {
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .newsletter-headline {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+  }
+
+  .newsletter-body {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    max-width: none;
+    margin-bottom: var(--space-6);
+    line-height: 1.6;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .newsletter-input {
+    padding: 0.75em 1em;
+    border: 1.5px solid rgba(0,0,0,0.12);
+    border-radius: var(--radius-sm);
+    background: var(--color-white);
+    color: var(--color-text);
+    font-size: var(--text-sm);
+    transition: border-color var(--transition);
+    width: 100%;
+  }
+
+  .newsletter-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .newsletter-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: var(--text-sm);
+    padding: 0.8em 1.5em;
+  }
+
+  .newsletter-note {
+    font-size: var(--text-xs);
+    color: var(--color-text-faint);
+    max-width: none;
+    margin: 0;
   }
 </style>

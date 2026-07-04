@@ -2,27 +2,36 @@
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import type { Lang } from '../i18n';
 
 interface Props {
   title: string;
   description: string;
+  lang?: Lang;
   canonicalUrl?: string;
   ogImage?: string;
+  bodyClass?: string;
 }
 
 const {
   title,
   description,
+  lang = 'de',
   canonicalUrl = Astro.url.href,
   ogImage = '/images/og-image.jpg',
+  bodyClass = '',
 } = Astro.props;
 
 const fullTitle = `${title} | Raum für dich`;
 const siteUrl = 'https://raumfuerdich-impulse.de';
+const altLang  = lang === 'de' ? 'en' : 'de';
+const altHref  = lang === 'de'
+  ? `${siteUrl}/en${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`
+  : `${siteUrl}${Astro.url.pathname.replace(/^\/en/, '') || '/'}`;
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,22 +40,24 @@ const siteUrl = 'https://raumfuerdich-impulse.de';
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang={altLang} href={altHref} />
+    <link rel="alternate" hreflang="x-default" href={siteUrl} />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={fullTitle} />
+    <meta property="og:type"        content="website" />
+    <meta property="og:title"       content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
-    <meta property="og:locale" content="de_DE" />
-    <meta property="og:site_name" content="Raum für dich" />
+    <meta property="og:url"         content={canonicalUrl} />
+    <meta property="og:image"       content={`${siteUrl}${ogImage}`} />
+    <meta property="og:locale"      content={lang === 'de' ? 'de_DE' : 'en_GB'} />
+    <meta property="og:site_name"   content="Raum für dich" />
 
     <!-- Twitter / X Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+    <meta name="twitter:image"       content={`${siteUrl}${ogImage}`} />
 
     <!-- Schema.org – LocalBusiness -->
     <script type="application/ld+json">
@@ -54,7 +65,7 @@ const siteUrl = 'https://raumfuerdich-impulse.de';
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Raum für dich",
-        "description": "Ordnungscoaching vor Ort und online – ich helfe dir, aus Überforderung wieder Klarheit und Leichtigkeit zu schaffen.",
+        "description": "Ordnungscoaching, Professional Organizing und Feng Shui – ich helfe dir, einen Raum zu schaffen, der den Menschen trägt, der du werden möchtest.",
         "url": "https://raumfuerdich-impulse.de",
         "email": "info@raumfuerdich-impulse.de",
         "address": {
@@ -67,25 +78,23 @@ const siteUrl = 'https://raumfuerdich-impulse.de';
           { "@type": "City", "name": "Kaiserslautern" },
           { "@type": "Country", "name": "Deutschland" }
         ],
-        "serviceType": ["Ordnungscoaching", "Aufräumcoaching", "Online-Coaching"],
+        "serviceType": ["Ordnungscoaching", "Professional Organizing", "Feng Shui Coaching"],
         "priceRange": "auf Anfrage",
-        "founder": {
-          "@type": "Person",
-          "name": "Cassandra Koenen"
-        }
+        "founder": { "@type": "Person", "name": "Cassandra Koenen" }
       }
     </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/logo-no-text.png" />
-    <link rel="apple-touch-icon" href="/images/logo-no-text.png" />
+    <link rel="apple-touch-icon"      href="/images/logo-no-text.png" />
   </head>
-  <body>
-    <Nav />
+  <body class={bodyClass}>
+    <Nav lang={lang} />
     <main id="main-content">
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
+
     <script>
       const observer = new IntersectionObserver(
         (entries) => {
@@ -96,7 +105,7 @@ const siteUrl = 'https://raumfuerdich-impulse.de';
             }
           });
         },
-        { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+        { threshold: 0.1, rootMargin: '0px 0px -48px 0px' }
       );
       document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
     </script>
