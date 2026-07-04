@@ -1,6 +1,12 @@
 ---
-const status = Astro.url?.searchParams?.get('status');
 ---
+
+<div id="form-notice-ok" class="form-notice form-notice--ok" role="alert" hidden>
+  ✓ Deine Nachricht ist angekommen – ich melde mich bald bei dir!
+</div>
+<div id="form-notice-error" class="form-notice form-notice--error" role="alert" hidden>
+  Es gab leider ein Problem. Schreib mir direkt an <a href="mailto:info@raumfuerdich-impulse.de">info@raumfuerdich-impulse.de</a>.
+</div>
 
 <form
   name="kontakt"
@@ -12,17 +18,6 @@ const status = Astro.url?.searchParams?.get('status');
   <p class="visually-hidden">
     <label>Nicht ausfüllen: <input name="bot-field" /></label>
   </p>
-
-  {status === 'ok' && (
-    <div class="form-notice form-notice--ok" role="alert">
-      ✓ Deine Nachricht ist angekommen – ich melde mich bald bei dir!
-    </div>
-  )}
-  {status === 'error' && (
-    <div class="form-notice form-notice--error" role="alert">
-      Es gab leider ein Problem. Schreib mir direkt an <a href="mailto:info@raumfuerdich-impulse.de">info@raumfuerdich-impulse.de</a>.
-    </div>
-  )}
 
   <div class="form-row">
     <div class="form-group">
@@ -224,3 +219,13 @@ const status = Astro.url?.searchParams?.get('status');
     transform: translateY(0);
   }
 </style>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const status = params.get('status');
+  if (status === 'ok') {
+    document.getElementById('form-notice-ok')?.removeAttribute('hidden');
+  } else if (status === 'error') {
+    document.getElementById('form-notice-error')?.removeAttribute('hidden');
+  }
+</script>
