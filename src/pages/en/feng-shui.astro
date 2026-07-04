@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../i18n';
+
+const tr = t('en');
+const f  = tr.fengshui;
+
+const philosophyPoints = [
+  { icon: '🧘', text: 'Psychologically grounded, not mystical' },
+  { icon: '🌱', text: 'Sustainable and practical for daily life' },
+  { icon: '💛', text: 'Tailored individually to you' },
+];
+---
+
+<BaseLayout
+  title={f.meta.title}
+  description={f.meta.description}
+  lang="en"
+>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content" data-animate>
+        <span class="label">{f.hero.label}</span>
+        <h1>{f.hero.headline}</h1>
+        <p class="lead">{f.hero.body}</p>
+        <a href="/en/contact" class="btn-primary">Book initial call</a>
+      </div>
+    </div>
+    <div class="hero-accent" aria-hidden="true"></div>
+  </section>
+
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-text" data-animate>
+          <h2>{f.intro.headline}</h2>
+          <p class="lead">{f.intro.body}</p>
+        </div>
+        <blockquote class="intro-quote" data-animate data-delay="150">
+          {f.intro.quote}
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section aspects-section">
+    <div class="container">
+      <div class="section-header text-center" data-animate>
+        <span class="label">What we look at</span>
+        <h2>Four dimensions of your space</h2>
+      </div>
+      <div class="aspects-grid">
+        {f.aspects.map((aspect, i) => (
+          <div class="aspect-card" data-animate data-delay={`${i * 100}`}>
+            <span class="aspect-icon" aria-hidden="true">{aspect.icon}</span>
+            <h4>{aspect.label}</h4>
+            <p>{aspect.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section philosophy-section">
+    <div class="container philosophy-inner">
+      <div class="philosophy-content" data-animate>
+        <span class="label">My approach</span>
+        <h2>Feng Shui, reimagined</h2>
+        <p class="lead">I combine the ancient wisdom of Feng Shui with modern environmental psychology and decluttering work. The result is an approach that is spiritually open but not esoteric — one that actually feels different in your everyday life.</p>
+        <div class="philosophy-points">
+          {philosophyPoints.map(point => (
+            <div class="philosophy-point">
+              <span aria-hidden="true">{point.icon}</span>
+              <span>{point.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="philosophy-visual" data-animate data-delay="200" aria-hidden="true">
+        <div class="visual-circle">
+          <span>Space</span>
+          <span class="visual-arrow">↕</span>
+          <span>Person</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner" data-animate>
+    <div class="container cta-inner">
+      <h2>{f.cta.headline}</h2>
+      <p>{f.cta.body}</p>
+      <a href={f.cta.ctaHref} class="btn-primary btn-lg">{f.cta.cta}</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero { position: relative; background: var(--color-sand-bg); padding-top: calc(var(--section-py) + 2rem); padding-bottom: var(--section-py); overflow: hidden; }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-content { max-width: 640px; }
+  .hero-content h1 { font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)); color: var(--color-brown); margin: var(--space-4) 0 var(--space-6); white-space: pre-line; }
+  .hero-content .lead { font-size: var(--text-md); color: var(--color-olive); margin-bottom: var(--space-8); max-width: none; }
+  .hero-accent { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 85% 50%, var(--color-sand) 0%, transparent 70%); pointer-events: none; opacity: 0.5; }
+
+  .btn-primary { display: inline-flex; align-items: center; gap: var(--space-2); background: var(--color-olive); color: #fff; padding: var(--space-3) var(--space-8); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 500; text-decoration: none; transition: background var(--transition), transform var(--transition); }
+  .btn-primary:hover { background: var(--color-brown); transform: translateY(-1px); }
+  .btn-primary.btn-lg { padding: var(--space-4) var(--space-10); font-size: var(--text-base); }
+
+  .intro-section { background: var(--color-white); }
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; }
+  @media (max-width: 768px) { .intro-grid { grid-template-columns: 1fr; gap: var(--space-8); } }
+  .intro-text h2 { color: var(--color-brown); margin-bottom: var(--space-5); }
+  .intro-text .lead { color: var(--color-olive); }
+  .intro-quote { font-family: var(--font-heading); font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl)); font-style: italic; font-weight: 300; color: var(--color-olive); line-height: 1.5; border-left: 3px solid var(--color-clay); padding-left: var(--space-8); margin: 0; }
+
+  .aspects-section { background: var(--color-sand-subtle); }
+  .section-header { margin-bottom: var(--space-12); }
+  .section-header h2 { color: var(--color-brown); margin-top: var(--space-3); }
+  .aspects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-6); }
+  .aspect-card { background: var(--color-white); border-radius: var(--radius-md); padding: var(--space-8) var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); box-shadow: var(--shadow-sm); }
+  .aspect-icon { font-size: 1.75rem; display: block; }
+  .aspect-card h4 { color: var(--color-brown); font-size: var(--text-base); font-weight: 600; font-family: var(--font-body); }
+  .aspect-card p { font-size: var(--text-sm); color: var(--color-olive); max-width: none; line-height: 1.6; }
+
+  .philosophy-section { background: var(--color-white); }
+  .philosophy-inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; }
+  @media (max-width: 768px) { .philosophy-inner { grid-template-columns: 1fr; gap: var(--space-8); } .philosophy-visual { display: none; } }
+  .philosophy-content h2 { color: var(--color-brown); margin: var(--space-3) 0 var(--space-5); }
+  .philosophy-content .lead { color: var(--color-olive); margin-bottom: var(--space-8); }
+  .philosophy-points { display: flex; flex-direction: column; gap: var(--space-4); }
+  .philosophy-point { display: flex; align-items: center; gap: var(--space-4); font-size: var(--text-sm); color: var(--color-olive); font-weight: 500; }
+  .philosophy-point span:first-child { font-size: 1.25rem; }
+  .philosophy-visual { display: flex; justify-content: center; align-items: center; }
+  .visual-circle { width: 220px; height: 220px; border-radius: 50%; border: 2px solid var(--color-clay); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2); background: var(--color-sand-subtle); }
+  .visual-circle span { font-family: var(--font-heading); font-size: var(--text-xl); font-style: italic; font-weight: 300; color: var(--color-olive); }
+  .visual-arrow { font-size: var(--text-2xl) !important; font-style: normal !important; color: var(--color-clay) !important; line-height: 1; }
+
+  .cta-banner { background: var(--color-brown); padding-block: var(--section-py); text-align: center; }
+  .cta-inner { max-width: 600px; }
+  .cta-banner h2 { color: #fff; margin-bottom: var(--space-4); }
+  .cta-banner p { color: rgba(255,255,255,0.75); margin-inline: auto; margin-bottom: var(--space-8); max-width: none; }
+  .cta-banner .btn-primary { background: var(--color-clay); color: #fff; }
+  .cta-banner .btn-primary:hover { background: var(--color-sand); color: var(--color-brown); }
+</style>

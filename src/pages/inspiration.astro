@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t } from '../i18n';
+
+const tr = t('de');
+const b  = tr.blog;
+---
+
+<BaseLayout
+  title={b.meta.title}
+  description={b.meta.description}
+  lang="de"
+>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content" data-animate>
+        <span class="label">{b.hero.label}</span>
+        <h1 class="pre-line">{b.hero.headline}</h1>
+        <p class="lead">{b.hero.body}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       COMING SOON
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section coming-soon-section">
+    <div class="container coming-soon-inner" data-animate>
+      <div class="coming-soon-card">
+        <span class="coming-soon-icon" aria-hidden="true">✍️</span>
+        <p class="coming-soon-text">{b.comingSoon}</p>
+        <p class="coming-soon-sub">In der Zwischenzeit: Folge mir auf Instagram für regelmäßige Impulse.</p>
+        <a href="/kontakt" class="btn-outline">Schreib mir direkt</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── Hero ────────────────────────────────────────────────────────── */
+  .hero {
+    background: var(--color-bg);
+    padding-top: calc(var(--section-py) + 2rem);
+    padding-bottom: var(--section-py);
+  }
+
+  .hero-content { max-width: 600px; }
+
+  .hero-content h1 {
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+    margin: var(--space-4) 0 var(--space-6);
+  }
+
+  .pre-line { white-space: pre-line; }
+
+  .hero-content .lead {
+    font-size: var(--text-md);
+    color: var(--color-text-muted);
+  }
+
+  /* ── Coming soon ─────────────────────────────────────────────────── */
+  .coming-soon-section { background: var(--color-bg-alt); }
+
+  .coming-soon-inner {
+    display: flex;
+    justify-content: center;
+  }
+
+  .coming-soon-card {
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-16) var(--space-12);
+    text-align: center;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-5);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .coming-soon-icon { font-size: 2.5rem; }
+
+  .coming-soon-text {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-style: italic;
+    color: var(--color-text);
+    max-width: none;
+    line-height: 1.5;
+  }
+
+  .coming-soon-sub {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    max-width: 32ch;
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: transparent;
+    color: var(--color-text);
+    border: 1.5px solid var(--color-bg-muted);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color var(--transition), background var(--transition);
+    margin-top: var(--space-2);
+  }
+  .btn-outline:hover {
+    border-color: var(--color-text-muted);
+    background: var(--color-bg-alt);
+  }
+</style>

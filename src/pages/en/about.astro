@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../i18n';
+
+const tr = t('en');
+
+const values = [
+  { icon: '🌱', title: 'No perfection', text: 'It doesn\'t have to be perfect — it just has to work for you. My approach is practical, not aspirational.' },
+  { icon: '🐢', title: 'Your pace',      text: 'We go at the speed that feels right for you. No pressure, no rushing, no judgement.' },
+  { icon: '♻️', title: 'Lasting change', text: 'I\'m not interested in quick fixes that fall apart in a week. I want to create systems that hold.' },
+];
+---
+
+<BaseLayout
+  title={tr.about.meta.title}
+  description={tr.about.meta.description}
+  lang="en"
+>
+
+  <!-- ── HERO ──────────────────────────────────────────────────────────── -->
+  <section class="hero-section">
+    <div class="container hero-inner">
+      <div class="hero-content" data-animate>
+        <span class="label">About</span>
+        <h1>Behind Raum für dich</h1>
+        <p class="lead">
+          I'm Cassandra — and what drives me is not the tidying itself,
+          but what happens after: when someone takes a breath, looks around
+          and realises that something has shifted on the inside too.
+          That feeling is what I want to create for you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STORY ─────────────────────────────────────────────────────────── -->
+  <section class="section section--white">
+    <div class="container story-inner">
+      <div class="portrait-wrap" data-animate="scale">
+        <img src="/images/me.png" alt="Cassandra Koenen" class="portrait-img" />
+      </div>
+
+      <div class="story-text" data-animate data-delay="200">
+        <span class="label">My path</span>
+        <h2>Why I do what I do</h2>
+        <p>
+          Organising, structuring, creating space — this has always brought me joy.
+          At some point I realised I didn't want to keep this joy to myself.
+          I wanted to share it with people who feel overwhelmed by their own four walls.
+        </p>
+        <p>
+          Inspired by Feng Shui, I began to understand that a space is more than
+          a practical matter. It is a resonance space — it reflects where we are
+          and influences where we can go. Since then, my work has become something
+          I believe in deeply: freeing spaces so that people can feel freer too.
+        </p>
+        <p>
+          I'm based near Kaiserslautern and work both locally and online.
+          Every home is different. Every person is different.
+          And that's exactly why I always start with listening.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VALUES ────────────────────────────────────────────────────────── -->
+  <section class="section section--bg">
+    <div class="container">
+      <div class="values-header text-center" data-animate>
+        <span class="label">What guides me</span>
+        <h2>My values</h2>
+      </div>
+      <div class="values-grid">
+        {values.map((val, i) => (
+          <div class="value-card" data-animate data-delay={`${i * 120}`}>
+            <span class="value-icon" aria-hidden="true">{val.icon}</span>
+            <h4>{val.title}</h4>
+            <p>{val.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ───────────────────────────────────────────────────────────── -->
+  <section class="cta-section" data-animate>
+    <div class="container cta-inner">
+      <h2>Ready to take the first step?</h2>
+      <p>The initial call is free and without obligation. Just reach out.</p>
+      <a href="/en/contact" class="btn-primary">Free initial call</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero-section {
+    background: var(--color-sand-bg);
+    padding-top: calc(var(--section-py) + 2rem);
+    padding-bottom: var(--section-py);
+  }
+
+  .hero-content { max-width: 600px; }
+  .hero-content h1 { font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)); margin: var(--space-4) 0 var(--space-6); }
+  .hero-content .lead { font-size: var(--text-md); color: var(--color-text-muted); max-width: none; }
+
+  .story-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: var(--space-20);
+    align-items: start;
+  }
+
+  @media (max-width: 640px) {
+    .story-inner { grid-template-columns: 1fr; gap: var(--space-10); }
+  }
+
+  .portrait-img {
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    display: block;
+  }
+
+  .story-text h2 { margin: var(--space-3) 0 var(--space-6); }
+  .story-text p { margin-bottom: var(--space-5); }
+  .story-text p:last-child { margin-bottom: 0; }
+
+  .values-header { margin-bottom: var(--space-12); }
+  .values-header h2 { margin-top: var(--space-3); }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .value-card {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .value-icon { font-size: 1.75rem; }
+  .value-card h4 { font-family: var(--font-body); font-size: var(--text-base); font-weight: 600; }
+  .value-card p { font-size: var(--text-sm); color: var(--color-text-muted); max-width: none; line-height: 1.7; }
+
+  .cta-section {
+    background: var(--color-text);
+    padding-block: var(--section-py);
+    text-align: center;
+  }
+
+  .cta-inner { max-width: 560px; }
+  .cta-section h2 { color: #fff; margin-bottom: var(--space-4); }
+  .cta-section p { color: rgba(255,255,255,0.65); margin-inline: auto; margin-bottom: var(--space-8); max-width: none; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: var(--color-bg);
+    color: var(--color-text);
+    padding: var(--space-4) var(--space-10);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background var(--transition), transform var(--transition);
+  }
+  .btn-primary:hover { background: var(--color-bg-alt); transform: translateY(-1px); }
+</style>

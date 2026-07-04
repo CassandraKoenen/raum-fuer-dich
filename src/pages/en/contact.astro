@@ -1,0 +1,226 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../i18n';
+
+const tr = t('en');
+---
+
+<BaseLayout
+  title={tr.contact.meta.title}
+  description={tr.contact.meta.description}
+  lang="en"
+>
+
+  <!-- ── HERO ──────────────────────────────────────────────────────────── -->
+  <section class="hero-section">
+    <div class="container">
+      <span class="label" data-animate>Contact</span>
+      <h1 data-animate data-delay="100">Let's talk</h1>
+      <p class="lead" data-animate data-delay="200">
+        Got a question, a specific situation, or just want to see if we're a good fit?
+        I'd love to hear from you.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── FORM + ALTERNATIVES ───────────────────────────────────────────── -->
+  <section class="section section--white">
+    <div class="container contact-inner">
+
+      <!-- Form -->
+      <div data-animate>
+        <span class="label">Write to me</span>
+        <h2>Your message</h2>
+        <p class="lead">I'll get back to you within 24 hours — usually faster.</p>
+
+        <form
+          class="contact-form"
+          method="POST"
+          action="/contact.php"
+          id="contact-form"
+          novalidate
+        >
+          <input type="hidden" name="lang" value="en" />
+
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required autocomplete="name" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your email address</label>
+            <input type="email" id="email" name="email" required autocomplete="email" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <div class="form-group form-check">
+            <input type="checkbox" id="datenschutz" name="datenschutz" required />
+            <label for="datenschutz">
+              I have read the <a href="/datenschutz">privacy policy</a> and agree to the processing of my data.
+            </label>
+          </div>
+
+          <button type="submit" class="btn-primary">Send message</button>
+        </form>
+
+        <div class="form-notice form-notice--success" hidden>
+          <strong>Thank you!</strong> Your message has been sent. I'll be in touch soon.
+        </div>
+        <div class="form-notice form-notice--error" hidden>
+          <strong>Something went wrong.</strong> Please try again or write to me directly by email.
+        </div>
+      </div>
+
+      <!-- Alternatives -->
+      <aside class="alternatives" data-animate data-delay="200">
+        <span class="label">Or directly</span>
+        <h2>Other ways to reach me</h2>
+
+        <div class="alt-links">
+          <a href="mailto:info@raumfuerdich-impulse.de" class="alt-link">
+            <span class="alt-icon" aria-hidden="true">✉️</span>
+            <div>
+              <strong>Email</strong>
+              <span>info@raumfuerdich-impulse.de</span>
+            </div>
+          </a>
+
+          <a href="https://wa.me/49" class="alt-link">
+            <span class="alt-icon" aria-hidden="true">💬</span>
+            <div>
+              <strong>WhatsApp</strong>
+              <span>Quick message, quick reply</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="response-note">
+          <p>I respond within 24 hours — usually faster.</p>
+          <p class="free-note">The initial call is always free and without obligation.</p>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('status') === 'ok') {
+    document.querySelector<HTMLElement>('.form-notice--success')?.removeAttribute('hidden');
+  } else if (params.get('status') === 'error') {
+    document.querySelector<HTMLElement>('.form-notice--error')?.removeAttribute('hidden');
+  }
+</script>
+
+<style>
+  .hero-section {
+    background: var(--color-blue-bg);
+    padding-top: calc(var(--section-py) + 2rem);
+    padding-bottom: var(--section-py);
+  }
+
+  .hero-section h1 { font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)); margin: var(--space-4) 0 var(--space-5); }
+  .hero-section .lead { font-size: var(--text-md); color: var(--color-text-muted); }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--space-20);
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .contact-inner { grid-template-columns: 1fr; gap: var(--space-12); }
+  }
+
+  h2 { margin: var(--space-3) 0 var(--space-5); }
+  .lead { margin-bottom: var(--space-8); }
+
+  .contact-form { display: flex; flex-direction: column; gap: var(--space-5); margin-top: var(--space-8); }
+
+  .form-group { display: flex; flex-direction: column; gap: var(--space-2); }
+  .form-group label { font-size: var(--text-sm); font-weight: 500; color: var(--color-text); }
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75em 1em;
+    border: 1.5px solid var(--color-bg-muted);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text);
+    background: var(--color-white);
+    transition: border-color var(--transition);
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { outline: none; border-color: var(--color-accent); }
+  .form-group textarea { resize: vertical; min-height: 140px; }
+
+  .form-check { flex-direction: row; align-items: flex-start; gap: var(--space-3); }
+  .form-check input { width: auto; margin-top: 3px; flex-shrink: 0; }
+  .form-check label { font-size: var(--text-sm); color: var(--color-text-muted); }
+  .form-check a { color: var(--color-accent); }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-text);
+    color: var(--color-bg);
+    padding: var(--space-4) var(--space-10);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+    align-self: flex-start;
+  }
+  .btn-primary:hover { background: var(--color-accent-dark); transform: translateY(-1px); }
+
+  .form-notice {
+    margin-top: var(--space-6);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+  }
+  .form-notice--success { background: #edf7ed; color: #2d5a2d; border: 1px solid #b8dfb8; }
+  .form-notice--error   { background: #fdf2f2; color: #7a2020; border: 1px solid #e8b4b4; }
+
+  /* Alternatives */
+  .alternatives { padding-top: calc(var(--space-3) + 1.375rem + var(--space-4)); }
+
+  @media (max-width: 768px) { .alternatives { padding-top: 0; } }
+
+  .alternatives h2 { margin: var(--space-3) 0 var(--space-8); }
+
+  .alt-links { display: flex; flex-direction: column; gap: var(--space-4); margin-bottom: var(--space-10); }
+
+  .alt-link {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: background var(--transition), transform var(--transition);
+  }
+  .alt-link:hover { background: var(--color-bg-alt); transform: translateY(-1px); }
+
+  .alt-icon { font-size: 1.5rem; flex-shrink: 0; }
+
+  .alt-link strong { display: block; font-size: var(--text-sm); font-weight: 600; color: var(--color-text); margin-bottom: var(--space-1); }
+  .alt-link span { font-size: var(--text-sm); color: var(--color-text-muted); }
+
+  .response-note { border-top: 1px solid var(--color-bg-muted); padding-top: var(--space-6); }
+  .response-note p { font-size: var(--text-sm); color: var(--color-text-muted); max-width: none; margin-bottom: var(--space-2); }
+  .free-note { font-style: italic; }
+</style>
