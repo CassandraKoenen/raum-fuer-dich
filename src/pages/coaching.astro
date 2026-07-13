@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { t } from '../i18n';
+import Placeholder from '../components/Placeholder.astro';
 
 const tr = t('de');
 const c  = tr.coaching;
@@ -16,6 +17,22 @@ const c  = tr.coaching;
        HERO
   ═══════════════════════════════════════════════════════════════ -->
   <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <!--
+        IMAGE PROMPT: Tranquil reading corner, dusty blue-gray linen cushion on a cream sofa,
+        soft morning light through white curtains, an open book resting on the armrest. Color
+        palette: warm ivory #FAF9F6, blue mist #DCE4E8, dusty blue #9EB3BF, slate blue #6D96A8.
+        Interior photography, serene and calm atmosphere. Photorealistic.
+        → File: public/images/hero-coaching.jpg
+      -->
+      <Placeholder
+        label="Bild generieren: Leseecke in Elfenbein & Staubblau (#FAF9F6, #9EB3BF, #6D96A8)"
+        ratio="16/9"
+        class="hero-bg-img"
+      />
+      <div class="hero-overlay"></div>
+    </div>
+
     <div class="container hero-inner">
       <div class="hero-content" data-animate>
         <span class="label">{c.hero.label}</span>
@@ -24,7 +41,6 @@ const c  = tr.coaching;
         <a href="/kontakt" class="btn-primary">Kostenloses Erstgespräch</a>
       </div>
     </div>
-    <div class="hero-accent" aria-hidden="true"></div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
@@ -38,9 +54,16 @@ const c  = tr.coaching;
           <p class="lead">{c.intro.body}</p>
         </div>
         <div class="intro-img-wrap" data-animate data-delay="150">
-          <img
-            src="/images/atmosphere-curtains.png"
-            alt="Helles, ruhiges Zimmer mit sanftem Licht"
+          <!--
+            IMAGE PROMPT: Soft morning light falling through sheer white curtains in a minimal
+            room, blue-gray linen draped over a chair, a ceramic mug on a windowsill. Color
+            palette: warm ivory #FAF9F6, dusty blue #9EB3BF, blue mist #DCE4E8, slate #6D96A8.
+            Intimate interior scene, photorealistic.
+            → File: public/images/coaching-intro.jpg
+          -->
+          <Placeholder
+            label="Bild generieren: Morgenlicht & Leinen in Staubblau (#9EB3BF, #DCE4E8)"
+            ratio="4/5"
             class="intro-img"
           />
         </div>
@@ -115,13 +138,46 @@ const c  = tr.coaching;
   /* ── Hero ────────────────────────────────────────────────────────── */
   .hero {
     position: relative;
-    background: var(--color-blue-bg);
+    min-height: 80svh;
+    display: flex;
+    align-items: center;
     padding-top: calc(var(--section-py) + 2rem);
     padding-bottom: var(--section-py);
     overflow: hidden;
   }
 
-  .hero-inner { position: relative; z-index: 1; }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    background: var(--color-blue-bg);
+  }
+
+  :global(.hero-bg-img) {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: unset !important;
+    border-radius: 0 !important;
+    border: none !important;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(250, 249, 246, 0.93) 0%,
+      rgba(250, 249, 246, 0.80) 45%,
+      rgba(220, 228, 232, 0.18) 100%
+    );
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
 
   .hero-content { max-width: 640px; }
 
@@ -136,14 +192,6 @@ const c  = tr.coaching;
     font-size: var(--text-md);
     color: var(--color-blue-text);
     margin-bottom: var(--space-8);
-  }
-
-  .hero-accent {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 85% 50%, var(--color-blue-mist) 0%, transparent 70%);
-    pointer-events: none;
   }
 
   /* ── Buttons ─────────────────────────────────────────────────────── */
@@ -210,14 +258,9 @@ const c  = tr.coaching;
     align-items: flex-start;
   }
 
-  .intro-img {
+  :global(.intro-img) {
     width: 100%;
-    max-width: 420px;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    object-position: center;
     border-radius: var(--radius-lg);
-    display: block;
   }
 
   /* ── Offerings ───────────────────────────────────────────────────── */

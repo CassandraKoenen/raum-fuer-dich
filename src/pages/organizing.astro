@@ -24,6 +24,22 @@ const processSteps = [
        HERO
   ═══════════════════════════════════════════════════════════════ -->
   <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <!--
+        IMAGE PROMPT: Beautifully organized open shelves with neatly stacked cream ceramics,
+        folded natural linen, small potted herbs, warm natural daylight. Color palette: light
+        sage #F4F6F4, sage stone #C7D1C6, soft sage #9CAF9E, deep sage #455347, forest
+        #1F2A21. Interior photography, clean and intentional. Photorealistic.
+        → File: public/images/hero-organizing.jpg
+      -->
+      <Placeholder
+        label="Bild generieren: Aufgeräumte Regale in Salbeigrün (#9CAF9E, #F4F6F4, #455347)"
+        ratio="16/9"
+        class="hero-bg-img"
+      />
+      <div class="hero-overlay"></div>
+    </div>
+
     <div class="container hero-inner">
       <div class="hero-content" data-animate>
         <span class="label">{o.hero.label}</span>
@@ -32,7 +48,6 @@ const processSteps = [
         <a href="/kontakt" class="btn-primary">Anfrage senden</a>
       </div>
     </div>
-    <div class="hero-accent" aria-hidden="true"></div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
@@ -46,9 +61,15 @@ const processSteps = [
           <p class="lead">{o.intro.body}</p>
         </div>
         <div class="intro-img-wrap" data-animate data-delay="150">
-          <!-- IMAGE PROMPT: Minimalist organized shelf with folded linens, natural baskets, warm light, earth tones, Scandinavian aesthetic, photorealistic -->
+          <!--
+            IMAGE PROMPT: Minimalist organized shelf with folded sage-green linen, natural
+            rattan baskets, small potted plants, warm daylight. Color palette: light sage
+            #F4F6F4, soft sage #9CAF9E, sage stone #C7D1C6, deep sage #455347. Scandinavian
+            interior photography, clean and calm. Photorealistic.
+            → File: public/images/organizing-intro.jpg
+          -->
           <Placeholder
-            label="Bild generieren: Aufgeräumtes Regal mit natürlichen Materialien, warmes Licht, minimalistisch"
+            label="Bild generieren: Aufgeräumtes Regal in Salbeigrün (#9CAF9E, #C7D1C6, #F4F6F4)"
             ratio="4/5"
             class="intro-img"
           />
@@ -118,13 +139,46 @@ const processSteps = [
   /* ── Hero ────────────────────────────────────────────────────────── */
   .hero {
     position: relative;
-    background: var(--color-green-bg);
+    min-height: 80svh;
+    display: flex;
+    align-items: center;
     padding-top: calc(var(--section-py) + 2rem);
     padding-bottom: var(--section-py);
     overflow: hidden;
   }
 
-  .hero-inner { position: relative; z-index: 1; }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    background: var(--color-green-bg);
+  }
+
+  :global(.hero-bg-img) {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: unset !important;
+    border-radius: 0 !important;
+    border: none !important;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(244, 246, 244, 0.93) 0%,
+      rgba(244, 246, 244, 0.80) 45%,
+      rgba(199, 209, 198, 0.18) 100%
+    );
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
 
   .hero-content { max-width: 640px; }
 
@@ -140,15 +194,6 @@ const processSteps = [
     color: var(--color-green);
     margin-bottom: var(--space-8);
     max-width: none;
-  }
-
-  .hero-accent {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 85% 50%, var(--color-green-stone) 0%, transparent 70%);
-    pointer-events: none;
-    opacity: 0.4;
   }
 
   /* ── Buttons ─────────────────────────────────────────────────────── */

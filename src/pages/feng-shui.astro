@@ -23,6 +23,23 @@ const philosophyPoints = [
        HERO
   ═══════════════════════════════════════════════════════════════ -->
   <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <!--
+        IMAGE PROMPT: Serene meditation corner with a low wooden table, a white candle, dried
+        lavender, a dusty plum linen cushion on a natural-fiber rug, soft morning light through
+        sheer curtains. Color palette: warm ivory #F6F2F7, light lavender gray #E7DFEA, soft
+        lilac #D6C7DA, dusty plum #A58BAA, deep plum #6E556F. Interior photography, elevated
+        and calm. Photorealistic.
+        → File: public/images/hero-feng-shui.jpg
+      -->
+      <Placeholder
+        label="Bild generieren: Meditationsecke in Warmelfenbein & Staubrosa (#A58BAA, #F6F2F7, #D6C7DA)"
+        ratio="16/9"
+        class="hero-bg-img"
+      />
+      <div class="hero-overlay"></div>
+    </div>
+
     <div class="container hero-inner">
       <div class="hero-content" data-animate>
         <span class="label">{f.hero.label}</span>
@@ -31,7 +48,6 @@ const philosophyPoints = [
         <a href="/kontakt" class="btn-primary">Erstgespräch buchen</a>
       </div>
     </div>
-    <div class="hero-accent" aria-hidden="true"></div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
@@ -91,9 +107,16 @@ const philosophyPoints = [
         </div>
       </div>
       <div class="philosophy-img-wrap" data-animate data-delay="200">
-        <!-- IMAGE PROMPT: Serene living room with soft flowing curtains, indoor plants, natural daylight, warm earthy tones, peaceful Zen atmosphere, photorealistic -->
+        <!--
+          IMAGE PROMPT: Tranquil room corner with soft lilac linen cushions, a small wooden
+          shelf with crystals and dried botanicals, sheer dusty-plum curtains filtering
+          afternoon light. Color palette: warm ivory #F6F2F7, light lavender gray #E7DFEA,
+          soft lilac #D6C7DA, dusty plum #A58BAA, deep plum #6E556F. Interior photography,
+          quiet luxury, elevated. Photorealistic.
+          → File: public/images/feng-shui-philosophy.jpg
+        -->
         <Placeholder
-          label="Bild generieren: Ruhiger Raum mit Zimmerpflanzen, natürlichem Licht und sanfter Atmosphäre"
+          label="Bild generieren: Ruhige Raumecke in Flieder & Staumlila (#A58BAA, #D6C7DA, #F6F2F7)"
           ratio="4/5"
           class="philosophy-img"
         />
@@ -118,13 +141,46 @@ const philosophyPoints = [
   /* ── Hero ────────────────────────────────────────────────────────── */
   .hero {
     position: relative;
-    background: var(--color-sand-bg);
+    min-height: 80svh;
+    display: flex;
+    align-items: center;
     padding-top: calc(var(--section-py) + 2rem);
     padding-bottom: var(--section-py);
     overflow: hidden;
   }
 
-  .hero-inner { position: relative; z-index: 1; }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    background: var(--color-sand-bg);
+  }
+
+  :global(.hero-bg-img) {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: unset !important;
+    border-radius: 0 !important;
+    border: none !important;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(246, 242, 247, 0.93) 0%,
+      rgba(246, 242, 247, 0.80) 45%,
+      rgba(214, 199, 218, 0.18) 100%
+    );
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
 
   .hero-content { max-width: 640px; }
 
@@ -140,15 +196,6 @@ const philosophyPoints = [
     color: var(--color-olive);
     margin-bottom: var(--space-8);
     max-width: none;
-  }
-
-  .hero-accent {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 85% 50%, var(--color-sand) 0%, transparent 70%);
-    pointer-events: none;
-    opacity: 0.5;
   }
 
   /* ── Buttons ─────────────────────────────────────────────────────── */
