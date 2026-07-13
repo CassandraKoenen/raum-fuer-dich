@@ -77,13 +77,13 @@
   --color-green-dark:  #1F2A21;
   --color-green-subtle:#E8EDE8;
 
-  /* ── Branch: Warm Sand (Feng Shui) ──────────────────────── */
-  --color-sand-bg:     #F5EFE6;
-  --color-sand:        #E2D2BB;   /* Warm Sand */
-  --color-clay:        #C8B48F;
-  --color-olive:       #A18F6F;
-  --color-brown:       #3E3A33;
-  --color-sand-subtle: #EDE4D6;
+  /* ── Branch: Dusty Plum (Feng Shui) ─────────────────────── */
+  --color-sand-bg:     #F6F2F7;   /* Warm Ivory */
+  --color-sand:        #D6C7DA;   /* Soft Lilac */
+  --color-clay:        #A58BAA;   /* Dusty Plum */
+  --color-olive:       #6E556F;   /* Deep Plum */
+  --color-brown:       #3F3342;   /* Charcoal Plum */
+  --color-sand-subtle: #E7DFEA;   /* Light Lavender Gray */
 
   /* ── Typography ──────────────────────────────────────────── */
   --font-heading: 'Cormorant Garamond', Georgia, serif;
