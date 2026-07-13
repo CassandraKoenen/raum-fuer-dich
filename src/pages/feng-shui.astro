@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { t } from '../i18n';
-import Placeholder from '../components/Placeholder.astro';
 
 const tr = t('de');
 const f  = tr.fengshui;
@@ -24,17 +23,9 @@ const philosophyPoints = [
   ═══════════════════════════════════════════════════════════════ -->
   <section class="hero">
     <div class="hero-bg" aria-hidden="true">
-      <!--
-        IMAGE PROMPT: Serene meditation corner with a low wooden table, a white candle, dried
-        lavender, a dusty plum linen cushion on a natural-fiber rug, soft morning light through
-        sheer curtains. Color palette: warm ivory #F6F2F7, light lavender gray #E7DFEA, soft
-        lilac #D6C7DA, dusty plum #A58BAA, deep plum #6E556F. Interior photography, elevated
-        and calm. Photorealistic.
-        → File: public/images/hero-feng-shui.jpg
-      -->
-      <Placeholder
-        label="Bild generieren: Meditationsecke in Warmelfenbein & Staubrosa (#A58BAA, #F6F2F7, #D6C7DA)"
-        ratio="16/9"
+      <img
+        src="/images/hero-feng-shui.png"
+        alt="Ruhige Meditationsecke mit Holztisch, Kerze, Lavendel und Leinenkissen im Morgenlicht"
         class="hero-bg-img"
       />
       <div class="hero-overlay"></div>
@@ -107,17 +98,9 @@ const philosophyPoints = [
         </div>
       </div>
       <div class="philosophy-img-wrap" data-animate data-delay="200">
-        <!--
-          IMAGE PROMPT: Tranquil room corner with soft lilac linen cushions, a small wooden
-          shelf with crystals and dried botanicals, sheer dusty-plum curtains filtering
-          afternoon light. Color palette: warm ivory #F6F2F7, light lavender gray #E7DFEA,
-          soft lilac #D6C7DA, dusty plum #A58BAA, deep plum #6E556F. Interior photography,
-          quiet luxury, elevated. Photorealistic.
-          → File: public/images/feng-shui-philosophy.jpg
-        -->
-        <Placeholder
-          label="Bild generieren: Ruhige Raumecke in Flieder & Staumlila (#A58BAA, #D6C7DA, #F6F2F7)"
-          ratio="4/5"
+        <img
+          src="/images/feng-shui-philosophy.png"
+          alt="Ruhige Raumecke mit Leinenkissen, Holzregal mit Kristallen und fliederfarbenen Vorhängen"
           class="philosophy-img"
         />
       </div>
@@ -157,12 +140,12 @@ const philosophyPoints = [
     background: var(--color-sand-bg);
   }
 
-  :global(.hero-bg-img) {
-    width: 100% !important;
-    height: 100% !important;
-    aspect-ratio: unset !important;
-    border-radius: 0 !important;
-    border: none !important;
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
   .hero-overlay {
@@ -334,11 +317,11 @@ const philosophyPoints = [
     align-items: flex-start;
   }
 
-  :global(.philosophy-img) {
+  .philosophy-img {
     width: 100%;
-    max-width: 420px;
     aspect-ratio: 4/5;
     object-fit: cover;
+    object-position: center;
     border-radius: var(--radius-lg);
     display: block;
   }

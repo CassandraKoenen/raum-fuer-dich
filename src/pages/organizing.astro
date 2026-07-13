@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { t } from '../i18n';
-import Placeholder from '../components/Placeholder.astro';
 
 const tr = t('de');
 const o  = tr.organizing;
@@ -25,16 +24,9 @@ const processSteps = [
   ═══════════════════════════════════════════════════════════════ -->
   <section class="hero">
     <div class="hero-bg" aria-hidden="true">
-      <!--
-        IMAGE PROMPT: Beautifully organized open shelves with neatly stacked cream ceramics,
-        folded natural linen, small potted herbs, warm natural daylight. Color palette: light
-        sage #F4F6F4, sage stone #C7D1C6, soft sage #9CAF9E, deep sage #455347, forest
-        #1F2A21. Interior photography, clean and intentional. Photorealistic.
-        → File: public/images/hero-organizing.jpg
-      -->
-      <Placeholder
-        label="Bild generieren: Aufgeräumte Regale in Salbeigrün (#9CAF9E, #F4F6F4, #455347)"
-        ratio="16/9"
+      <img
+        src="/images/hero-organizing.png"
+        alt="Aufgeräumte Küchenregale mit Keramik, Kräutern und natürlichem Tageslicht"
         class="hero-bg-img"
       />
       <div class="hero-overlay"></div>
@@ -61,16 +53,9 @@ const processSteps = [
           <p class="lead">{o.intro.body}</p>
         </div>
         <div class="intro-img-wrap" data-animate data-delay="150">
-          <!--
-            IMAGE PROMPT: Minimalist organized shelf with folded sage-green linen, natural
-            rattan baskets, small potted plants, warm daylight. Color palette: light sage
-            #F4F6F4, soft sage #9CAF9E, sage stone #C7D1C6, deep sage #455347. Scandinavian
-            interior photography, clean and calm. Photorealistic.
-            → File: public/images/organizing-intro.jpg
-          -->
-          <Placeholder
-            label="Bild generieren: Aufgeräumtes Regal in Salbeigrün (#9CAF9E, #C7D1C6, #F4F6F4)"
-            ratio="4/5"
+          <img
+            src="/images/organizing-intro.png"
+            alt="Minimalistisches Regal mit salbeigrünem Leinen, Rattankörben und Zimmerpflanzen"
             class="intro-img"
           />
         </div>
@@ -155,12 +140,12 @@ const processSteps = [
     background: var(--color-green-bg);
   }
 
-  :global(.hero-bg-img) {
-    width: 100% !important;
-    height: 100% !important;
-    aspect-ratio: unset !important;
-    border-radius: 0 !important;
-    border: none !important;
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
   .hero-overlay {
@@ -240,11 +225,11 @@ const processSteps = [
     align-items: flex-start;
   }
 
-  :global(.intro-img) {
+  .intro-img {
     width: 100%;
-    max-width: 420px;
     aspect-ratio: 4/5;
     object-fit: cover;
+    object-position: center;
     border-radius: var(--radius-lg);
     display: block;
   }
