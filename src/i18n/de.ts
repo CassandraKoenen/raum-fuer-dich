@@ -271,14 +271,6 @@ export const de = {
         href:        '/feng-shui',
         color:       'sand',
       },
-      {
-        feeling:     'Ich bin noch nicht sicher.',
-        answer:      'Dann beginnen wir mit einem Gespräch.',
-        description: 'Das kostenlose Erstgespräch ist genau dafür da. Kein Druck, keine Verpflichtung.',
-        cta:         'Kostenloses Erstgespräch',
-        href:        '/kontakt',
-        color:       'neutral',
-      },
     ],
   },
 

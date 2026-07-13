@@ -273,14 +273,6 @@ export const en: Translations = {
         href:        '/en/feng-shui',
         color:       'sand',
       },
-      {
-        feeling:     'I\'m not sure yet.',
-        answer:      'Then let\'s start with a conversation.',
-        description: 'The free initial call is exactly for that. No pressure, no obligation.',
-        cta:         'Free initial call',
-        href:        '/en/contact',
-        color:       'neutral',
-      },
     ],
   },
 
