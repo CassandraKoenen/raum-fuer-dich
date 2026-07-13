@@ -19,7 +19,7 @@ export const en: Translations = {
 
   // ── Footer ──────────────────────────────────────────────────────────────────
   footer: {
-    tagline:    'Order outside. Peace within.',
+    tagline:    'Order on the outside. Peace on the inside.',
     navigation: 'Navigation',
     legal:      'Legal',
     impressum:  'Imprint',
@@ -34,7 +34,7 @@ export const en: Translations = {
   landing: {
     hero: {
       label:    'Raum für dich',
-      headline: 'Order outside.\nPeace within.',
+      headline: 'Order on the outside.\nPeace on the inside.',
       body:     'A home that supports the person you want to become.',
       cta:      'Find your path',
       ctaHref:  '/en/find-your-path',

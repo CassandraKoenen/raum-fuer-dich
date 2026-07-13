@@ -33,7 +33,7 @@ export const de = {
     hero: {
       label:    'Raum für dich',
       headline: 'Ordnung im Außen.\nRuhe im Innen.',
-      body:     'Ein Zuhause, das den Menschen trägt, der du werden möchtest.',
+      body:     'Ein Zuhause, das dich dabei unterstützt, der Mensch zu werden, der du sein möchtest.',
       cta:      'Finde deinen Weg',
       ctaHref:  '/finde-deinen-weg',
     },
