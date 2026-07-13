@@ -37,9 +37,13 @@ const c  = tr.coaching;
           <h2>{c.intro.headline}</h2>
           <p class="lead">{c.intro.body}</p>
         </div>
-        <blockquote class="intro-quote" data-animate data-delay="150">
-          {c.intro.quote}
-        </blockquote>
+        <div class="intro-img-wrap" data-animate data-delay="150">
+          <img
+            src="/images/atmosphere-curtains.png"
+            alt="Helles, ruhiges Zimmer mit sanftem Licht"
+            class="intro-img"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -200,16 +204,20 @@ const c  = tr.coaching;
 
   .intro-text .lead { color: var(--color-blue-text); }
 
-  .intro-quote {
-    font-family: var(--font-heading);
-    font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl));
-    font-style: italic;
-    font-weight: 300;
-    color: var(--color-blue-dark);
-    line-height: 1.5;
-    border-left: 3px solid var(--color-blue);
-    padding-left: var(--space-8);
-    margin: 0;
+  .intro-img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .intro-img {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--radius-lg);
+    display: block;
   }
 
   /* ── Offerings ───────────────────────────────────────────────────── */
