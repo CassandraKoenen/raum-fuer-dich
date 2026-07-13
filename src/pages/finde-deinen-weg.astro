@@ -22,6 +22,13 @@ const p  = tr.findYourPath;
         <h1>{p.hero.headline}</h1>
         <p class="lead">{p.hero.body}</p>
       </div>
+      <div class="hero-img-wrap" data-animate="scale" data-delay="200">
+        <img
+          src="/images/finde-deinen-weg.png"
+          alt="Heller, ruhiger Flur mit Türdurchblick und warmem Licht"
+          class="hero-img"
+        />
+      </div>
     </div>
   </section>
 
@@ -61,7 +68,20 @@ const p  = tr.findYourPath;
     padding-bottom: var(--section-py);
   }
 
-  .hero-content { max-width: 600px; }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+    }
+    .hero-img-wrap { display: none; }
+  }
 
   .hero-content h1 {
     font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
@@ -71,6 +91,21 @@ const p  = tr.findYourPath;
   .hero-content .lead {
     font-size: var(--text-md);
     color: var(--color-text-muted);
+  }
+
+  .hero-img-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-img {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--radius-lg);
+    display: block;
   }
 
   /* ── Options ─────────────────────────────────────────────────────── */
