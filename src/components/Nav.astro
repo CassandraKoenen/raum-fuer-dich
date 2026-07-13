@@ -5,6 +5,22 @@ interface Props { lang?: Lang; }
 const { lang = 'de' } = Astro.props;
 const tr = t(lang);
 
+const svgDE = `<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect width="20" height="20" fill="#FFCE00"/>
+  <rect width="20" height="13.3" fill="#DD0000"/>
+  <rect width="20" height="6.6" fill="#000"/>
+</svg>`;
+
+const svgEN = `<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect width="20" height="20" fill="#012169"/>
+  <path d="M0,0 L20,20 M20,0 L0,20" stroke="#fff" stroke-width="4.5"/>
+  <path d="M0,0 L20,20 M20,0 L0,20" stroke="#C8102E" stroke-width="2.5"/>
+  <rect x="8.5" y="0" width="3" height="20" fill="#fff"/>
+  <rect y="8.5" width="20" height="3" fill="#fff"/>
+  <rect x="9" y="0" width="2" height="20" fill="#C8102E"/>
+  <rect y="9" width="20" height="2" fill="#C8102E"/>
+</svg>`;
+
 const pathname = Astro.url.pathname;
 
 const links = [
@@ -46,10 +62,17 @@ function isActive(href: string) {
     </ul>
 
     <div class="nav-end">
-      <!-- Language switch -->
-      <a href={tr.nav.langSwitchHref} class="lang-switch" aria-label={`Switch to ${tr.nav.langSwitch}`}>
-        {tr.nav.langSwitch}
-      </a>
+      <!-- Language toggle -->
+      <div class="lang-toggle" role="group" aria-label="Sprache wählen">
+        <a href="/" class:list={['lang-opt', { 'lang-opt--active': lang === 'de' }]} hreflang="de" aria-label="Deutsch">
+          <span class="flag-circle"><Fragment set:html={svgDE} /></span>
+          <span>DE</span>
+        </a>
+        <a href="/en" class:list={['lang-opt', { 'lang-opt--active': lang === 'en' }]} hreflang="en" aria-label="English">
+          <span class="flag-circle"><Fragment set:html={svgEN} /></span>
+          <span>EN</span>
+        </a>
+      </div>
 
       <!-- Mobile hamburger -->
       <details class="mobile-nav">
@@ -71,10 +94,17 @@ function isActive(href: string) {
                 </a>
               </li>
             ))}
-            <li>
-              <a href={tr.nav.langSwitchHref} class="mobile-link mobile-lang">
-                {tr.nav.langSwitch}
-              </a>
+            <li class="mobile-lang-row">
+              <div class="lang-toggle" role="group" aria-label="Sprache wählen">
+                <a href="/" class:list={['lang-opt', { 'lang-opt--active': lang === 'de' }]} hreflang="de" aria-label="Deutsch">
+                  <span class="flag-circle"><Fragment set:html={svgDE} /></span>
+                  <span>DE</span>
+                </a>
+                <a href="/en" class:list={['lang-opt', { 'lang-opt--active': lang === 'en' }]} hreflang="en" aria-label="English">
+                  <span class="flag-circle"><Fragment set:html={svgEN} /></span>
+                  <span>EN</span>
+                </a>
+              </div>
             </li>
           </ul>
         </div>
@@ -164,23 +194,60 @@ function isActive(href: string) {
     flex-shrink: 0;
   }
 
-  /* Language switch */
-  .lang-switch {
-    font-size: var(--text-xs);
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--color-text-faint);
-    text-decoration: none;
-    padding: var(--space-1) var(--space-3);
+  /* Language toggle */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
     border: 1px solid var(--color-bg-muted);
     border-radius: var(--radius-full);
-    transition: color var(--transition), border-color var(--transition);
+    overflow: hidden;
+    flex-shrink: 0;
   }
 
-  .lang-switch:hover {
+  .lang-opt {
+    display: flex;
+    align-items: center;
+    gap: 0.35em;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.25em 0.6em;
+    color: var(--color-text-faint);
+    transition: background var(--transition), color var(--transition);
+    line-height: 1;
+  }
+
+  .lang-opt:hover {
     color: var(--color-text);
-    border-color: var(--color-text-muted);
+    background: rgba(0,0,0,0.04);
+  }
+
+  .lang-opt--active {
+    background: var(--color-text);
+    color: var(--color-bg);
+    pointer-events: none;
+  }
+
+  .lang-opt--active:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+
+  .flag-circle {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.12);
+  }
+
+  .flag-circle svg {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 
   /* Mobile nav */
@@ -245,17 +312,16 @@ function isActive(href: string) {
   .mobile-link--active,
   .mobile-link:hover { color: var(--color-text); }
 
-  .mobile-lang {
-    font-family: var(--font-body);
-    font-size: var(--text-sm);
-    color: var(--color-text-faint);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+  .mobile-lang-row {
+    display: flex;
+    align-items: center;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
   }
 
   @media (max-width: 768px) {
-    .nav-links  { display: none; }
-    .lang-switch { display: none; }
+    .nav-links { display: none; }
+    .nav-end > .lang-toggle { display: none; }
     .mobile-nav { display: block; }
   }
 </style>
