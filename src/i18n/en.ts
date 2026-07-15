@@ -77,7 +77,7 @@ export const en: Translations = {
         {
           feeling:     'I want more from my home.',
           service:     'Feng Shui & Intentional Living',
-          description: 'Design your home to support your goals, your energy and your future.',
+          description: 'Learn how your home becomes a support for your personal goals - intentional, effective and effortless.',
           cta:         'Learn more',
           href:        '/en/feng-shui',
           color:       'sand',
@@ -98,7 +98,7 @@ export const en: Translations = {
     about: {
       label:    'About',
       headline: 'Behind Raum für dich',
-      body:     'I\'m Cassandra — and what drives me is not the tidying itself, but what happens after: when someone takes a breath, looks around and realizes that something has shifted on the inside too.',
+      body:     'My name is Cassandra — and what drives me isn\'t the act of tidying up itself, but what happens afterward: when someone breathes a sigh of relief, looks around, and realizes that something inside has been released as well.',
       cta:      'More about me',
       ctaHref:  '/en/about',
     },

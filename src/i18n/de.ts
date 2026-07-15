@@ -75,7 +75,7 @@ export const de = {
         {
           feeling:     'Ich möchte mehr aus meinem Zuhause machen.',
           service:     'Feng Shui & Intentional Living',
-          description: 'Gestalte dein Zuhause so, dass es deine Ziele, deine Energie und deine Zukunft trägt.',
+          description: 'Finde heraus, wie dein Zuhause ein Support deiner persönlichen Ziele wird - bewusst, effektiv und mühelos.',
           cta:         'Mehr erfahren',
           href:        '/feng-shui',
           color:       'sand',
