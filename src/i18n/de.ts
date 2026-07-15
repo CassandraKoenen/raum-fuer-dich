@@ -46,8 +46,10 @@ export const de = {
         { icon: '🌀', label: 'Gewohnheiten', text: 'Klare Strukturen machen gute Gewohnheiten leichter.' },
         { icon: '😮‍💨', label: 'Stress',      text: 'Chaos erhöht das Stresshormon Cortisol messbar.' },
         { icon: '✨', label: 'Kreativität',  text: 'Freier Raum schafft Raum für neue Gedanken.' },
-        { icon: '⚡', label: 'Energie',      text: 'Ordnung gibt Energie zurück, die das Chaos bindet.' },
+        { icon: '⚡', label: 'Energie',      text: 'Ordnung gibt Energie zurück, die im Chaos gebunden war.' },
         { icon: '🌿', label: 'Wohlbefinden', text: 'Ein stimmiges Zuhause nährt Körper und Geist.' },
+        { icon: '🎯', label: 'Ziele',        text: 'Ein bewusst gestalteter Raum unterstützt deine Ziele.' },
+        { icon: '🌱', label: 'Wachstum',     text: 'Unsere Umgebung formt uns, also formen wir zuerst sie.' },
       ],
     },
     paths: {

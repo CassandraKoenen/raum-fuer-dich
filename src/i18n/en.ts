@@ -50,6 +50,8 @@ export const en: Translations = {
         { icon: '✨', label: 'Creativity',    text: 'Free space makes room for new ideas.' },
         { icon: '⚡', label: 'Energy',        text: 'Order returns the energy that chaos consumes.' },
         { icon: '🌿', label: 'Wellbeing',     text: 'A harmonious home nourishes body and mind.' },
+        { icon: '🎯', label: 'Goals',         text: 'An intentionally designed space supports your goals.' },
+        { icon: '🌱', label: 'Growth',        text: 'Our surrounding shapes us, so we start by shaping it.' },
       ],
     },
     paths: {
