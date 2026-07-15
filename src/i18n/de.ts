@@ -33,14 +33,14 @@ export const de = {
     hero: {
       label:    'Raum für dich',
       headline: 'Ordnung im Außen.\nRuhe im Innen.',
-      body:     'Ein Zuhause, das dich dabei unterstützt, der Mensch zu werden, der du sein möchtest.',
+      body:     'Ein Zuhause, das die Person trägt, die du sein möchtest.',
       cta:      'Finde deinen Weg',
       ctaHref:  '/finde-deinen-weg',
     },
     why: {
       label:    'Warum es wichtig ist',
       headline: 'Deine Umgebung formt dich',
-      body:     'Die Wissenschaft ist eindeutig: Unsere physische Umgebung beeinflusst direkt, wie wir denken, fühlen und handeln. Ein chaotischer Raum verbraucht kognitive Energie, erhöht Cortisol und hält uns in alten Mustern fest. Ein bewusst gestalteter Raum hingegen schafft Klarheit – und mit ihr die Freiheit, die Person zu werden, die wir sein wollen.',
+      body:     'Die Atmosphäre unserer Umgebung beeinflusst direkt, wie wir uns fühlen – ob wir es bemerken oder nicht. Ein unruhiger, chaotischer Raum raubt Energie und hält uns in alten Gewohnheiten fest. Ein bewusst gestalteter Raum hingegen schenkt Leichtigkeit, Klarheit und innere Ruhe. Er unterstützt uns dabei, das Leben zu führen, das wir uns wirklich wünschen.',
       pillars: [
         { icon: '🧠', label: 'Gedanken',    text: 'Unordnung lenkt ab und belastet das Arbeitsgedächtnis.' },
         { icon: '🌀', label: 'Gewohnheiten', text: 'Klare Strukturen machen gute Gewohnheiten leichter.' },

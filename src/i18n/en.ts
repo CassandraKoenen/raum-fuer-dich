@@ -42,7 +42,7 @@ export const en: Translations = {
     why: {
       label:    'Why it matters',
       headline: 'Your environment shapes you',
-      body:     'The science is clear: our physical environment directly influences how we think, feel and act. A chaotic space drains cognitive energy, raises cortisol and keeps us stuck in old patterns. A mindfully designed space creates clarity — and with it, the freedom to become the person we want to be.',
+      body:     'The atmosphere of our surroundings directly influences how we feel—whether we realize it or not. A restless, chaotic space drains our energy and keeps us stuck in old habits. A thoughtfully designed space, on the other hand, brings a sense of lightness, clarity, and inner peace. It helps us live the life we truly desire.',
       pillars: [
         { icon: '🧠', label: 'Thoughts',     text: 'Clutter distracts and burdens your working memory.' },
         { icon: '🌀', label: 'Habits',        text: 'Clear structures make good habits effortless.' },
