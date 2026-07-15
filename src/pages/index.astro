@@ -75,17 +75,12 @@ const { hero, why, paths, timeline, about, social } = tr.landing;
       <div class="paths-grid">
         {paths.cards.map((card, i) => (
           <a href={card.href} class={`path-card path-card--${card.color}`} data-animate data-delay={String(i * 120)}>
-            <div class="path-card-inner">
-              <div class="path-card-top">
-                <p class="path-feeling">„{card.feeling}"</p>
-                <div class="path-arrow" aria-hidden="true">↓</div>
-              </div>
-              <div class="path-card-bottom">
-                <h3 class="path-service">{card.service}</h3>
-                <p class="path-desc">{card.description}</p>
-                <span class="path-cta">{card.cta} →</span>
-              </div>
+            <p class="path-feeling">„{card.feeling}"</p>
+            <div class="path-answer">
+              <h3 class="path-service">{card.service}</h3>
+              <p class="path-desc">{card.description}</p>
             </div>
+            <span class="path-cta">{card.cta} →</span>
           </a>
         ))}
       </div>
@@ -408,85 +403,69 @@ const { hero, why, paths, timeline, about, social } = tr.landing;
   }
 
   .path-card {
-    display: block;
-    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    padding: var(--space-8);
     border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition: transform var(--transition-slow), box-shadow var(--transition-slow);
-    position: relative;
+    text-decoration: none;
+    transition: transform var(--transition), box-shadow var(--transition);
   }
 
   .path-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .path-card-inner {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: 400px;
-  }
-
-  .path-card-top {
-    flex: 1;
-    padding: var(--space-10) var(--space-8) var(--space-8);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .path-card-bottom {
-    padding: var(--space-8);
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(4px);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
   }
 
   .path-feeling {
     font-family: var(--font-heading);
-    font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+    font-size: var(--text-lg);
     font-style: italic;
     font-weight: 300;
-    line-height: 1.35;
-    color: white;
-    max-width: 22ch;
+    line-height: 1.5;
+    max-width: none;
   }
 
-  .path-arrow {
-    font-size: 1.5rem;
-    color: rgba(255,255,255,0.5);
-    margin-top: var(--space-6);
-  }
+  .path-answer { flex: 1; }
 
   .path-service {
-    font-family: var(--font-body);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: white;
+    font-size: var(--text-xl);
+    font-weight: 400;
     margin-bottom: var(--space-3);
   }
 
   .path-desc {
     font-size: var(--text-sm);
-    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
     max-width: none;
-    line-height: 1.6;
-    margin-bottom: var(--space-5);
   }
 
   .path-cta {
     font-size: var(--text-sm);
     font-weight: 600;
-    color: white;
     letter-spacing: 0.02em;
+    margin-top: auto;
   }
 
   /* Card color themes */
-  .path-card--blue  { background: linear-gradient(160deg, var(--color-blue-dark) 0%, var(--color-blue-heading) 100%); }
-  .path-card--green { background: linear-gradient(160deg, var(--color-green-soft) 0%, var(--color-green) 100%); }
-  .path-card--sand  { background: linear-gradient(160deg, var(--color-clay) 0%, var(--color-olive) 100%); }
+  .path-card--blue  { background: var(--color-blue-subtle); }
+  .path-card--green { background: var(--color-green-subtle); }
+  .path-card--sand  { background: var(--color-sand-subtle); }
+
+  .path-card--blue  .path-feeling,
+  .path-card--blue  .path-service  { color: var(--color-blue-heading); }
+  .path-card--green .path-feeling,
+  .path-card--green .path-service  { color: var(--color-green-dark); }
+  .path-card--sand  .path-feeling,
+  .path-card--sand  .path-service  { color: var(--color-olive); }
+
+  .path-card--blue  .path-desc { color: var(--color-blue-text); }
+  .path-card--green .path-desc { color: var(--color-green); }
+  .path-card--sand  .path-desc { color: var(--color-olive); }
+
+  .path-card--blue  .path-cta { color: var(--color-blue-dark); }
+  .path-card--green .path-cta { color: var(--color-green); }
+  .path-card--sand  .path-cta { color: var(--color-olive); }
 
   /* ── Timeline ────────────────────────────────────────────────────────── */
   .timeline-header {
