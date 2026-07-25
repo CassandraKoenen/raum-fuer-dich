@@ -151,7 +151,7 @@ export const en: Translations = {
           { label: 'Format',   value: 'Video (Zoom, FaceTime or similar)' },
           { label: 'Price',    value: 'On request — budget adjustments possible' },
         ],
-        cta:     'Book a session',
+        cta:     'Get in touch',
       },
     ],
     faq: {

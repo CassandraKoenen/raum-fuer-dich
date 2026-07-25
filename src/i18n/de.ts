@@ -149,7 +149,7 @@ export const de = {
           { label: 'Format', value: 'Video (Zoom, FaceTime o.ä.)' },
           { label: 'Preis',  value: 'Auf Anfrage – Budgetanpassung möglich' },
         ],
-        cta:     'Termin buchen',
+        cta:     'Jetzt anfragen',
       },
     ],
     faq: {
@@ -186,7 +186,7 @@ export const de = {
       body:     'Manchmal fehlt nicht der Wille – sondern schlicht die Zeit oder die Energie. Der Professional Organizing Service ist für Menschen, die eine fertige Lösung möchten: kein Coaching, kein Prozess, sondern konkretes Ergebnis.',
     },
     services: [
-      { label: 'Aussortieren',    text: 'Wir gehen durch alles – systematisch und ohne Druck.' },
+      { label: 'Aussortieren',    text: 'Wir gehen alles durch – systematisch und ohne Druck.' },
       { label: 'Organisieren',    text: 'Wir schaffen Systeme, die zu deinem Alltag passen.' },
       { label: 'Einrichten',      text: 'Alles bekommt seinen Platz – durchdacht und schön.' },
       { label: 'Entsorgung',      text: 'Wir kümmern uns um Abtransport und Entsorgung.' },
@@ -217,7 +217,7 @@ export const de = {
     aspects: [
       { label: 'Energiefluss',     text: 'Wir analysieren, wie Energie durch deine Räume fließt – und optimieren sie.' },
       { label: 'Farbe & Licht',    text: 'Bewusste Farbwahl und Lichtgestaltung beeinflussen Stimmung und Fokus.' },
-      { label: 'Natur & Elemente', text: 'Natürliche Materialien und Elemente schaffen Gleichgewicht.' },
+      { label: 'Textur & Materialien', text: 'Natürliche Materialien und Texturen schaffen Gleichgewicht.' },
       { label: 'Raumgestaltung',   text: 'Möbelanordnung und Proportionen, die sich richtig anfühlen.' },
     ],
     cta: {
