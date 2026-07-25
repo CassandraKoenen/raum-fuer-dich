@@ -31,12 +31,12 @@ export const de = {
   landing: {
     meta: {
       title:       'Raum für dich',
-      description: 'Ein Zuhause, das die Person trägt, die du sein möchtest. Decluttering Coaching, Professional Organizing und Feng Shui.',
+      description: 'Ein Zuhause, das dich werden lässt, wer du sein möchtest. Decluttering Coaching, Professional Organizing und Feng Shui.',
     },
     hero: {
       label:    'Raum für dich',
       headline: 'Ordnung im Außen.\nRuhe im Innen.',
-      body:     'Ein Zuhause, das die Person trägt, die du sein möchtest.',
+      body:     'Ein Zuhause, das dich werden lässt, wer du sein möchtest.',
       cta:      'Finde deinen Weg',
     },
     why: {
@@ -47,7 +47,7 @@ export const de = {
         { label: 'Gedanken',    text: 'Unordnung lenkt ab und belastet das Arbeitsgedächtnis.' },
         { label: 'Gewohnheiten', text: 'Klare Strukturen machen gute Gewohnheiten leichter.' },
         { label: 'Stress',      text: 'Chaos erhöht das Stresshormon Cortisol messbar.' },
-        { label: 'Kreativität',  text: 'Freier Raum schafft Raum für neue Gedanken.' },
+        { label: 'Kreativität',  text: 'Freier Raum schafft Platz für neue Ideen.' },
         { label: 'Energie',      text: 'Ordnung gibt Energie zurück, die im Chaos gebunden war.' },
         { label: 'Wohlbefinden', text: 'Ein stimmiges Zuhause nährt Körper und Geist.' },
         { label: 'Ziele',        text: 'Ein bewusst gestalteter Raum unterstützt deine Ziele.' },
@@ -73,7 +73,7 @@ export const de = {
         {
           feeling:     'Ich möchte mehr aus meinem Zuhause machen.',
           service:     'Feng Shui & Intentional Living',
-          description: 'Finde heraus, wie dein Zuhause ein Support deiner persönlichen Ziele wird - bewusst, effektiv und mühelos.',
+          description: 'Finde heraus, wie dein Zuhause zum Wegbereiter deiner persönlichen Ziele wird - bewusst, effektiv und mühelos.',
           cta:         'Mehr erfahren',
         },
       ],
@@ -81,18 +81,18 @@ export const de = {
     timeline: {
       label:    'Der Weg',
       headline: 'Alles beginnt mit Klarheit.',
-      body:     'Decluttering ist fast immer der erste Schritt. Nicht weil Ordnung das Ziel ist – sondern weil sie der Anfang von allem anderen ist. Aus Klarheit entstehen Systeme. Aus Systemen entsteht Leichtigkeit. Aus Leichtigkeit entsteht Raum für Wachstum.',
+      body:     'Decluttering ist fast immer der erste Schritt. Nicht weil Ordnung das Ziel ist – sondern weil sie die Grundlage für alles Weitere schafft. Aus Klarheit entstehen Systeme. Aus Systemen entsteht Leichtigkeit. Aus Leichtigkeit entsteht Raum für Wachstum.',
       steps: [
         { label: 'Chaos',      description: 'Überwältigend. Lähmend. Kostet Energie.' },
         { label: 'Klarheit',   description: 'Der erste Atemzug. Alles wird möglich.' },
         { label: 'Leichtigkeit', description: 'Systeme tragen sich selbst.' },
-        { label: 'Wachstum',   description: 'Raum für das Leben, das du willst.' },
+        { label: 'Wachstum',   description: 'Dein Zuhause arbeitet für deine Ziele.' },
       ],
     },
     about: {
       label:    'Über mich',
       headline: 'Hinter Raum für dich',
-      body:     'Ich bin Cassandra – und was mich antreibt, ist nicht das Aufräumen selbst, sondern das, was danach passiert: wenn jemand aufatmet, sich umsieht und merkt, dass sich auch innen etwas gelöst hat.',
+      body:     'Ich bin Cassandra – und ich glaube, dass unsere Umgebung mehr Einfluss auf unser Leben hat, als uns oft bewusst ist. Mich fasziniert nicht das Aufräumen, sondern wie ein bewusst gestaltetes Zuhause Klarheit schafft, gute Gewohnheiten unterstützt und Raum für persönliche Entwicklung entstehen lässt.',
       cta:      'Mehr über mich',
     },
     social: {
