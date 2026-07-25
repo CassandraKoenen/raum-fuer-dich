@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../BaseLayout.astro';
+import { t } from '../../i18n';
+import { routes, aboutValueIcons } from '../../i18n/static';
+import type { Lang } from '../../i18n';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const tr = t(lang);
+const a = tr.about;
+const r = routes[lang];
+---
+
+<BaseLayout title={a.meta.title} description={a.meta.description} lang={lang}>
+
+  <!-- ── HERO ────────────────────────────────────────────── -->
+  <section class="section section--sand hero-section">
+    <div class="container">
+      <span class="label" data-animate>{a.hero.label}</span>
+      <h1 data-animate data-delay="100">{a.hero.headline}</h1>
+      <p class="hero-lead" data-animate data-delay="200">{a.hero.body}</p>
+    </div>
+  </section>
+
+  <!-- ── STORY ──────────────────────────────────────────── -->
+  <section class="section section--white">
+    <div class="container story-inner">
+      <div class="portrait-wrap" data-animate="scale">
+        <img
+          src="/images/me.png"
+          alt="Cassandra Koenen"
+          class="portrait-img"
+        />
+      </div>
+      <div class="story-text" data-animate data-delay="200">
+        <span class="label">{a.story.label}</span>
+        <h2>{a.story.headline}</h2>
+        {a.story.paragraphs.map(para => <p>{para}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VALUES ─────────────────────────────────────────── -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="values-header text-center" data-animate>
+        <span class="label">{a.values.label}</span>
+        <h2>{a.values.headline}</h2>
+      </div>
+      <div class="values-grid">
+        {a.values.items.map((item, i) => (
+          <article class="value-card" data-animate data-delay={String((i + 1) * 100)}>
+            <span class="value-icon" aria-hidden="true">{aboutValueIcons[i]}</span>
+            <h3>{item.label}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS ────────────────────────────────────────── -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="process-header text-center" data-animate>
+        <span class="label">{a.process.label}</span>
+        <h2>{a.process.headline}</h2>
+        <p class="process-lead">{a.process.body}</p>
+      </div>
+      <ol class="process-list" role="list">
+        {a.process.steps.map((step, i) => (
+          <li class="process-item" data-animate data-delay={String(i * 150)}>
+            <span class="process-step" aria-hidden="true">{step.step}</span>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────────── -->
+  <section class="section section--sage cta-section">
+    <div class="container cta-banner">
+      <div>
+        <h2>{a.cta.headline}</h2>
+        <p>{a.cta.body}</p>
+      </div>
+      <a href={r.contact} class="btn-white">{a.cta.button}</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero-section h1 { margin-top: var(--space-2); margin-bottom: var(--space-5); }
+  .hero-lead { font-size: 1.125rem; max-width: 60ch; color: var(--color-text-muted); }
+
+  .story-inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-16); align-items: start; }
+  .portrait-wrap { display: flex; justify-content: center; }
+  .portrait-img { width: 100%; max-width: 360px; border-radius: var(--radius-lg); object-fit: cover; aspect-ratio: 4/5; display: block; }
+  .story-text h2 { margin: var(--space-3) 0 var(--space-6); }
+  .story-text p { margin-bottom: var(--space-5); color: var(--color-text-muted); }
+  .story-text p:last-child { margin-bottom: 0; }
+
+  .values-header { margin-bottom: var(--space-12); }
+  .values-header h2 { margin-top: var(--space-3); }
+  .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-6); }
+  .value-card { background: var(--color-white); border-radius: var(--radius-md); padding: var(--space-8); border: 1px solid var(--color-bg-muted); display: flex; flex-direction: column; gap: var(--space-3); }
+  .value-icon { font-size: 2rem; line-height: 1; }
+  .value-card p { font-size: 0.9375rem; color: var(--color-text-muted); }
+
+  .process-header { margin-bottom: var(--space-10); }
+  .process-header h2 { margin-top: var(--space-3); margin-bottom: var(--space-4); }
+  .process-lead { font-size: var(--text-sm); color: var(--color-text-muted); max-width: 48ch; margin-inline: auto; }
+  .process-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-1); max-width: 700px; margin-inline: auto; }
+  .process-item { display: flex; gap: var(--space-6); align-items: flex-start; padding: var(--space-8); background: var(--color-bg-alt); border-radius: var(--radius-md); }
+  .process-step { font-size: 2rem; font-weight: 700; color: var(--color-accent-light); flex-shrink: 0; line-height: 1; margin-top: 0.1em; }
+  .process-item h3 { margin-bottom: var(--space-2); }
+  .process-item p { color: var(--color-text-muted); font-size: 0.9375rem; }
+
+  .cta-banner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-8); }
+  .cta-banner h2 { margin-bottom: var(--space-2); }
+  .cta-banner p { color: rgba(255, 255, 255, 0.85); max-width: 48ch; }
+  .btn-white { display: inline-flex; align-items: center; padding: var(--space-3) var(--space-8); background: #fff; color: var(--color-accent-dark); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 600; text-decoration: none; transition: background var(--transition), transform var(--transition); white-space: nowrap; }
+  .btn-white:hover { background: var(--color-bg-alt); transform: translateY(-1px); }
+</style>

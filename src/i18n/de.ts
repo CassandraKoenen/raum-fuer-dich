@@ -12,7 +12,6 @@ export const de = {
     about:        'Über mich',
     contact:      'Kontakt',
     langSwitch:   'English',
-    langSwitchHref: '/en',
   },
 
   // ── Footer ──────────────────────────────────────────────────────────────────
@@ -30,26 +29,29 @@ export const de = {
 
   // ── Landing page ────────────────────────────────────────────────────────────
   landing: {
+    meta: {
+      title:       'Raum für dich',
+      description: 'Ein Zuhause, das die Person trägt, die du sein möchtest. Decluttering Coaching, Professional Organizing und Feng Shui.',
+    },
     hero: {
       label:    'Raum für dich',
       headline: 'Ordnung im Außen.\nRuhe im Innen.',
       body:     'Ein Zuhause, das die Person trägt, die du sein möchtest.',
       cta:      'Finde deinen Weg',
-      ctaHref:  '/finde-deinen-weg',
     },
     why: {
       label:    'Warum es wichtig ist',
       headline: 'Deine Umgebung formt dich',
       body:     'Die Atmosphäre unserer Umgebung beeinflusst direkt, wie wir uns fühlen – ob wir es bemerken oder nicht. Ein unruhiger, chaotischer Raum raubt Energie und hält uns in alten Gewohnheiten fest. Ein bewusst gestalteter Raum hingegen schenkt Leichtigkeit, Klarheit und innere Ruhe. Er unterstützt uns dabei, das Leben zu führen, das wir uns wirklich wünschen.',
       pillars: [
-        { icon: '🧠', label: 'Gedanken',    text: 'Unordnung lenkt ab und belastet das Arbeitsgedächtnis.' },
-        { icon: '🌀', label: 'Gewohnheiten', text: 'Klare Strukturen machen gute Gewohnheiten leichter.' },
-        { icon: '😮‍💨', label: 'Stress',      text: 'Chaos erhöht das Stresshormon Cortisol messbar.' },
-        { icon: '✨', label: 'Kreativität',  text: 'Freier Raum schafft Raum für neue Gedanken.' },
-        { icon: '⚡', label: 'Energie',      text: 'Ordnung gibt Energie zurück, die im Chaos gebunden war.' },
-        { icon: '🌿', label: 'Wohlbefinden', text: 'Ein stimmiges Zuhause nährt Körper und Geist.' },
-        { icon: '🎯', label: 'Ziele',        text: 'Ein bewusst gestalteter Raum unterstützt deine Ziele.' },
-        { icon: '🌱', label: 'Wachstum',     text: 'Unsere Umgebung formt uns, also formen wir zuerst sie.' },
+        { label: 'Gedanken',    text: 'Unordnung lenkt ab und belastet das Arbeitsgedächtnis.' },
+        { label: 'Gewohnheiten', text: 'Klare Strukturen machen gute Gewohnheiten leichter.' },
+        { label: 'Stress',      text: 'Chaos erhöht das Stresshormon Cortisol messbar.' },
+        { label: 'Kreativität',  text: 'Freier Raum schafft Raum für neue Gedanken.' },
+        { label: 'Energie',      text: 'Ordnung gibt Energie zurück, die im Chaos gebunden war.' },
+        { label: 'Wohlbefinden', text: 'Ein stimmiges Zuhause nährt Körper und Geist.' },
+        { label: 'Ziele',        text: 'Ein bewusst gestalteter Raum unterstützt deine Ziele.' },
+        { label: 'Wachstum',     text: 'Unsere Umgebung formt uns, also formen wir zuerst sie.' },
       ],
     },
     paths: {
@@ -61,24 +63,18 @@ export const de = {
           service:     'Decluttering Coaching',
           description: 'Schritt für Schritt zu mehr Klarheit, nachhaltigen Gewohnheiten und dem Gefühl, wieder Kontrolle zu haben.',
           cta:         'Mehr erfahren',
-          href:        '/coaching',
-          color:       'blue',
         },
         {
           feeling:     'Ich habe keine Zeit dafür.',
           service:     'Professional Organizing',
           description: 'Wir übernehmen das Aussortieren, Organisieren und Reinigen – und hinterlassen Systeme, die bleiben.',
           cta:         'Mehr erfahren',
-          href:        '/organizing',
-          color:       'green',
         },
         {
           feeling:     'Ich möchte mehr aus meinem Zuhause machen.',
           service:     'Feng Shui & Intentional Living',
           description: 'Finde heraus, wie dein Zuhause ein Support deiner persönlichen Ziele wird - bewusst, effektiv und mühelos.',
           cta:         'Mehr erfahren',
-          href:        '/feng-shui',
-          color:       'sand',
         },
       ],
     },
@@ -98,14 +94,14 @@ export const de = {
       headline: 'Hinter Raum für dich',
       body:     'Ich bin Cassandra – und was mich antreibt, ist nicht das Aufräumen selbst, sondern das, was danach passiert: wenn jemand aufatmet, sich umsieht und merkt, dass sich auch innen etwas gelöst hat.',
       cta:      'Mehr über mich',
-      ctaHref:  '/ueber-mich',
     },
     social: {
-      label:       'Inspiration',
-      headline:    'Lass dich inspirieren',
-      body:        'Tipps, Einblicke und ehrliche Gedanken rund um Ordnung, Zuhause und bewusstes Leben.',
-      latestVideo: 'Neuestes Video',
-      instagram:   'Instagram',
+      label:        'Inspiration',
+      headline:     'Lass dich inspirieren',
+      body:         'Tipps, Einblicke und ehrliche Gedanken rund um Ordnung, Zuhause und bewusstes Leben.',
+      latestVideo:  'Neuestes Video',
+      instagram:    'Instagram',
+      instagramCta: 'Instagram folgen',
       newsletter: {
         headline:    'Bleib in Verbindung',
         body:        'Regelmäßige Impulse für mehr Klarheit und Leichtigkeit – direkt in dein Postfach.',
@@ -143,7 +139,6 @@ export const de = {
           { label: 'Preis', value: 'Auf Anfrage – Budgetanpassung möglich' },
         ],
         cta:     'Jetzt anfragen',
-        ctaHref: '/kontakt',
       },
       {
         label:    'Online',
@@ -155,7 +150,6 @@ export const de = {
           { label: 'Preis',  value: 'Auf Anfrage – Budgetanpassung möglich' },
         ],
         cta:     'Termin buchen',
-        ctaHref: '/kontakt',
       },
     ],
     faq: {
@@ -173,7 +167,6 @@ export const de = {
       headline: 'Bereit für den ersten Schritt?',
       body:     'Das Erstgespräch ist kostenlos und unverbindlich. Einfach melden.',
       cta:      'Kostenloses Erstgespräch',
-      ctaHref:  '/kontakt',
     },
   },
 
@@ -193,16 +186,15 @@ export const de = {
       body:     'Manchmal fehlt nicht der Wille – sondern schlicht die Zeit oder die Energie. Der Professional Organizing Service ist für Menschen, die eine fertige Lösung möchten: kein Coaching, kein Prozess, sondern konkretes Ergebnis.',
     },
     services: [
-      { icon: '📦', label: 'Aussortieren',    text: 'Wir gehen durch alles – systematisch und ohne Druck.' },
-      { icon: '🗂️', label: 'Organisieren',    text: 'Wir schaffen Systeme, die zu deinem Alltag passen.' },
-      { icon: '✨', label: 'Einrichten',      text: 'Alles bekommt seinen Platz – durchdacht und schön.' },
-      { icon: '🚛', label: 'Entsorgung',      text: 'Wir kümmern uns um Abtransport und Entsorgung.' },
+      { label: 'Aussortieren',    text: 'Wir gehen durch alles – systematisch und ohne Druck.' },
+      { label: 'Organisieren',    text: 'Wir schaffen Systeme, die zu deinem Alltag passen.' },
+      { label: 'Einrichten',      text: 'Alles bekommt seinen Platz – durchdacht und schön.' },
+      { label: 'Entsorgung',      text: 'Wir kümmern uns um Abtransport und Entsorgung.' },
     ],
     cta: {
       headline: 'Interesse? Lass uns sprechen.',
       body:     'Schildere mir kurz deine Situation – ich melde mich innerhalb von 24 Stunden.',
       cta:      'Anfrage senden',
-      ctaHref:  '/kontakt',
     },
   },
 
@@ -223,16 +215,15 @@ export const de = {
       quote:    '„Dein Zuhause ist kein Hintergrund. Es ist ein aktiver Teilnehmer in deinem Leben."',
     },
     aspects: [
-      { icon: '🌊', label: 'Energiefluss',     text: 'Wir analysieren, wie Energie durch deine Räume fließt – und optimieren sie.' },
-      { icon: '🎨', label: 'Farbe & Licht',    text: 'Bewusste Farbwahl und Lichtgestaltung beeinflussen Stimmung und Fokus.' },
-      { icon: '🌿', label: 'Natur & Elemente', text: 'Natürliche Materialien und Elemente schaffen Gleichgewicht.' },
-      { icon: '📐', label: 'Raumgestaltung',   text: 'Möbelanordnung und Proportionen, die sich richtig anfühlen.' },
+      { label: 'Energiefluss',     text: 'Wir analysieren, wie Energie durch deine Räume fließt – und optimieren sie.' },
+      { label: 'Farbe & Licht',    text: 'Bewusste Farbwahl und Lichtgestaltung beeinflussen Stimmung und Fokus.' },
+      { label: 'Natur & Elemente', text: 'Natürliche Materialien und Elemente schaffen Gleichgewicht.' },
+      { label: 'Raumgestaltung',   text: 'Möbelanordnung und Proportionen, die sich richtig anfühlen.' },
     ],
     cta: {
       headline: 'Bereit, deinen Raum zu transformieren?',
       body:     'Lass uns in einem kostenlosen Erstgespräch herausfinden, wie ich dir helfen kann.',
       cta:      'Erstgespräch buchen',
-      ctaHref:  '/kontakt',
     },
   },
 
@@ -254,24 +245,18 @@ export const de = {
         answer:      'Decluttering Coaching ist dein Einstieg.',
         description: 'Ich begleite dich persönlich – Schritt für Schritt, in deinem Tempo, ohne Druck.',
         cta:         'Zum Coaching',
-        href:        '/coaching',
-        color:       'blue',
       },
       {
         feeling:     'Ich brauche eine fertige Lösung – ich habe keine Zeit oder Energie dafür.',
         answer:      'Professional Organizing ist gemacht für dich.',
         description: 'Wir übernehmen alles für dich und hinterlassen ein Ergebnis, das sich sofort richtig anfühlt.',
         cta:         'Zum Organizing Service',
-        href:        '/organizing',
-        color:       'green',
       },
       {
         feeling:     'Mein Zuhause ist ordentlich – aber es fühlt sich nicht richtig an.',
         answer:      'Feng Shui & Intentional Living ist dein nächster Schritt.',
         description: 'Wir gehen tiefer: Wie unterstützt dein Raum wirklich deine Ziele und dein Wohlbefinden?',
         cta:         'Zur Raumgestaltung',
-        href:        '/feng-shui',
-        color:       'sand',
       },
     ],
   },
@@ -287,7 +272,9 @@ export const de = {
       headline: 'Gedanken für\nmehr Leichtigkeit.',
       body:     'Ehrliche Einblicke, praktische Tipps und Impulse für ein Leben mit mehr Raum.',
     },
-    comingSoon: 'Bald hier – erste Beiträge in Vorbereitung.',
+    comingSoon:    'Bald hier – erste Beiträge in Vorbereitung.',
+    comingSoonSub: 'In der Zwischenzeit: Folge mir auf Instagram für regelmäßige Impulse.',
+    contactButton: 'Schreib mir direkt',
   },
 
   // ── About ────────────────────────────────────────────────────────────────────
@@ -296,6 +283,44 @@ export const de = {
       title:       'Über mich – Cassandra Koenen',
       description: 'Ich bin Cassandra – Ordnungscoach aus Kaiserslautern. Inspiriert durch Feng Shui helfe ich Menschen, ihren Raum zu befreien und dadurch innerlich leichter zu werden.',
     },
+    hero: {
+      label:    'Über mich',
+      headline: 'Hinter Raum für dich',
+      body:     'Ich bin Cassandra – Organisieren liegt mir, und was mich antreibt, ist die Magie, die danach passiert: wenn jemand aufatmet, sich umsieht und merkt, dass sich auch innen etwas gelöst hat. Dieses Gefühl möchte ich für dich schaffen.',
+    },
+    story: {
+      label:    'Mein Weg',
+      headline: 'Warum ich tue, was ich tue',
+      paragraphs: [
+        'Ordnen, strukturieren, Platz schaffen – das macht mir seit jeher Freude. Irgendwann wurde mir klar, dass ich diese Freude nicht für mich behalten möchte, sondern sie nutzen will, um anderen Menschen echte Erleichterung zu bringen.',
+        'Als ich anfing, mich mit Feng Shui zu beschäftigen, wurde mir klar, wie tief unsere Umgebung uns psychologisch beeinflusst. Unser Zuhause sollte ein sicherer Ort sein – ein Ort, der uns Kraft gibt statt kostet. Wenn wir den physischen Raum befreien, beginnen wir, uns innerlich leichter zu fühlen. Das ist keine Theorie, das ist eine Erfahrung, die ich immer wieder mit Menschen teile.',
+        'Ich möchte dich dabei begleiten, diesen Raum zu finden – Raum für das, was dir wirklich wichtig ist, für deine Leidenschaften und das Leben, das du führen möchtest.',
+      ],
+    },
+    values: {
+      label:    'Meine Haltung',
+      headline: 'Was mir bei unserer Arbeit wichtig ist',
+      items: [
+        { label: 'Keine Perfektion',        text: 'Ordnung muss nicht makellos sein. Sie soll sich gut anfühlen – für dich, in deinem Leben, jetzt.' },
+        { label: 'Dein Tempo',              text: 'Wir gehen so schnell oder so langsam, wie du möchtest. Kein Druck, kein Vergleich.' },
+        { label: 'Nachhaltige Veränderung', text: 'Kein einmaliges Aufräumen – sondern Strukturen, die wirklich bleiben und zu dir passen.' },
+      ],
+    },
+    process: {
+      label:    'So arbeite ich',
+      headline: 'Ein einfacher, klarer Weg',
+      body:     'Kein kompliziertes Programm. Drei Schritte, die sich ehrlich und menschlich anfühlen.',
+      steps: [
+        { step: '01', title: 'Erstkontakt',       text: 'Wir sprechen 20–30 Minuten kostenlos miteinander. Du erzählst mir, was dich beschäftigt – ich höre zu, ohne zu werten.' },
+        { step: '02', title: 'Gemeinsame Arbeit',  text: 'Wir starten dort, wo es für dich am sinnvollsten ist. Nicht wo es am einfachsten aussieht – sondern wo es dir wirklich hilft.' },
+        { step: '03', title: 'Dein Raum',          text: 'Du bekommst nicht nur Ordnung – du bekommst das Gefühl, endlich wieder in deinem Zuhause ankommen zu können.' },
+      ],
+    },
+    cta: {
+      headline: 'Lern mich kennen',
+      body:     'Keine Verpflichtung. Nur ein offenes Gespräch – und wer weiß, vielleicht der Anfang von etwas Leichterem.',
+      button:   'Kostenloses Erstgespräch',
+    },
   },
 
   // ── Contact ──────────────────────────────────────────────────────────────────
@@ -303,6 +328,33 @@ export const de = {
     meta: {
       title:       'Kontakt',
       description: 'Schreib mir oder buch direkt ein kostenloses Erstgespräch. Ich melde mich innerhalb von 24 Stunden bei dir.',
+    },
+    hero: {
+      label:    'Kontakt',
+      headline: 'Lass uns reden',
+      body:     'Du hast eine Frage, ein Anliegen oder möchtest einfach mal schauen, ob wir zueinander passen? Ich freue mich von dir zu hören.',
+    },
+    form: {
+      label:    'Schreib mir',
+      headline: 'Deine Nachricht',
+      lead:     'Ich antworte dir innerhalb von 24 Stunden.',
+      name:     { label: 'Name',          placeholder: 'Dein Name' },
+      email:    { label: 'E-Mail',        placeholder: 'deine@email.de' },
+      phone:    { label: 'Telefon',       optional: '(optional)', placeholder: '+49 ...' },
+      message:  { label: 'Dein Anliegen', placeholder: 'Erzähl mir kurz, womit ich dir helfen kann …' },
+      privacyBefore: 'Ich habe die ',
+      privacyLink:   'Datenschutzerklärung',
+      privacyAfter:  ' gelesen und bin damit einverstanden, dass meine Daten zur Bearbeitung meiner Anfrage gespeichert werden.',
+      submit:   'Nachricht senden',
+      success:  '✓ Deine Nachricht ist angekommen – ich melde mich bald bei dir!',
+      error:    'Es gab leider ein Problem. Schreib mir direkt an info@raumfuerdich-impulse.de.',
+    },
+    alt: {
+      label:    'Oder direkt',
+      headline: 'Andere Wege',
+      email:    { label: 'E-Mail',    value: 'info@raumfuerdich-impulse.de' },
+      whatsapp: { label: 'WhatsApp', text: 'Schnelle Nachrichten – ich melde mich zeitnah' },
+      response: 'Ich melde mich innerhalb von 24 Stunden – meistens schneller.',
     },
   },
 
@@ -316,4 +368,13 @@ export const de = {
   },
 } as const;
 
-export type Translations = typeof de;
+// Recursively replaces all string/number/boolean literal types with their base types
+// so that en.ts can satisfy this type with translated strings.
+type Loosen<T> =
+  T extends string  ? string :
+  T extends number  ? number :
+  T extends boolean ? boolean :
+  T extends readonly (infer U)[] ? Loosen<U>[] :
+  { [K in keyof T]: Loosen<T[K]> };
+
+export type Translations = Loosen<typeof de>;

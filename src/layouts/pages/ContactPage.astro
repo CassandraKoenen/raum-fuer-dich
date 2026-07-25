@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../BaseLayout.astro';
+import { t } from '../../i18n';
+import type { Lang } from '../../i18n';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const tr = t(lang);
+const c = tr.contact;
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} lang={lang}>
+
+  <!-- ── HERO ────────────────────────────────────────────── -->
+  <section class="section section--sand section--sm hero-section">
+    <div class="container">
+      <span class="label" data-animate>{c.hero.label}</span>
+      <h1 data-animate data-delay="100">{c.hero.headline}</h1>
+      <p class="hero-lead" data-animate data-delay="200">{c.hero.body}</p>
+    </div>
+  </section>
+
+  <!-- ── FORM + ALTERNATIVES ────────────────────────────── -->
+  <section class="section section--white">
+    <div class="container contact-inner">
+
+      <!-- Form -->
+      <div data-animate>
+        <span class="label">{c.form.label}</span>
+        <h2>{c.form.headline}</h2>
+        <p class="form-lead">{c.form.lead}</p>
+
+        <div id="form-notice-ok" class="form-notice form-notice--ok" role="alert" hidden>
+          {c.form.success}
+        </div>
+        <div id="form-notice-error" class="form-notice form-notice--error" role="alert" hidden>
+          {c.form.error}
+        </div>
+
+        <form
+          name="kontakt"
+          method="POST"
+          action="/contact.php"
+          class="contact-form"
+        >
+          <!-- Honeypot (spam protection) -->
+          <p class="visually-hidden">
+            <label>Nicht ausfüllen: <input name="bot-field" /></label>
+          </p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">{c.form.name.label} <span aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder={c.form.name.placeholder} />
+            </div>
+            <div class="form-group">
+              <label for="email">{c.form.email.label} <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder={c.form.email.placeholder} />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="telefon">{c.form.phone.label} <span class="optional">{c.form.phone.optional}</span></label>
+            <input type="tel" id="telefon" name="telefon" autocomplete="tel" placeholder={c.form.phone.placeholder} />
+          </div>
+
+          <div class="form-group">
+            <label for="anliegen">{c.form.message.label} <span aria-hidden="true">*</span></label>
+            <textarea id="anliegen" name="anliegen" required rows="5" placeholder={c.form.message.placeholder}></textarea>
+          </div>
+
+          <div class="form-group form-group--checkbox">
+            <input type="checkbox" id="datenschutz" name="datenschutz" required />
+            <label for="datenschutz">
+              {c.form.privacyBefore}<a href="/datenschutz">{c.form.privacyLink}</a>{c.form.privacyAfter} <span aria-hidden="true">*</span>
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            {c.form.submit}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Alternatives -->
+      <aside class="alternatives" data-animate data-delay="200">
+        <span class="label">{c.alt.label}</span>
+        <h2>{c.alt.headline}</h2>
+
+        <div class="alt-list">
+          <a href="mailto:{c.alt.email.value}" class="alt-item">
+            <div class="alt-icon" aria-hidden="true">✉️</div>
+            <div>
+              <strong>{c.alt.email.label}</strong>
+              <p>{c.alt.email.value}</p>
+            </div>
+          </a>
+          <a href="/kontakt" class="alt-item">
+            <div class="alt-icon" aria-hidden="true">💬</div>
+            <div>
+              <strong>{c.alt.whatsapp.label}</strong>
+              <p>{c.alt.whatsapp.text}</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="response-note">
+          <p>{c.alt.response}</p>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const status = params.get('status');
+  if (status === 'ok') {
+    document.getElementById('form-notice-ok')?.removeAttribute('hidden');
+  } else if (status === 'error') {
+    document.getElementById('form-notice-error')?.removeAttribute('hidden');
+  }
+</script>
+
+<style>
+  .hero-section h1 { margin-top: var(--space-2); margin-bottom: var(--space-4); }
+  .hero-lead { font-size: 1.0625rem; max-width: 55ch; color: var(--color-text-muted); }
+
+  .contact-inner { display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--space-16); align-items: start; }
+  @media (max-width: 768px) { .contact-inner { grid-template-columns: 1fr; gap: var(--space-12); } }
+
+  h2 { margin: var(--space-3) 0 var(--space-4); }
+  .form-lead { font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-6); }
+
+  .form-notice { padding: var(--space-4) var(--space-5); border-radius: var(--radius-sm); font-size: 0.9375rem; margin-bottom: var(--space-5); }
+  .form-notice--ok { background: var(--color-bg-alt); border-left: 3px solid var(--color-accent); color: var(--color-text); }
+  .form-notice--error { background: #fef2f2; border-left: 3px solid #f87171; color: var(--color-text); }
+
+  .contact-form { display: flex; flex-direction: column; gap: var(--space-5); }
+  .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-5); }
+  .form-group { display: flex; flex-direction: column; gap: var(--space-2); }
+  .form-group label { font-weight: 600; font-size: 0.9375rem; color: var(--color-text); }
+  .optional { font-weight: 400; font-size: 0.875rem; color: var(--color-text-faint); }
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group textarea {
+    font-family: var(--font-body); font-size: 1rem; padding: 0.75em 1em;
+    border: 1.5px solid var(--color-bg-muted); border-radius: var(--radius-sm);
+    background: var(--color-white); color: var(--color-text);
+    transition: border-color var(--transition), box-shadow var(--transition); width: 100%;
+  }
+  .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 3px var(--color-accent-light); }
+  .form-group textarea { resize: vertical; min-height: 130px; }
+  .form-group--checkbox { flex-direction: row; align-items: flex-start; gap: var(--space-3); }
+  .form-group--checkbox input[type="checkbox"] { width: 1.2em; height: 1.2em; margin-top: 0.2em; accent-color: var(--color-accent); flex-shrink: 0; cursor: pointer; }
+  .form-group--checkbox label { font-weight: 400; font-size: 0.875rem; color: var(--color-text-muted); cursor: pointer; }
+  .form-group--checkbox a { color: var(--color-accent-dark); }
+
+  .submit-btn { display: inline-flex; align-items: center; gap: var(--space-2); align-self: flex-start; font-family: var(--font-body); font-size: 1rem; font-weight: 700; padding: 0.8em 2em; background: var(--color-accent); color: var(--color-white); border: none; border-radius: var(--radius-full); cursor: pointer; transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition); }
+  .submit-btn:hover { background: var(--color-accent-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .submit-btn:active { transform: translateY(0); }
+
+  .alternatives { position: sticky; top: 5rem; }
+  .alternatives h2 { margin: var(--space-3) 0 var(--space-8); }
+  .alt-list { display: flex; flex-direction: column; gap: var(--space-3); margin-bottom: var(--space-8); }
+  .alt-item { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-5) var(--space-6); background: var(--color-bg-alt); border-radius: var(--radius-md); text-decoration: none; color: inherit; border: 1px solid transparent; transition: border-color var(--transition), box-shadow var(--transition); }
+  .alt-item:hover { border-color: var(--color-accent-light); box-shadow: var(--shadow-sm); color: inherit; }
+  .alt-icon { font-size: 1.75rem; flex-shrink: 0; line-height: 1; }
+  .alt-item strong { display: block; font-size: 0.9375rem; margin-bottom: var(--space-1); color: var(--color-text); }
+  .alt-item p { font-size: 0.875rem; color: var(--color-text-muted); max-width: none; }
+  .response-note { background: var(--color-bg-alt); border-left: 3px solid var(--color-accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: var(--space-4) var(--space-5); }
+  .response-note p { font-size: 0.9375rem; color: var(--color-text-muted); max-width: none; }
+</style>

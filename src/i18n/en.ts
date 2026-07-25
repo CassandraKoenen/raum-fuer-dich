@@ -14,7 +14,6 @@ export const en: Translations = {
     about:        'About',
     contact:      'Contact',
     langSwitch:   'Deutsch',
-    langSwitchHref: '/',
   },
 
   // ── Footer ──────────────────────────────────────────────────────────────────
@@ -32,26 +31,29 @@ export const en: Translations = {
 
   // ── Landing page ────────────────────────────────────────────────────────────
   landing: {
+    meta: {
+      title:       'Raum für dich',
+      description: 'A home that supports the person you want to become. Decluttering Coaching, Professional Organizing and Feng Shui.',
+    },
     hero: {
       label:    'Raum für dich',
       headline: 'Order on the outside.\nPeace on the inside.',
       body:     'A home that supports the person you want to become.',
       cta:      'Find your path',
-      ctaHref:  '/en/find-your-path',
     },
     why: {
       label:    'Why it matters',
       headline: 'Your environment shapes you',
       body:     'The atmosphere of our surroundings directly influences how we feel—whether we realize it or not. A restless, chaotic space drains our energy and keeps us stuck in old habits. A thoughtfully designed space, on the other hand, brings a sense of lightness, clarity, and inner peace. It helps us live the life we truly desire.',
       pillars: [
-        { icon: '🧠', label: 'Thoughts',     text: 'Clutter distracts and burdens your working memory.' },
-        { icon: '🌀', label: 'Habits',        text: 'Clear structures make good habits effortless.' },
-        { icon: '😮‍💨', label: 'Stress',       text: 'Chaos measurably raises the stress hormone cortisol.' },
-        { icon: '✨', label: 'Creativity',    text: 'Free space makes room for new ideas.' },
-        { icon: '⚡', label: 'Energy',        text: 'Order returns the energy that chaos consumes.' },
-        { icon: '🌿', label: 'Wellbeing',     text: 'A harmonious home nourishes body and mind.' },
-        { icon: '🎯', label: 'Goals',         text: 'An intentionally designed space supports your goals.' },
-        { icon: '🌱', label: 'Growth',        text: 'Our surrounding shapes us, so we start by shaping it.' },
+        { label: 'Thoughts',    text: 'Clutter distracts and burdens your working memory.' },
+        { label: 'Habits',       text: 'Clear structures make good habits effortless.' },
+        { label: 'Stress',      text: 'Chaos measurably raises the stress hormone cortisol.' },
+        { label: 'Creativity',   text: 'Free space makes room for new ideas.' },
+        { label: 'Energy',       text: 'Order returns the energy that chaos consumes.' },
+        { label: 'Wellbeing',    text: 'A harmonious home nourishes body and mind.' },
+        { label: 'Goals',        text: 'An intentionally designed space supports your goals.' },
+        { label: 'Growth',       text: 'Our surrounding shapes us, so we start by shaping it.' },
       ],
     },
     paths: {
@@ -63,24 +65,18 @@ export const en: Translations = {
           service:     'Decluttering Coaching',
           description: 'Step by step towards clarity, sustainable habits and the feeling of being in control again.',
           cta:         'Learn more',
-          href:        '/en/coaching',
-          color:       'blue',
         },
         {
           feeling:     'I don\'t have the time.',
           service:     'Professional Organizing',
           description: 'We handle the sorting, organizing and cleaning — leaving behind systems that actually last.',
           cta:         'Learn more',
-          href:        '/en/organizing',
-          color:       'green',
         },
         {
           feeling:     'I want more from my home.',
           service:     'Feng Shui & Intentional Living',
           description: 'Learn how your home becomes a support for your personal goals - intentional, effective and effortless.',
           cta:         'Learn more',
-          href:        '/en/feng-shui',
-          color:       'sand',
         },
       ],
     },
@@ -89,10 +85,10 @@ export const en: Translations = {
       headline: 'Everything begins with clarity.',
       body:     'Decluttering is almost always the first step. Not because order is the goal — but because it is the beginning of everything else. From clarity come systems. From systems comes ease. From ease comes room for growth.',
       steps: [
-        { label: 'Chaos',     description: 'Overwhelming. Paralyzing. Drains your energy.' },
-        { label: 'Clarity',   description: 'The first breath. Everything becomes possible.' },
-        { label: 'Ease',      description: 'Systems carry themselves.' },
-        { label: 'Growth',    description: 'Space for the life you want.' },
+        { label: 'Chaos',   description: 'Overwhelming. Paralyzing. Drains your energy.' },
+        { label: 'Clarity', description: 'The first breath. Everything becomes possible.' },
+        { label: 'Ease',    description: 'Systems carry themselves.' },
+        { label: 'Growth',  description: 'Space for the life you want.' },
       ],
     },
     about: {
@@ -100,14 +96,14 @@ export const en: Translations = {
       headline: 'Behind Raum für dich',
       body:     'My name is Cassandra — and what drives me isn\'t the act of tidying up itself, but what happens afterward: when someone breathes a sigh of relief, looks around, and realizes that something inside has been released as well.',
       cta:      'More about me',
-      ctaHref:  '/en/about',
     },
     social: {
-      label:       'Inspiration',
-      headline:    'Get inspired',
-      body:        'Tips, insights and honest thoughts on organizing, intentional living and creating a home that truly supports you.',
-      latestVideo: 'Latest video',
-      instagram:   'Instagram',
+      label:        'Inspiration',
+      headline:     'Get inspired',
+      body:         'Tips, insights and honest thoughts on organizing, intentional living and creating a home that truly supports you.',
+      latestVideo:  'Latest video',
+      instagram:    'Instagram',
+      instagramCta: 'Follow on Instagram',
       newsletter: {
         headline:    'Stay connected',
         body:        'Regular impulses for more clarity and ease — straight to your inbox.',
@@ -145,7 +141,6 @@ export const en: Translations = {
           { label: 'Price',    value: 'On request — budget adjustments possible' },
         ],
         cta:     'Get in touch',
-        ctaHref: '/en/contact',
       },
       {
         label:    'Online',
@@ -157,7 +152,6 @@ export const en: Translations = {
           { label: 'Price',    value: 'On request — budget adjustments possible' },
         ],
         cta:     'Book a session',
-        ctaHref: '/en/contact',
       },
     ],
     faq: {
@@ -175,7 +169,6 @@ export const en: Translations = {
       headline: 'Ready for the first step?',
       body:     'The initial call is free and without obligation. Just reach out.',
       cta:      'Free initial call',
-      ctaHref:  '/en/contact',
     },
   },
 
@@ -195,16 +188,15 @@ export const en: Translations = {
       body:     'Sometimes it\'s not the will that\'s missing — it\'s simply the time or energy. The Professional Organizing Service is for people who want a finished solution: no coaching, no process, just a concrete result.',
     },
     services: [
-      { icon: '📦', label: 'Sorting',      text: 'We go through everything — systematically and without pressure.' },
-      { icon: '🗂️', label: 'Organizing',   text: 'We create systems that fit your everyday life.' },
-      { icon: '✨', label: 'Setting up',   text: 'Everything gets its place — thoughtfully and beautifully.' },
-      { icon: '🚛', label: 'Disposal',     text: 'We handle transport and disposal.' },
+      { label: 'Sorting',    text: 'We go through everything — systematically and without pressure.' },
+      { label: 'Organizing', text: 'We create systems that fit your everyday life.' },
+      { label: 'Setting up', text: 'Everything gets its place — thoughtfully and beautifully.' },
+      { label: 'Disposal',   text: 'We handle transport and disposal.' },
     ],
     cta: {
       headline: 'Interested? Let\'s talk.',
       body:     'Tell me briefly about your situation — I\'ll get back to you within 24 hours.',
       cta:      'Send an enquiry',
-      ctaHref:  '/en/contact',
     },
   },
 
@@ -225,16 +217,15 @@ export const en: Translations = {
       quote:    '"Your home is not a backdrop. It is an active participant in your life."',
     },
     aspects: [
-      { icon: '🌊', label: 'Energy flow',       text: 'We analyse how energy flows through your spaces — and optimise it.' },
-      { icon: '🎨', label: 'Colour & light',    text: 'Conscious colour and lighting choices influence mood and focus.' },
-      { icon: '🌿', label: 'Nature & elements', text: 'Natural materials and elements create balance.' },
-      { icon: '📐', label: 'Spatial design',    text: 'Furniture placement and proportions that simply feel right.' },
+      { label: 'Energy flow',       text: 'We analyse how energy flows through your spaces — and optimise it.' },
+      { label: 'Colour & light',    text: 'Conscious colour and lighting choices influence mood and focus.' },
+      { label: 'Nature & elements', text: 'Natural materials and elements create balance.' },
+      { label: 'Spatial design',    text: 'Furniture placement and proportions that simply feel right.' },
     ],
     cta: {
       headline: 'Ready to transform your space?',
       body:     'Let\'s find out in a free initial call how I can help you.',
       cta:      'Book initial call',
-      ctaHref:  '/en/contact',
     },
   },
 
@@ -256,24 +247,18 @@ export const en: Translations = {
         answer:      'Decluttering Coaching is your starting point.',
         description: 'I accompany you personally — step by step, at your pace, without pressure.',
         cta:         'Explore coaching',
-        href:        '/en/coaching',
-        color:       'blue',
       },
       {
         feeling:     'I need a finished solution — I don\'t have the time or energy.',
         answer:      'Professional Organizing is made for you.',
         description: 'We handle everything for you and leave a result that feels right immediately.',
         cta:         'Explore organizing',
-        href:        '/en/organizing',
-        color:       'green',
       },
       {
         feeling:     'My home is tidy — but it doesn\'t feel right.',
         answer:      'Feng Shui & Intentional Living is your next step.',
         description: 'We go deeper: how does your space truly support your goals and wellbeing?',
         cta:         'Explore Feng Shui',
-        href:        '/en/feng-shui',
-        color:       'sand',
       },
     ],
   },
@@ -289,7 +274,9 @@ export const en: Translations = {
       headline: 'Thoughts for\na lighter life.',
       body:     'Honest insights, practical tips and impulses for a life with more space.',
     },
-    comingSoon: 'Coming soon — first posts in preparation.',
+    comingSoon:    'Coming soon — first posts in preparation.',
+    comingSoonSub: 'In the meantime: follow me on Instagram for regular inspiration.',
+    contactButton: 'Write to me directly',
   },
 
   // ── About ────────────────────────────────────────────────────────────────────
@@ -298,6 +285,44 @@ export const en: Translations = {
       title:       'About – Cassandra Koenen',
       description: 'I\'m Cassandra — an organizing coach based near Kaiserslautern. Inspired by Feng Shui, I help people free their spaces and feel lighter within.',
     },
+    hero: {
+      label:    'About',
+      headline: 'Behind Raum für dich',
+      body:     'I\'m Cassandra — and what drives me is not the tidying itself, but what happens after: when someone takes a breath, looks around and realises that something has shifted on the inside too. That feeling is what I want to create for you.',
+    },
+    story: {
+      label:    'My path',
+      headline: 'Why I do what I do',
+      paragraphs: [
+        'Organising, structuring, creating space — this has always brought me joy. At some point I realised I didn\'t want to keep this joy to myself. I wanted to share it with people who feel overwhelmed by their own four walls.',
+        'Inspired by Feng Shui, I began to understand that a space is more than a practical matter. It is a resonance space — it reflects where we are and influences where we can go. Since then, my work has become something I believe in deeply: freeing spaces so that people can feel freer too.',
+        'I\'m based near Kaiserslautern and work both locally and online. Every home is different. Every person is different. And that\'s exactly why I always start with listening.',
+      ],
+    },
+    values: {
+      label:    'What guides me',
+      headline: 'My values',
+      items: [
+        { label: 'No perfection',  text: 'It doesn\'t have to be perfect — it just has to work for you. My approach is practical, not aspirational.' },
+        { label: 'Your pace',      text: 'We go at the speed that feels right for you. No pressure, no rushing, no judgement.' },
+        { label: 'Lasting change', text: 'I\'m not interested in quick fixes that fall apart in a week. I want to create systems that hold.' },
+      ],
+    },
+    process: {
+      label:    'How I work',
+      headline: 'A simple, clear path',
+      body:     'No complicated programme. Three steps that feel honest and human.',
+      steps: [
+        { step: '01', title: 'First contact',    text: 'We talk for 20–30 minutes, free of charge. You tell me what\'s on your mind — I listen, without judgement.' },
+        { step: '02', title: 'Working together', text: 'We start where it makes the most sense for you. Not where it looks easiest — but where it really helps.' },
+        { step: '03', title: 'Your space',       text: 'You don\'t just get order — you get the feeling of finally being able to come home again.' },
+      ],
+    },
+    cta: {
+      headline: 'Ready to take the first step?',
+      body:     'The initial call is free and without obligation. Just reach out.',
+      button:   'Free initial call',
+    },
   },
 
   // ── Contact ──────────────────────────────────────────────────────────────────
@@ -305,6 +330,33 @@ export const en: Translations = {
     meta: {
       title:       'Contact',
       description: 'Write to me or book a free initial call. I\'ll get back to you within 24 hours.',
+    },
+    hero: {
+      label:    'Contact',
+      headline: 'Let\'s talk',
+      body:     'Got a question, a specific situation, or just want to see if we\'re a good fit? I\'d love to hear from you.',
+    },
+    form: {
+      label:    'Write to me',
+      headline: 'Your message',
+      lead:     'I\'ll get back to you within 24 hours — usually faster.',
+      name:     { label: 'Name',         placeholder: 'Your name' },
+      email:    { label: 'Email',        placeholder: 'your@email.com' },
+      phone:    { label: 'Phone',        optional: '(optional)', placeholder: '+44 ...' },
+      message:  { label: 'Your message', placeholder: 'Tell me briefly about your situation…' },
+      privacyBefore: 'I have read the ',
+      privacyLink:   'privacy policy',
+      privacyAfter:  ' and agree to the processing of my data.',
+      submit:   'Send message',
+      success:  '✓ Your message has been sent. I\'ll be in touch soon.',
+      error:    'Something went wrong. Please write to me at info@raumfuerdich-impulse.de.',
+    },
+    alt: {
+      label:    'Or directly',
+      headline: 'Other ways to reach me',
+      email:    { label: 'Email',    value: 'info@raumfuerdich-impulse.de' },
+      whatsapp: { label: 'WhatsApp', text: 'Quick message, quick reply' },
+      response: 'I respond within 24 hours — usually faster.',
     },
   },
 

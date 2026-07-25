@@ -65,7 +65,7 @@ const base = lang === 'en' ? '/en' : '';
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
       <span>{tr.footer.rights}</span>
-      <a href={tr.nav.langSwitchHref} class="footer-lang">{tr.nav.langSwitch}</a>
+      <a href={lang === 'en' ? '/' : '/en'} class="footer-lang">{tr.nav.langSwitch}</a>
     </div>
   </div>
 </footer>
