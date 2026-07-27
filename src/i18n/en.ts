@@ -344,6 +344,20 @@ export const en: Translations = {
       email:    { label: 'Email',        placeholder: 'your@email.com' },
       phone:    { label: 'Phone',        optional: '(optional)', placeholder: '+44 ...' },
       message:  { label: 'Your message', placeholder: 'Tell me briefly about your situation…' },
+      branch: {
+        label:   'Area of interest',
+        none:    'No selection',
+        options: [
+          { value: 'coaching',   label: 'Coaching' },
+          { value: 'organizing', label: 'Decluttering & Organizing' },
+          { value: 'fengshui',   label: 'Feng Shui' },
+        ],
+      },
+      images: {
+        label:   'Upload photos',
+        hint:    'Up to 5 images (JPG, PNG, WEBP) – optional',
+        tooMany: 'Please select a maximum of 5 images.',
+      },
       privacyBefore: 'I have read the ',
       privacyLink:   'privacy policy',
       privacyAfter:  ' and agree to the processing of my data.',

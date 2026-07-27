@@ -50,7 +50,7 @@ const servicesHeading = lang === 'de' ? 'Vollständig. Durchdacht. Fertig.' : 'C
         <span class="label">{o.hero.label}</span>
         <h1>{o.hero.headline}</h1>
         <p class="lead">{o.hero.body}</p>
-        <a href={r.contact} class="btn-primary">{heroBtn}</a>
+        <a href={`${r.contact}?bereich=organizing`} class="btn-primary">{heroBtn}</a>
       </div>
     </div>
   </section>
@@ -111,7 +111,7 @@ const servicesHeading = lang === 'de' ? 'Vollständig. Durchdacht. Fertig.' : 'C
     <div class="container cta-inner">
       <h2>{o.cta.headline}</h2>
       <p>{o.cta.body}</p>
-      <a href={r.contact} class="btn-primary btn-lg">{o.cta.cta}</a>
+      <a href={`${r.contact}?bereich=organizing`} class="btn-primary btn-lg">{o.cta.cta}</a>
     </div>
   </section>
 

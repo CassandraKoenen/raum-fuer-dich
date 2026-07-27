@@ -41,6 +41,7 @@ const c = tr.contact;
           name="kontakt"
           method="POST"
           action="/contact.php"
+          enctype="multipart/form-data"
           class="contact-form"
         >
           <!-- Honeypot (spam protection) -->
@@ -65,8 +66,42 @@ const c = tr.contact;
           </div>
 
           <div class="form-group">
+            <label for="bereich">{c.form.branch.label} <span class="optional">(optional)</span></label>
+            <select id="bereich" name="bereich" class="form-select">
+              <option value="">{c.form.branch.none}</option>
+              {c.form.branch.options.map(opt => (
+                <option value={opt.value}>{opt.label}</option>
+              ))}
+            </select>
+          </div>
+
+          <div class="form-group">
             <label for="anliegen">{c.form.message.label} <span aria-hidden="true">*</span></label>
             <textarea id="anliegen" name="anliegen" required rows="5" placeholder={c.form.message.placeholder}></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="bilder">{c.form.images.label} <span class="optional">(optional)</span></label>
+            <div class="file-upload">
+              <input
+                type="file"
+                id="bilder"
+                name="bilder[]"
+                accept="image/jpeg,image/png,image/webp"
+                multiple
+                class="file-input"
+              />
+              <label for="bilder" class="file-label">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <span id="file-label-text">Bilder auswählen</span>
+              </label>
+              <p class="file-hint">{c.form.images.hint}</p>
+              <p id="file-error" class="file-error" hidden>{c.form.images.tooMany}</p>
+            </div>
           </div>
 
           <div class="form-group form-group--checkbox">
@@ -120,12 +155,42 @@ const c = tr.contact;
 
 <script>
   const params = new URLSearchParams(window.location.search);
+
+  // Status notices
   const status = params.get('status');
   if (status === 'ok') {
     document.getElementById('form-notice-ok')?.removeAttribute('hidden');
   } else if (status === 'error') {
     document.getElementById('form-notice-error')?.removeAttribute('hidden');
   }
+
+  // Auto-select branch from URL param
+  const bereich = params.get('bereich');
+  if (bereich) {
+    const select = document.getElementById('bereich') as HTMLSelectElement | null;
+    if (select) select.value = bereich;
+  }
+
+  // Image upload: max 5 + label update
+  const fileInput = document.getElementById('bilder') as HTMLInputElement | null;
+  const fileError = document.getElementById('file-error');
+  const fileLabelText = document.getElementById('file-label-text');
+  fileInput?.addEventListener('change', () => {
+    const files = fileInput.files;
+    if (!files) return;
+    if (files.length > 5) {
+      fileError?.removeAttribute('hidden');
+      fileInput.value = '';
+      if (fileLabelText) fileLabelText.textContent = 'Bilder auswählen';
+    } else {
+      fileError?.setAttribute('hidden', '');
+      if (fileLabelText) {
+        fileLabelText.textContent = files.length === 1
+          ? files[0].name
+          : `${files.length} Bilder ausgewählt`;
+      }
+    }
+  });
 </script>
 
 <style>
@@ -158,6 +223,27 @@ const c = tr.contact;
   }
   .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 3px var(--color-accent-light); }
   .form-group textarea { resize: vertical; min-height: 130px; }
+  .form-select {
+    font-family: var(--font-body); font-size: 1rem; padding: 0.75em 1em;
+    border: 1.5px solid var(--color-bg-muted); border-radius: var(--radius-sm);
+    background: var(--color-white); color: var(--color-text);
+    transition: border-color var(--transition), box-shadow var(--transition);
+    width: 100%; cursor: pointer; appearance: auto;
+  }
+  .form-select:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 3px var(--color-accent-light); }
+
+  .file-upload { display: flex; flex-direction: column; gap: var(--space-2); }
+  .file-input { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+  .file-label {
+    display: inline-flex; align-items: center; gap: var(--space-2); cursor: pointer;
+    padding: 0.75em 1em; border: 1.5px dashed var(--color-bg-muted); border-radius: var(--radius-sm);
+    background: var(--color-white); color: var(--color-text-muted); font-size: 0.9375rem;
+    transition: border-color var(--transition), color var(--transition);
+  }
+  .file-label:hover { border-color: var(--color-accent); color: var(--color-text); }
+  .file-hint { font-size: 0.8125rem; color: var(--color-text-faint); margin: 0; }
+  .file-error { font-size: 0.875rem; color: #dc2626; margin: 0; }
+
   .form-group--checkbox { flex-direction: row; align-items: flex-start; gap: var(--space-3); }
   .form-group--checkbox input[type="checkbox"] { width: 1.2em; height: 1.2em; margin-top: 0.2em; accent-color: var(--color-accent); flex-shrink: 0; cursor: pointer; }
   .form-group--checkbox label { font-weight: 400; font-size: 0.875rem; color: var(--color-text-muted); cursor: pointer; }

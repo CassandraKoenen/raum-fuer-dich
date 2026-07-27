@@ -342,6 +342,20 @@ export const de = {
       email:    { label: 'E-Mail',        placeholder: 'deine@email.de' },
       phone:    { label: 'Telefon',       optional: '(optional)', placeholder: '+49 ...' },
       message:  { label: 'Dein Anliegen', placeholder: 'Erzähl mir kurz, womit ich dir helfen kann …' },
+      branch: {
+        label:   'Ich interessiere mich für...',
+        none:    'Nichts ausgewählt',
+        options: [
+          { value: 'coaching',   label: 'Coaching' },
+          { value: 'organizing', label: 'Entrümpeln & Organisieren' },
+          { value: 'fengshui',   label: 'Feng Shui' },
+        ],
+      },
+      images: {
+        label:   'Fotos hochladen',
+        hint:    'Bis zu 5 Bilder (JPG, PNG, WEBP) – optional',
+        tooMany: 'Bitte wähle maximal 5 Bilder aus.',
+      },
       privacyBefore: 'Ich habe die ',
       privacyLink:   'Datenschutzerklärung',
       privacyAfter:  ' gelesen und bin damit einverstanden, dass meine Daten zur Bearbeitung meiner Anfrage gespeichert werden.',
