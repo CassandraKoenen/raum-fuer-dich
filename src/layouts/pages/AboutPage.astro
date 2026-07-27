@@ -67,7 +67,7 @@ const r = routes[lang];
         <h2>{a.process.headline}</h2>
         <p class="process-lead">{a.process.body}</p>
       </div>
-      <ol class="process-list" role="list">
+      <ul class="process-list">
         {a.process.steps.map((step, i) => (
           <li class="process-item" data-animate data-delay={String(i * 150)}>
             <span class="process-step" aria-hidden="true">{step.step}</span>
@@ -77,7 +77,7 @@ const r = routes[lang];
             </div>
           </li>
         ))}
-      </ol>
+      </ul>
     </div>
   </section>
 
