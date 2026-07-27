@@ -53,7 +53,7 @@ export const en: Translations = {
         { label: 'Energy',       text: 'Order returns the energy that chaos consumes.' },
         { label: 'Wellbeing',    text: 'A harmonious home nourishes body and mind.' },
         { label: 'Goals',        text: 'An intentionally designed space supports your goals.' },
-        { label: 'Growth',       text: 'Our surrounding shapes us, so we start by shaping it.' },
+        { label: 'Growth',       text: 'Our surroundings shape us, so we start by shaping them.' },
       ],
     },
     paths: {
@@ -88,13 +88,13 @@ export const en: Translations = {
         { label: 'Chaos',   description: 'Overwhelming. Paralyzing. Drains your energy.' },
         { label: 'Clarity', description: 'The first breath. Everything becomes possible.' },
         { label: 'Ease',    description: 'Systems carry themselves.' },
-        { label: 'Growth',  description: 'Space for the life you want.' },
+        { label: 'Growth',  description: 'Your home works for your goals.' },
       ],
     },
     about: {
       label:    'About',
       headline: 'Behind Raum für dich',
-      body:     'My name is Cassandra — and what drives me isn\'t the act of tidying up itself, but what happens afterward: when someone breathes a sigh of relief, looks around, and realizes that something inside has been released as well.',
+      body:     'I\'m Cassandra — and I believe our environment has more influence on our lives than we often realise. What fascinates me is not the tidying itself, but how a thoughtfully designed home creates clarity, supports good habits and opens up space for personal growth.',
       cta:      'More about me',
     },
     social: {
@@ -219,7 +219,7 @@ export const en: Translations = {
     aspects: [
       { label: 'Energy flow',       text: 'We analyse how energy flows through your spaces — and optimise it.' },
       { label: 'Colour & light',    text: 'Conscious colour and lighting choices influence mood and focus.' },
-      { label: 'Nature & elements', text: 'Natural materials and elements create balance.' },
+      { label: 'Texture & materials', text: 'Natural materials and textures create balance.' },
       { label: 'Spatial design',    text: 'Furniture placement and proportions that simply feel right.' },
     ],
     cta: {
@@ -288,24 +288,24 @@ export const en: Translations = {
     hero: {
       label:    'About',
       headline: 'Behind Raum für dich',
-      body:     'I\'m Cassandra — and what drives me is not the tidying itself, but what happens after: when someone takes a breath, looks around and realises that something has shifted on the inside too. That feeling is what I want to create for you.',
+      body:     'I\'m Cassandra — for me, change often begins at home. Through a combination of organising, spatial design and coaching, I help you transform chaos into clarity, build lasting structures and create spaces that support your personal growth. The result is not just more order, but a home that gives you energy and accompanies you on your path.',
     },
     story: {
       label:    'My path',
       headline: 'Why I do what I do',
       paragraphs: [
-        'Organising, structuring, creating space — this has always brought me joy. At some point I realised I didn\'t want to keep this joy to myself. I wanted to share it with people who feel overwhelmed by their own four walls.',
-        'Inspired by Feng Shui, I began to understand that a space is more than a practical matter. It is a resonance space — it reflects where we are and influences where we can go. Since then, my work has become something I believe in deeply: freeing spaces so that people can feel freer too.',
-        'I\'m based near Kaiserslautern and work both locally and online. Every home is different. Every person is different. And that\'s exactly why I always start with listening.',
+        'Organising, structuring and redesigning spaces have always brought me joy. At some point I realised I didn\'t just want to use this knowledge and these skills for myself — I wanted to share them with others, to help them find more clarity, lightness and quality of life.',
+        'When I began studying Feng Shui, the ancient Chinese art of harmony, I came to understand just how deeply our environment influences us — psychologically and even physically. Our home should be a safe place — one that gives us strength rather than drains it. When we organise and consciously shape our surroundings, we begin to feel lighter inside. That\'s not theory — it\'s an experience I share with people again and again.',
+        'I want to accompany you in finding that space — space for what truly matters to you, for your passions and the life you want to live.',
       ],
     },
     values: {
       label:    'What guides me',
-      headline: 'My values',
+      headline: 'What matters to me in our work together',
       items: [
-        { label: 'No perfection',  text: 'It doesn\'t have to be perfect — it just has to work for you. My approach is practical, not aspirational.' },
-        { label: 'Your pace',      text: 'We go at the speed that feels right for you. No pressure, no rushing, no judgement.' },
-        { label: 'Lasting change', text: 'I\'m not interested in quick fixes that fall apart in a week. I want to create systems that hold.' },
+        { label: 'No perfection',  text: 'Order doesn\'t have to be flawless. It just needs to feel right — for you, in your life, right now.' },
+        { label: 'Your pace',      text: 'We go as fast or as slowly as you want. No pressure, no comparison.' },
+        { label: 'Lasting change', text: 'Not a one-time tidy-up — but structures that genuinely last and suit you.' },
       ],
     },
     process: {
@@ -315,12 +315,12 @@ export const en: Translations = {
       steps: [
         { step: '01', title: 'First contact',    text: 'We talk for 20–30 minutes, free of charge. You tell me what\'s on your mind — I listen, without judgement.' },
         { step: '02', title: 'Working together', text: 'We start where it makes the most sense for you. Not where it looks easiest — but where it really helps.' },
-        { step: '03', title: 'Your space',       text: 'You don\'t just get order — you get the feeling of finally being able to come home again.' },
+        { step: '03', title: 'Your space',       text: 'You don\'t just get order — you get a home that gives you strength every single day. Very real.' },
       ],
     },
     cta: {
-      headline: 'Ready to take the first step?',
-      body:     'The initial call is free and without obligation. Just reach out.',
+      headline: 'Get to know me',
+      body:     'No obligation. Just an open conversation — and who knows, maybe the beginning of something lighter.',
       button:   'Free initial call',
     },
   },
@@ -345,7 +345,7 @@ export const en: Translations = {
       phone:    { label: 'Phone',        optional: '(optional)', placeholder: '+44 ...' },
       message:  { label: 'Your message', placeholder: 'Tell me briefly about your situation…' },
       branch: {
-        label:   'Area of interest',
+        label:   'I\'m interested in...',
         none:    'No selection',
         options: [
           { value: 'coaching',   label: 'Coaching' },
