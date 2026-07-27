@@ -286,14 +286,14 @@ export const de = {
     hero: {
       label:    'Über mich',
       headline: 'Hinter Raum für dich',
-      body:     'Ich bin Cassandra – Organisieren liegt mir, und was mich antreibt, ist die Magie, die danach passiert: wenn jemand aufatmet, sich umsieht und merkt, dass sich auch innen etwas gelöst hat. Dieses Gefühl möchte ich für dich schaffen.',
+      body:     'Ich bin Cassandra – für mich beginnt Veränderung oft im eigenen Zuhause. Mit einer Kombination aus Organisation, Raumgestaltung und Coaching helfe ich dir dabei, Chaos in Klarheit zu verwandeln, nachhaltige Strukturen zu schaffen und Räume zu gestalten, die deine persönliche Entwicklung unterstützen. So entsteht nicht nur mehr Ordnung, sondern ein Zuhause, das dir Energie gibt und dich auf deinem Weg begleitet.',
     },
     story: {
       label:    'Mein Weg',
       headline: 'Warum ich tue, was ich tue',
       paragraphs: [
-        'Ordnen, strukturieren, Platz schaffen – das macht mir seit jeher Freude. Irgendwann wurde mir klar, dass ich diese Freude nicht für mich behalten möchte, sondern sie nutzen will, um anderen Menschen echte Erleichterung zu bringen.',
-        'Als ich anfing, mich mit Feng Shui zu beschäftigen, wurde mir klar, wie tief unsere Umgebung uns psychologisch beeinflusst. Unser Zuhause sollte ein sicherer Ort sein – ein Ort, der uns Kraft gibt statt kostet. Wenn wir den physischen Raum befreien, beginnen wir, uns innerlich leichter zu fühlen. Das ist keine Theorie, das ist eine Erfahrung, die ich immer wieder mit Menschen teile.',
+        'Ordnen, strukturieren und Räume neu zu gestalten haben mir schon immer Freude bereitet. Irgendwann wurde mir bewusst, dass ich mein Wissen und meine Fähigkeiten nicht nur für mich nutzen, sondern mit anderen Menschen teilen möchte, um ihnen zu mehr Klarheit, Leichtigkeit und Lebensqualität zu verhelfen.',
+        'Als ich anfing, mich mit der chinesischen Harmonielehre Feng Shui zu beschäftigen, wurde mir klar, wie tief unsere Umgebung uns psychologisch und sogar physisch beeinflusst. Unser Zuhause sollte ein sicherer Ort sein – ein Ort, der uns Kraft gibt statt kostet. Wenn wir unsere Umgebung ordnen und bewusst gestalten, beginnen wir, uns innerlich leichter zu fühlen. Das ist keine Theorie, das ist eine Erfahrung, die ich immer wieder mit Menschen teile.',
         'Ich möchte dich dabei begleiten, diesen Raum zu finden – Raum für das, was dir wirklich wichtig ist, für deine Leidenschaften und das Leben, das du führen möchtest.',
       ],
     },
@@ -312,8 +312,8 @@ export const de = {
       body:     'Kein kompliziertes Programm. Drei Schritte, die sich ehrlich und menschlich anfühlen.',
       steps: [
         { step: '01', title: 'Erstkontakt',       text: 'Wir sprechen 20–30 Minuten kostenlos miteinander. Du erzählst mir, was dich beschäftigt – ich höre zu, ohne zu werten.' },
-        { step: '02', title: 'Gemeinsame Arbeit',  text: 'Wir starten dort, wo es für dich am sinnvollsten ist. Nicht wo es am einfachsten aussieht – sondern wo es dir wirklich hilft.' },
-        { step: '03', title: 'Dein Raum',          text: 'Du bekommst nicht nur Ordnung – du bekommst das Gefühl, endlich wieder in deinem Zuhause ankommen zu können.' },
+        { step: '02', title: 'Gemeinsame Arbeit',  text: 'Wir starten dort, wo es für dich am sinnvollsten ist. Nicht wo es am einfachsten aussieht – sondern wo es dir maximalen Wert bringt.' },
+        { step: '03', title: 'Dein Raum',          text: 'Du bekommst nicht nur Ordnung – du bekommst ein Zuhause, das dir jeden Tag aufs Neue Kraft spendet. Ganz real.' },
       ],
     },
     cta: {
