@@ -50,7 +50,7 @@ export const en: Translations = {
         { label: 'Habits',       text: 'Clear structures make good habits effortless.' },
         { label: 'Stress',      text: 'Chaos measurably raises the stress hormone cortisol.' },
         { label: 'Creativity',   text: 'Free space makes room for new ideas.' },
-        { label: 'Energy',       text: 'Order returns the energy that chaos consumes.' },
+        { label: 'Energy',       text: 'Order releases the energy that chaos consumes.' },
         { label: 'Wellbeing',    text: 'A harmonious home nourishes body and mind.' },
         { label: 'Goals',        text: 'An intentionally designed space supports your goals.' },
         { label: 'Growth',       text: 'Our surroundings shape us, so we start by shaping them.' },
@@ -112,6 +112,7 @@ export const en: Translations = {
         note:        'No spam. Unsubscribe any time.',
       },
     },
+    heroImgAlt: 'Warm morning light in a minimal home',
   },
 
   // ── Coaching page ────────────────────────────────────────────────────────────
@@ -170,6 +171,8 @@ export const en: Translations = {
       body:     'The initial call is free and without obligation. Just reach out.',
       cta:      'Free initial call',
     },
+    heroImgAlt:  'A quiet reading nook with a cream sofa and blue-grey linen cushion in morning light',
+    introImgAlt: 'Soft morning light through white curtains, blue-grey linen on a chair',
   },
 
   // ── Organizing page ──────────────────────────────────────────────────────────
@@ -197,6 +200,22 @@ export const en: Translations = {
       headline: 'Interested? Let\'s talk.',
       body:     'Tell me briefly about your situation — I\'ll get back to you within 24 hours.',
       cta:      'Send an enquiry',
+    },
+    heroImgAlt:  'Tidy kitchen shelves with ceramics, herbs and natural daylight',
+    introImgAlt: 'Minimalist shelf with sage green linen, rattan baskets and houseplants',
+    servicesSection: {
+      label:    'What we handle',
+      headline: 'Complete. Thoughtful. Done.',
+    },
+    process: {
+      label:    'Process',
+      headline: 'How it works',
+      steps: [
+        { step: '01', title: 'Initial call', text: 'We talk for free about your situation and your wishes.' },
+        { step: '02', title: 'Planning',     text: 'I create a tailored offer and we agree on a date.' },
+        { step: '03', title: 'The session',  text: 'We come to you and work through your spaces systematically.' },
+        { step: '04', title: 'The result',   text: 'You get an organised home with lasting systems.' },
+      ],
     },
   },
 
@@ -226,6 +245,22 @@ export const en: Translations = {
       headline: 'Ready to transform your space?',
       body:     'Let\'s find out in a free initial call how I can help you.',
       cta:      'Book initial call',
+    },
+    heroImgAlt:       'A quiet meditation corner with a wooden table, candle, lavender and linen cushion in morning light',
+    philosophyImgAlt: 'A peaceful room corner with linen cushions, a wooden shelf with crystals and lilac curtains',
+    aspectsSection: {
+      label:    'What we look at',
+      headline: 'Four dimensions of your space',
+    },
+    philosophy: {
+      label:    'My approach',
+      headline: 'Feng Shui, reimagined',
+      body:     'I combine the ancient wisdom of Feng Shui with modern spatial psychology and organising work. The result is spaces that not only feel harmonious, but support you in your everyday life, your habits and your goals.',
+      points: [
+        { icon: '🧘', text: 'Psychologically grounded, not esoteric' },
+        { icon: '🌱', text: 'Sustainable and practical for daily life' },
+        { icon: '💛', text: 'Tailored individually to you' },
+      ],
     },
   },
 
@@ -261,6 +296,7 @@ export const en: Translations = {
         cta:         'Explore Feng Shui',
       },
     ],
+    heroImgAlt: 'A bright, peaceful hallway with a door and warm light',
   },
 
   // ── Blog ────────────────────────────────────────────────────────────────────
@@ -354,9 +390,11 @@ export const en: Translations = {
         ],
       },
       images: {
-        label:   'Upload photos',
-        hint:    'Up to 5 images (JPG, PNG, WEBP) – optional',
-        tooMany: 'Please select a maximum of 5 images.',
+        label:          'Upload photos',
+        hint:           'Up to 5 images (JPG, PNG, WEBP) – optional',
+        tooMany:        'Please select a maximum of 5 images.',
+        selectLabel:    'Select images',
+        selectedSuffix: 'images selected',
       },
       privacyBefore: 'I have read the ',
       privacyLink:   'privacy policy',
@@ -381,5 +419,7 @@ export const en: Translations = {
     sendMessage:      'Send message',
     responseTime:     'I respond within 24 hours — usually faster.',
     freeConsult:      '20–30 minutes · free · no obligation',
+    quoteOpen:  '\u201c',
+    quoteClose: '\u201d',
   },
 } as const;

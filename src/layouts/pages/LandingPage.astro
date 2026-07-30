@@ -9,6 +9,7 @@ const { lang } = Astro.props;
 const tr = t(lang);
 const { hero, why, paths, timeline, about, social } = tr.landing;
 const r = routes[lang];
+const ui = tr.ui;
 ---
 
 <BaseLayout
@@ -22,7 +23,7 @@ const r = routes[lang];
     <div class="hero-bg">
       <img
         src="/images/hero-linen.png"
-        alt={lang === 'de' ? 'Warmes Morgenlicht in einem minimalen Zuhause' : 'Warm morning light in a minimal home'}
+        alt={tr.landing.heroImgAlt}
         class="hero-img"
       />
       <div class="hero-overlay"></div>
@@ -79,7 +80,7 @@ const r = routes[lang];
       <div class="paths-grid">
         {paths.cards.map((card, i) => (
           <a href={r[pathCards[i].route]} class={`path-card path-card--${pathCards[i].color}`} data-animate data-delay={String(i * 120)}>
-            <p class="path-feeling">{lang === 'de' ? '„' : '"'}{card.feeling}{lang === 'de' ? '"' : '"'}</p>
+            <p class="path-feeling">{ui.quoteOpen}{card.feeling}{ui.quoteClose}</p>
             <div class="path-answer">
               <h3 class="path-service">{card.service}</h3>
               <p class="path-desc">{card.description}</p>

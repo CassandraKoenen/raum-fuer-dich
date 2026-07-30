@@ -39,9 +39,9 @@ function isActive(href: string) {
 ---
 
 <header class="site-header">
-  <nav class="container nav" aria-label="Hauptnavigation">
+  <nav class="container nav" aria-label={lang === 'de' ? 'Hauptnavigation' : 'Main navigation'}>
 
-    <a href={lang === 'en' ? '/en' : '/'} class="nav-brand" aria-label="Raum für dich – Startseite">
+    <a href={lang === 'en' ? '/en' : '/'} class="nav-brand" aria-label={lang === 'de' ? 'Raum für dich – Startseite' : 'Raum für dich – Home'}>
       <img src="/images/logo-no-text.png" alt="" aria-hidden="true" class="nav-brand-img" />
       <span class="nav-brand-text">Raum für dich</span>
     </a>
@@ -63,7 +63,7 @@ function isActive(href: string) {
 
     <div class="nav-end">
       <!-- Language toggle -->
-      <div class="lang-toggle" role="group" aria-label="Sprache wählen">
+      <div class="lang-toggle" role="group" aria-label={lang === 'de' ? 'Sprache wählen' : 'Choose language'}>
         <a href="/" class:list={['lang-opt', { 'lang-opt--active': lang === 'de' }]} hreflang="de" aria-label="Deutsch">
           <span class="flag-circle"><Fragment set:html={svgDE} /></span>
           <span>DE</span>
@@ -76,7 +76,7 @@ function isActive(href: string) {
 
       <!-- Mobile hamburger -->
       <details class="mobile-nav">
-        <summary aria-label="Menü öffnen">
+        <summary aria-label={lang === 'de' ? 'Menü öffnen' : 'Open menu'}>
           <span class="hamburger" aria-hidden="true">
             <span></span><span></span><span></span>
           </span>
@@ -95,7 +95,7 @@ function isActive(href: string) {
               </li>
             ))}
             <li class="mobile-lang-row">
-              <div class="lang-toggle" role="group" aria-label="Sprache wählen">
+              <div class="lang-toggle" role="group" aria-label={lang === 'de' ? 'Sprache wählen' : 'Choose language'}>
                 <a href="/" class:list={['lang-opt', { 'lang-opt--active': lang === 'de' }]} hreflang="de" aria-label="Deutsch">
                   <span class="flag-circle"><Fragment set:html={svgDE} /></span>
                   <span>DE</span>

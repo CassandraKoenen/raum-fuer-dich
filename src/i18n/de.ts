@@ -110,6 +110,7 @@ export const de = {
         note:        'Kein Spam. Jederzeit abmeldbar.',
       },
     },
+    heroImgAlt: 'Warmes Morgenlicht in einem minimalen Zuhause',
   },
 
   // ── Coaching page ────────────────────────────────────────────────────────────
@@ -168,6 +169,8 @@ export const de = {
       body:     'Das Erstgespräch ist kostenlos und unverbindlich. Einfach melden.',
       cta:      'Kostenloses Erstgespräch',
     },
+    heroImgAlt:  'Ruhige Leseecke mit cremefarbenem Sofa und blaugrauem Leinenkissen im Morgenlicht',
+    introImgAlt: 'Sanftes Morgenlicht durch weiße Vorhänge, blaugraues Leinen auf einem Stuhl',
   },
 
   // ── Organizing page ──────────────────────────────────────────────────────────
@@ -195,6 +198,22 @@ export const de = {
       headline: 'Interesse? Lass uns sprechen.',
       body:     'Schildere mir kurz deine Situation – ich melde mich innerhalb von 24 Stunden.',
       cta:      'Anfrage senden',
+    },
+    heroImgAlt:  'Aufgeräumte Küchenregale mit Keramik, Kräutern und natürlichem Tageslicht',
+    introImgAlt: 'Minimalistisches Regal mit salbeigrünem Leinen, Rattankörben und Zimmerpflanzen',
+    servicesSection: {
+      label:    'Was wir übernehmen',
+      headline: 'Vollständig. Durchdacht. Fertig.',
+    },
+    process: {
+      label:    'Ablauf',
+      headline: 'So läuft es ab',
+      steps: [
+        { step: '01', title: 'Erstgespräch', text: 'Wir sprechen kostenlos über deine Situation und deine Wünsche.' },
+        { step: '02', title: 'Planung',      text: 'Ich erstelle ein maßgeschneidertes Angebot und wir vereinbaren einen Termin.' },
+        { step: '03', title: 'Die Session',  text: 'Wir kommen zu dir und arbeiten uns systematisch durch deine Räume.' },
+        { step: '04', title: 'Das Ergebnis', text: 'Du erhältst ein organisiertes Zuhause mit nachhaltigen Systemen.' },
+      ],
     },
   },
 
@@ -224,6 +243,22 @@ export const de = {
       headline: 'Bereit, deinen Raum zu transformieren?',
       body:     'Lass uns in einem kostenlosen Erstgespräch herausfinden, wie ich dir helfen kann.',
       cta:      'Erstgespräch buchen',
+    },
+    heroImgAlt:       'Ruhige Meditationsecke mit Holztisch, Kerze, Lavendel und Leinenkissen im Morgenlicht',
+    philosophyImgAlt: 'Ruhige Raumecke mit Leinenkissen, Holzregal mit Kristallen und fliederfarbenen Vorhängen',
+    aspectsSection: {
+      label:    'Was wir betrachten',
+      headline: 'Vier Dimensionen deines Raumes',
+    },
+    philosophy: {
+      label:    'Mein Ansatz',
+      headline: 'Feng Shui, neu gedacht',
+      body:     'Ich verbinde das uralte Wissen des Feng Shui mit moderner Raumpsychologie und Ordnungsarbeit. So entstehen Räume, die nicht nur harmonisch wirken, sondern dich in deinem Alltag, deinen Gewohnheiten und deinen Zielen unterstützen.',
+      points: [
+        { icon: '🧘', text: 'Psychologisch fundiert, nicht esoterisch' },
+        { icon: '🌱', text: 'Nachhaltig und alltagstauglich' },
+        { icon: '💛', text: 'Individuell auf dich zugeschnitten' },
+      ],
     },
   },
 
@@ -259,6 +294,7 @@ export const de = {
         cta:         'Zur Raumgestaltung',
       },
     ],
+    heroImgAlt: 'Heller, ruhiger Flur mit Türdurchblick und warmem Licht',
   },
 
   // ── Blog ────────────────────────────────────────────────────────────────────
@@ -352,9 +388,11 @@ export const de = {
         ],
       },
       images: {
-        label:   'Fotos hochladen',
-        hint:    'Bis zu 5 Bilder (JPG, PNG, WEBP) – optional',
-        tooMany: 'Bitte wähle maximal 5 Bilder aus.',
+        label:          'Fotos hochladen',
+        hint:           'Bis zu 5 Bilder (JPG, PNG, WEBP) – optional',
+        tooMany:        'Bitte wähle maximal 5 Bilder aus.',
+        selectLabel:    'Bilder auswählen',
+        selectedSuffix: 'Bilder ausgewählt',
       },
       privacyBefore: 'Ich habe die ',
       privacyLink:   'Datenschutzerklärung',
@@ -379,6 +417,8 @@ export const de = {
     sendMessage:     'Nachricht senden',
     responseTime:    'Ich antworte innerhalb von 24 Stunden – meistens schneller.',
     freeConsult:     '20–30 Minuten · kostenlos · unverbindlich',
+    quoteOpen:  '„',
+    quoteClose: '"',
   },
 } as const;
 

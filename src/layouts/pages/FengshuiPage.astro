@@ -10,39 +10,13 @@ const tr = t(lang);
 const f = tr.fengshui;
 const r = routes[lang];
 
-const heroAlt = lang === 'de'
-  ? 'Ruhige Meditationsecke mit Holztisch, Kerze, Lavendel und Leinenkissen im Morgenlicht'
-  : 'A quiet meditation corner with a wooden table, candle, lavender and linen cushion in morning light';
-const philosophyAlt = lang === 'de'
-  ? 'Ruhige Raumecke mit Leinenkissen, Holzregal mit Kristallen und fliederfarbenen Vorhängen'
-  : 'A peaceful room corner with linen cushions, a wooden shelf with crystals and lilac curtains';
-const heroBtn = lang === 'de' ? 'Erstgespräch buchen' : 'Book initial call';
-
-const aspectsLabel   = lang === 'de' ? 'Was wir betrachten'          : 'What we look at';
-const aspectsHeading = lang === 'de' ? 'Vier Dimensionen deines Raumes' : 'Four dimensions of your space';
-const philLabel   = lang === 'de' ? 'Mein Ansatz'        : 'My approach';
-const philHeading = lang === 'de' ? 'Feng Shui, neu gedacht' : 'Feng Shui, reimagined';
-const philBody    = lang === 'de'
-  ? 'Ich verbinde das uralte Wissen des Feng Shui mit moderner Raumpsychologie und Ordnungsarbeit. So entstehen Räume, die nicht nur harmonisch wirken, sondern dich in deinem Alltag, deinen Gewohnheiten und deinen Zielen unterstützen.'
-  : 'I combine the ancient wisdom of Feng Shui with modern environmental psychology and decluttering work. The result is an approach that is spiritually open but not esoteric — one that actually feels different in your everyday life.';
-const philPoints = lang === 'de'
-  ? [
-      { icon: '🧘', text: 'Psychologisch fundiert, nicht esoterisch' },
-      { icon: '🌱', text: 'Nachhaltig und alltagstauglich' },
-      { icon: '💛', text: 'Individuell auf dich zugeschnitten' },
-    ]
-  : [
-      { icon: '🧘', text: 'Psychologically grounded, not mystical' },
-      { icon: '🌱', text: 'Sustainable and practical for daily life' },
-      { icon: '💛', text: 'Tailored individually to you' },
-    ];
 ---
 
 <BaseLayout title={f.meta.title} description={f.meta.description} lang={lang}>
 
   <section class="hero">
     <div class="hero-bg" aria-hidden="true">
-      <img src="/images/hero-feng-shui.png" alt={heroAlt} class="hero-bg-img" />
+      <img src="/images/hero-feng-shui.png" alt={f.heroImgAlt} class="hero-bg-img" />
       <div class="hero-overlay"></div>
     </div>
     <div class="container hero-inner">
@@ -50,7 +24,7 @@ const philPoints = lang === 'de'
         <span class="label">{f.hero.label}</span>
         <h1>{f.hero.headline}</h1>
         <p class="lead">{f.hero.body}</p>
-        <a href={`${r.contact}?bereich=fengshui`} class="btn-primary">{heroBtn}</a>
+        <a href={`${r.contact}?bereich=fengshui`} class="btn-primary">{f.cta.cta}</a>
       </div>
     </div>
   </section>
@@ -72,8 +46,8 @@ const philPoints = lang === 'de'
   <section class="section aspects-section">
     <div class="container">
       <div class="section-header text-center" data-animate>
-        <span class="label">{aspectsLabel}</span>
-        <h2>{aspectsHeading}</h2>
+        <span class="label">{f.aspectsSection.label}</span>
+        <h2>{f.aspectsSection.headline}</h2>
       </div>
       <div class="aspects-grid">
         {f.aspects.map((aspect, i) => (
@@ -90,11 +64,11 @@ const philPoints = lang === 'de'
   <section class="section philosophy-section">
     <div class="container philosophy-inner">
       <div class="philosophy-content" data-animate>
-        <span class="label">{philLabel}</span>
-        <h2>{philHeading}</h2>
-        <p class="lead">{philBody}</p>
+        <span class="label">{f.philosophy.label}</span>
+        <h2>{f.philosophy.headline}</h2>
+        <p class="lead">{f.philosophy.body}</p>
         <div class="philosophy-points">
-          {philPoints.map(point => (
+          {f.philosophy.points.map(point => (
             <div class="philosophy-point">
               <span aria-hidden="true">{point.icon}</span>
               <span>{point.text}</span>
@@ -103,7 +77,7 @@ const philPoints = lang === 'de'
         </div>
       </div>
       <div class="philosophy-img-wrap" data-animate data-delay="200">
-        <img src="/images/feng-shui-philosophy.png" alt={philosophyAlt} class="philosophy-img" />
+        <img src="/images/feng-shui-philosophy.png" alt={f.philosophyImgAlt} class="philosophy-img" />
       </div>
     </div>
   </section>

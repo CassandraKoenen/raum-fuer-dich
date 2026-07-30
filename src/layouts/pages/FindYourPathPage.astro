@@ -10,11 +10,7 @@ const tr = t(lang);
 const p = tr.findYourPath;
 const r = routes[lang];
 
-const heroImgAlt = lang === 'de'
-  ? 'Heller, ruhiger Flur mit Türdurchblick und warmem Licht'
-  : 'A bright, peaceful hallway with a door and warm light';
-const openQuote  = lang === 'de' ? '„' : '"';
-const closeQuote = lang === 'de' ? '"' : '"';
+const ui = tr.ui;
 ---
 
 <BaseLayout title={p.meta.title} description={p.meta.description} lang={lang}>
@@ -27,7 +23,7 @@ const closeQuote = lang === 'de' ? '"' : '"';
         <p class="lead">{p.hero.body}</p>
       </div>
       <div class="hero-img-wrap" data-animate="scale" data-delay="200">
-        <img src="/images/finde-deinen-weg.png" alt={heroImgAlt} class="hero-img" />
+        <img src="/images/finde-deinen-weg.png" alt={p.heroImgAlt} class="hero-img" />
       </div>
     </div>
   </section>
@@ -43,7 +39,7 @@ const closeQuote = lang === 'de' ? '"' : '"';
             data-animate
             data-delay={`${i * 100}`}
           >
-            <p class="option-feeling">{openQuote}{option.feeling}{closeQuote}</p>
+            <p class="option-feeling">{ui.quoteOpen}{option.feeling}{ui.quoteClose}</p>
             <div class="option-answer">
               <h3>{option.answer}</h3>
               <p class="option-description">{option.description}</p>

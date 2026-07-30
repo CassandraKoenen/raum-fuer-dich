@@ -10,20 +10,13 @@ const tr = t(lang);
 const c = tr.coaching;
 const r = routes[lang];
 
-const heroAlt = lang === 'de'
-  ? 'Ruhige Leseecke mit cremefarbenem Sofa und blaugrauem Leinenkissen im Morgenlicht'
-  : 'A quiet reading nook with a cream sofa and blue-grey linen cushion in morning light';
-const introAlt = lang === 'de'
-  ? 'Sanftes Morgenlicht durch weiße Vorhänge, blaugraues Leinen auf einem Stuhl'
-  : 'Soft morning light through white curtains, blue-grey linen on a chair';
-const heroBtn = lang === 'de' ? 'Kostenloses Erstgespräch' : 'Free initial call';
 ---
 
 <BaseLayout title={c.meta.title} description={c.meta.description} lang={lang}>
 
   <section class="hero">
     <div class="hero-bg" aria-hidden="true">
-      <img src="/images/hero-coaching.png" alt={heroAlt} class="hero-bg-img" />
+      <img src="/images/hero-coaching.png" alt={c.heroImgAlt} class="hero-bg-img" />
       <div class="hero-overlay"></div>
     </div>
     <div class="container hero-inner">
@@ -31,7 +24,7 @@ const heroBtn = lang === 'de' ? 'Kostenloses Erstgespräch' : 'Free initial call
         <span class="label">{c.hero.label}</span>
         <h1>{c.hero.headline}</h1>
         <p class="lead">{c.hero.body}</p>
-        <a href={`${r.contact}?bereich=coaching`} class="btn-primary">{heroBtn}</a>
+        <a href={`${r.contact}?bereich=coaching`} class="btn-primary">{c.cta.cta}</a>
       </div>
     </div>
   </section>
@@ -44,7 +37,7 @@ const heroBtn = lang === 'de' ? 'Kostenloses Erstgespräch' : 'Free initial call
           <p class="lead">{c.intro.body}</p>
         </div>
         <div class="intro-img-wrap" data-animate data-delay="150">
-          <img src="/images/coaching-intro.png" alt={introAlt} class="intro-img" />
+          <img src="/images/coaching-intro.png" alt={c.introImgAlt} class="intro-img" />
         </div>
       </div>
     </div>

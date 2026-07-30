@@ -10,39 +10,13 @@ const tr = t(lang);
 const o = tr.organizing;
 const r = routes[lang];
 
-const heroAlt = lang === 'de'
-  ? 'Aufgeräumte Küchenregale mit Keramik, Kräutern und natürlichem Tageslicht'
-  : 'Tidy kitchen shelves with ceramics, herbs and natural daylight';
-const introAlt = lang === 'de'
-  ? 'Minimalistisches Regal mit salbeigrünem Leinen, Rattankörben und Zimmerpflanzen'
-  : 'Minimalist shelf with sage green linen, rattan baskets and houseplants';
-const heroBtn = lang === 'de' ? 'Anfrage senden' : 'Send an enquiry';
-
-const processSteps = lang === 'de'
-  ? [
-      { step: '01', title: 'Erstgespräch', text: 'Wir sprechen kostenlos über deine Situation und deine Wünsche.' },
-      { step: '02', title: 'Planung',      text: 'Ich erstelle ein maßgeschneidertes Angebot und wir vereinbaren einen Termin.' },
-      { step: '03', title: 'Die Session',  text: 'Wir kommen zu dir und arbeiten uns systematisch durch deine Räume.' },
-      { step: '04', title: 'Das Ergebnis', text: 'Du erhältst ein organisiertes Zuhause mit nachhaltigen Systemen.' },
-    ]
-  : [
-      { step: '01', title: 'Initial call', text: 'We talk for free about your situation and your wishes.' },
-      { step: '02', title: 'Planning',     text: 'I create a tailored offer and we agree on a date.' },
-      { step: '03', title: 'The session',  text: 'We come to you and work through your spaces systematically.' },
-      { step: '04', title: 'The result',   text: 'You get an organised home with lasting systems.' },
-    ];
-
-const processLabel   = lang === 'de' ? 'Ablauf'        : 'Process';
-const processHeading = lang === 'de' ? 'So läuft es ab' : 'How it works';
-const servicesLabel   = lang === 'de' ? 'Was wir übernehmen'       : 'What we handle';
-const servicesHeading = lang === 'de' ? 'Vollständig. Durchdacht. Fertig.' : 'Complete. Thoughtful. Done.';
 ---
 
 <BaseLayout title={o.meta.title} description={o.meta.description} lang={lang}>
 
   <section class="hero">
     <div class="hero-bg" aria-hidden="true">
-      <img src="/images/hero-organizing.png" alt={heroAlt} class="hero-bg-img" />
+      <img src="/images/hero-organizing.png" alt={o.heroImgAlt} class="hero-bg-img" />
       <div class="hero-overlay"></div>
     </div>
     <div class="container hero-inner">
@@ -50,7 +24,7 @@ const servicesHeading = lang === 'de' ? 'Vollständig. Durchdacht. Fertig.' : 'C
         <span class="label">{o.hero.label}</span>
         <h1>{o.hero.headline}</h1>
         <p class="lead">{o.hero.body}</p>
-        <a href={`${r.contact}?bereich=organizing`} class="btn-primary">{heroBtn}</a>
+        <a href={`${r.contact}?bereich=organizing`} class="btn-primary">{o.cta.cta}</a>
       </div>
     </div>
   </section>
@@ -63,7 +37,7 @@ const servicesHeading = lang === 'de' ? 'Vollständig. Durchdacht. Fertig.' : 'C
           <p class="lead">{o.intro.body}</p>
         </div>
         <div class="intro-img-wrap" data-animate data-delay="150">
-          <img src="/images/organizing-intro.png" alt={introAlt} class="intro-img" />
+          <img src="/images/organizing-intro.png" alt={o.introImgAlt} class="intro-img" />
         </div>
       </div>
     </div>
@@ -72,8 +46,8 @@ const servicesHeading = lang === 'de' ? 'Vollständig. Durchdacht. Fertig.' : 'C
   <section class="section services-section">
     <div class="container">
       <div class="section-header text-center" data-animate>
-        <span class="label">{servicesLabel}</span>
-        <h2>{servicesHeading}</h2>
+        <span class="label">{o.servicesSection.label}</span>
+        <h2>{o.servicesSection.headline}</h2>
       </div>
       <div class="services-grid">
         {o.services.map((service, i) => (
@@ -90,11 +64,11 @@ const servicesHeading = lang === 'de' ? 'Vollständig. Durchdacht. Fertig.' : 'C
   <section class="section process-section">
     <div class="container">
       <div class="section-header text-center" data-animate>
-        <span class="label">{processLabel}</span>
-        <h2>{processHeading}</h2>
+        <span class="label">{o.process.label}</span>
+        <h2>{o.process.headline}</h2>
       </div>
       <ol class="process-list">
-        {processSteps.map((step, i) => (
+        {o.process.steps.map((step, i) => (
           <li class="process-step" data-animate data-delay={`${i * 100}`}>
             <span class="step-number">{step.step}</span>
             <div class="step-content">
